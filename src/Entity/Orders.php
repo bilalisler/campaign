@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Orders
  *
  * @ORM\Table(name="orders")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\OrdersRepository")
  */
 class Orders
 {
@@ -62,6 +62,117 @@ class Orders
      * @ORM\Column(name="updated_at", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
     private $updatedAt = 'NULL';
+
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCustomerId(): ?int
+    {
+        return $this->customerId;
+    }
+
+    /**
+     * @param int|null $customerId
+     */
+    public function setCustomerId(?int $customerId): void
+    {
+        $this->customerId = $customerId;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getProductId(): ?int
+    {
+        return $this->productId;
+    }
+
+    /**
+     * @param int|null $productId
+     */
+    public function setProductId(?int $productId): void
+    {
+        $this->productId = $productId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus(): int
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus(int $status): void
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGeneratedOrderCode(): string
+    {
+        return $this->generatedOrderCode;
+    }
+
+    /**
+     * @param string $generatedOrderCode
+     */
+    public function setGeneratedOrderCode(string $generatedOrderCode): void
+    {
+        $this->generatedOrderCode = $generatedOrderCode;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCreatedAt(): ?string
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param null|string $createdAt
+     */
+    public function setCreatedAt(?string $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getUpdatedAt(): ?string
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param null|string $updatedAt
+     */
+    public function setUpdatedAt(?string $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+
 
 
 }

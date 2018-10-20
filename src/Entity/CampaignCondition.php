@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * CampaignCondition
  *
  * @ORM\Table(name="campaign_condition")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\CampaignConditionRepository")
  */
 class CampaignCondition
 {
@@ -27,6 +27,34 @@ class CampaignCondition
      * @ORM\Column(name="conditions", type="json_array", nullable=false)
      */
     private $conditions;
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConditions(): string
+    {
+        return $this->conditions;
+    }
+
+    /**
+     * @param string $conditions
+     */
+    public function setConditions(string $conditions): void
+    {
+        $this->conditions = $conditions;
+    }
 
 
 }

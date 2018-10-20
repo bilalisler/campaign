@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Campaigns
  *
  * @ORM\Table(name="campaigns", indexes={@ORM\Index(name="campaign_condition_property", columns={"condition_id"}), @ORM\Index(name="campaign_category_property", columns={"category_id"}), @ORM\Index(name="campaign_product_property", columns={"product_id"}), @ORM\Index(name="campaign_shop_property", columns={"shop_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\CampaignsRepository")
  */
 class Campaigns
 {
@@ -102,6 +102,180 @@ class Campaigns
      * })
      */
     private $shop;
+
+
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCampaignName(): ?string
+    {
+        return $this->campaignName;
+    }
+
+    /**
+     * @param null|string $campaignName
+     */
+    public function setCampaignName(?string $campaignName): void
+    {
+        $this->campaignName = $campaignName;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCampaignDescription(): ?string
+    {
+        return $this->campaignDescription;
+    }
+
+    /**
+     * @param null|string $campaignDescription
+     */
+    public function setCampaignDescription(?string $campaignDescription): void
+    {
+        $this->campaignDescription = $campaignDescription;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getCampaignStartDate(): ?\DateTime
+    {
+        return $this->campaignStartDate;
+    }
+
+    /**
+     * @param \DateTime|null $campaignStartDate
+     */
+    public function setCampaignStartDate(?\DateTime $campaignStartDate): void
+    {
+        $this->campaignStartDate = $campaignStartDate;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getCampaignEndDate(): ?\DateTime
+    {
+        return $this->campaignEndDate;
+    }
+
+    /**
+     * @param \DateTime|null $campaignEndDate
+     */
+    public function setCampaignEndDate(?\DateTime $campaignEndDate): void
+    {
+        $this->campaignEndDate = $campaignEndDate;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime|null $createdAt
+     */
+    public function setCreatedAt(?\DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime|null $updatedAt
+     */
+    public function setUpdatedAt(?\DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return Categories
+     */
+    public function getCategory(): Categories
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Categories $category
+     */
+    public function setCategory(Categories $category): void
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return CampaignCondition
+     */
+    public function getCondition(): CampaignCondition
+    {
+        return $this->condition;
+    }
+
+    /**
+     * @param CampaignCondition $condition
+     */
+    public function setCondition(CampaignCondition $condition): void
+    {
+        $this->condition = $condition;
+    }
+
+    /**
+     * @return Products
+     */
+    public function getProduct(): Products
+    {
+        return $this->product;
+    }
+
+    /**
+     * @param Products $product
+     */
+    public function setProduct(Products $product): void
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * @return ShopProfile
+     */
+    public function getShop(): ShopProfile
+    {
+        return $this->shop;
+    }
+
+    /**
+     * @param ShopProfile $shop
+     */
+    public function setShop(ShopProfile $shop): void
+    {
+        $this->shop = $shop;
+    }
 
 
 }

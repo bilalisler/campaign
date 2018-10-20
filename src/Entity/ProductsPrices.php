@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * ProductsPrices
  *
  * @ORM\Table(name="products_prices")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ProductsPricesRepository")
  */
 class ProductsPrices
 {
@@ -69,6 +69,131 @@ class ProductsPrices
      * @ORM\Column(name="updated_at", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
     private $updatedAt = 'NULL';
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getProductId(): ?int
+    {
+        return $this->productId;
+    }
+
+    /**
+     * @param int|null $productId
+     */
+    public function setProductId(?int $productId): void
+    {
+        $this->productId = $productId;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCampaignId(): ?int
+    {
+        return $this->campaignId;
+    }
+
+    /**
+     * @param int|null $campaignId
+     */
+    public function setCampaignId(?int $campaignId): void
+    {
+        $this->campaignId = $campaignId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getBuyPrice(): ?string
+    {
+        return $this->buyPrice;
+    }
+
+    /**
+     * @param null|string $buyPrice
+     */
+    public function setBuyPrice(?string $buyPrice): void
+    {
+        $this->buyPrice = $buyPrice;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSell(): ?string
+    {
+        return $this->sell;
+    }
+
+    /**
+     * @param null|string $sell
+     */
+    public function setSell(?string $sell): void
+    {
+        $this->sell = $sell;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTaxPrice(): ?string
+    {
+        return $this->taxPrice;
+    }
+
+    /**
+     * @param null|string $taxPrice
+     */
+    public function setTaxPrice(?string $taxPrice): void
+    {
+        $this->taxPrice = $taxPrice;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCreatedAt(): ?string
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param null|string $createdAt
+     */
+    public function setCreatedAt(?string $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getUpdatedAt(): ?string
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param null|string $updatedAt
+     */
+    public function setUpdatedAt(?string $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
 
 
 }

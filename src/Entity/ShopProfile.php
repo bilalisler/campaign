@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * ShopProfile
  *
  * @ORM\Table(name="shop_profile")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ShopProfileRepository")
  */
 class ShopProfile
 {
@@ -83,6 +83,164 @@ class ShopProfile
      * @ORM\Column(name="Longitude", type="float", precision=10, scale=0, nullable=true, options={"default"="NULL"})
      */
     private $longitude = 'NULL';
+
+
+    public function __construct()
+    {
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param int $userId
+     */
+    public function setUserId(int $userId): void
+    {
+        $this->userId = $userId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param null|string $description
+     */
+    public function setDescription(?string $description): void
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param null|string $address
+     */
+    public function setAddress(?string $address): void
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param null|string $phone
+     */
+    public function setPhone(?string $phone): void
+    {
+        $this->phone = $phone;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCity(): ?int
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param int|null $city
+     */
+    public function setCity(?int $city): void
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getTown(): ?int
+    {
+        return $this->town;
+    }
+
+    /**
+     * @param int|null $town
+     */
+    public function setTown(?int $town): void
+    {
+        $this->town = $town;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getLatitude(): ?float
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @param float|null $latitude
+     */
+    public function setLatitude(?float $latitude): void
+    {
+        $this->latitude = $latitude;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getLongitude(): ?float
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * @param float|null $longitude
+     */
+    public function setLongitude(?float $longitude): void
+    {
+        $this->longitude = $longitude;
+    }
+
 
 
 }
