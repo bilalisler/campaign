@@ -7,21 +7,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Security("has_role('ROLE_SUPER_ADMIN')")
- * @Route("/admin")
+ * @Security("has_role('ROLE_CUSTOMER')")
  *
- * Class AdminController
+ * Class CustomerController
  * @package App\Controller
  */
-class AdminController extends AbstractController
+class CustomerController extends AbstractController
 {
     /**
-     * @Route("/", name="admin")
+     * @Route("/customer", name="customer")
      */
     public function index()
     {
-        return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController',
+        return $this->render('customer/index.html.twig', [
+            'controller_name' => 'CustomerController',
         ]);
     }
 }
