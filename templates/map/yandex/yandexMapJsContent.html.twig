@@ -1,0 +1,46 @@
+ymaps.ready(init);
+
+function init() {
+
+{% set centerCordinate = '0,0' %}
+{% set latitude = 0.0  %}
+{% set longitude = 0.0 %}
+
+{% for placeMark in placeMarks %}
+    {% set cordinates = placeMark.cordinates | split(',') %}
+    {% set latitude = cordinates[0] + latitude %}
+    {% set longitude = cordinates[1] + longitude %}
+{% endfor %}
+
+/**
+ * this is the average of all latitudes and longitudes of latitude and longitude. so these are central coordinates
+ */
+{% set latitude = latitude/(placeMarks | length)  %}
+{% set longitude = longitude/(placeMarks | length) %}
+
+var myMap = new ymaps.Map("map", {
+    center: [{{ latitude }},{{ longitude }}],
+    zoom: 5,
+    controls: []
+});
+
+{% for placeMark in placeMarks %}
+myMap.geoObjects.add(
+    new ymaps.Placemark(
+        [{{ placeMark.cordinates }}],
+        {
+            iconContent: '{{ placeMark.title }}',
+            hintContent: '{{ placeMark.title }}',
+            balloonContent: '{{ placeMark.content |raw }}'
+        },
+        {
+            openEmptyBalloon: true,
+            iconLayout: 'default#image',
+            iconImageHref: "{{ asset('assets/images/shop.png') }}",
+            iconImageSize: [40, 40],
+            iconImageOffset: [-5, -38]
+        }
+    )
+);
+{% endfor %}
+}
