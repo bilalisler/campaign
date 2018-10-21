@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ProductsPrices
  *
- * @ORM\Table(name="products_prices")
+ * @ORM\Table(name="products_prices", indexes={@ORM\Index(name="campaign_fk", columns={"campaign_id"}), @ORM\Index(name="product_id_fk", columns={"product_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\ProductsPricesRepository")
  */
 class ProductsPrices
@@ -20,20 +20,6 @@ class ProductsPrices
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="product_id", type="integer", nullable=true, options={"default"="NULL"})
-     */
-    private $productId = 'NULL';
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="campaign_id", type="integer", nullable=true, options={"default"="NULL"})
-     */
-    private $campaignId = 'NULL';
 
     /**
      * @var string|null
@@ -70,6 +56,26 @@ class ProductsPrices
      */
     private $updatedAt = 'NULL';
 
+    /**
+     * @var Campaigns
+     *
+     * @ORM\ManyToOne(targetEntity="Campaigns")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
+     * })
+     */
+    private $campaign;
+
+    /**
+     * @var Products
+     *
+     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * })
+     */
+    private $product;
+
     public function __construct()
     {
     }
@@ -83,35 +89,35 @@ class ProductsPrices
     }
 
     /**
-     * @return int|null
+     * @return Campaigns
      */
-    public function getProductId(): ?int
+    public function getCampaign(): Campaigns
     {
-        return $this->productId;
+        return $this->campaign;
     }
 
     /**
-     * @param int|null $productId
+     * @param Campaigns $campaign
      */
-    public function setProductId(?int $productId): void
+    public function setCampaign(Campaigns $campaign): void
     {
-        $this->productId = $productId;
+        $this->campaign = $campaign;
     }
 
     /**
-     * @return int|null
+     * @return Products
      */
-    public function getCampaignId(): ?int
+    public function getProduct(): Products
     {
-        return $this->campaignId;
+        return $this->product;
     }
 
     /**
-     * @param int|null $campaignId
+     * @param Products $product
      */
-    public function setCampaignId(?int $campaignId): void
+    public function setProduct(Products $product): void
     {
-        $this->campaignId = $campaignId;
+        $this->product = $product;
     }
 
     /**

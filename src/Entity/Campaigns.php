@@ -36,6 +36,13 @@ class Campaigns
     private $campaignDescription = 'NULL';
 
     /**
+     * @var string|null
+     *
+     * @ORM\Column(name="campaign_photo", type="string", length=255, nullable=true, options={"default"="NULL"})
+     */
+    private $campaignPhoto = 'NULL';
+
+    /**
      * @var \DateTime|null
      *
      * @ORM\Column(name="campaign_start_date", type="date", nullable=true, options={"default"="NULL"})
@@ -277,5 +284,19 @@ class Campaigns
         $this->shop = $shop;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getCampaignPhoto(): ?string
+    {
+        return $this->campaignPhoto;
+    }
 
+    /**
+     * @param null|string $campaignPhoto
+     */
+    public function setCampaignPhoto(?string $campaignPhoto): void
+    {
+        $this->campaignPhoto = $campaignPhoto;
+    }
 }

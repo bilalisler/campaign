@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Messages
  *
- * @ORM\Table(name="messages", indexes={@ORM\Index(name="product_property", columns={"product_id"}), @ORM\Index(name="shop_id", columns={"shop_id"})})
+ * @ORM\Table(name="messages", indexes={@ORM\Index(name="product_property", columns={"product_id"}), @ORM\Index(name="shop_id", columns={"shop_id"}), @ORM\Index(name="user_id", columns={"user_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\MessagesRepository")
  */
 class Messages
@@ -76,6 +76,15 @@ class Messages
      */
     private $shop;
 
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
 
     public function __construct()
     {
@@ -201,6 +210,20 @@ class Messages
         $this->shop = $shop;
     }
 
+    /**
+     * @return User
+     */
+    public function getUser(): User
+    {
+        return $this->user;
+    }
 
+    /**
+     * @param User $user
+     */
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
 
 }

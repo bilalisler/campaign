@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Orders
  *
- * @ORM\Table(name="orders")
+ * @ORM\Table(name="orders", indexes={@ORM\Index(name="product_id", columns={"product_id"}), @ORM\Index(name="customer_id", columns={"customer_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\OrdersRepository")
  */
 class Orders
@@ -20,20 +20,6 @@ class Orders
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="customer_id", type="integer", nullable=true, options={"default"="NULL"})
-     */
-    private $customerId = 'NULL';
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="product_id", type="integer", nullable=true, options={"default"="NULL"})
-     */
-    private $productId = 'NULL';
 
     /**
      * @var int
@@ -63,6 +49,25 @@ class Orders
      */
     private $updatedAt = 'NULL';
 
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
+     * })
+     */
+    private $customer;
+
+    /**
+     * @var Products
+     *
+     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * })
+     */
+    private $product;
 
     public function __construct()
     {
@@ -172,7 +177,36 @@ class Orders
         $this->updatedAt = $updatedAt;
     }
 
+    /**
+     * @return User
+     */
+    public function getCustomer(): User
+    {
+        return $this->customer;
+    }
 
+    /**
+     * @param User $customer
+     */
+    public function setCustomer(User $customer): void
+    {
+        $this->customer = $customer;
+    }
 
+    /**
+     * @return Products
+     */
+    public function getProduct(): Products
+    {
+        return $this->product;
+    }
+
+    /**
+     * @param Products $product
+     */
+    public function setProduct(Products $product): void
+    {
+        $this->product = $product;
+    }
 
 }

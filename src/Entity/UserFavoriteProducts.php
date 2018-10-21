@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * UserFavoriteProducts
  *
- * @ORM\Table(name="user_favorite_products")
+ * @ORM\Table(name="user_favorite_products", indexes={@ORM\Index(name="user_ufp_fk", columns={"user_id"}), @ORM\Index(name="product_ufk_fk", columns={"product_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\UserFavoriteProductsRepository")
  */
 class UserFavoriteProducts
@@ -22,25 +22,31 @@ class UserFavoriteProducts
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="user_id", type="integer", nullable=false)
-     */
-    private $userId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="product_id", type="integer", nullable=false)
-     */
-    private $productId;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
     private $createdAt;
+
+    /**
+     * @var Products
+     *
+     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * })
+     */
+    private $product;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
 
     public function __construct()
     {
@@ -55,35 +61,35 @@ class UserFavoriteProducts
     }
 
     /**
-     * @return int
+     * @return Products
      */
-    public function getUserId(): int
+    public function getProduct(): Products
     {
-        return $this->userId;
+        return $this->product;
     }
 
     /**
-     * @param int $userId
+     * @param Products $product
      */
-    public function setUserId(int $userId): void
+    public function setProduct(Products $product): void
     {
-        $this->userId = $userId;
+        $this->product = $product;
     }
 
     /**
-     * @return int
+     * @return User
      */
-    public function getProductId(): int
+    public function getUser(): User
     {
-        return $this->productId;
+        return $this->user;
     }
 
     /**
-     * @param int $productId
+     * @param User $user
      */
-    public function setProductId(int $productId): void
+    public function setUser(User $user): void
     {
-        $this->productId = $productId;
+        $this->user = $user;
     }
 
     /**

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ProductsImages
  *
- * @ORM\Table(name="products_images")
+ * @ORM\Table(name="products_images", indexes={@ORM\Index(name="product_fk", columns={"product_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\ProductsImagesRepository")
  */
 class ProductsImages
@@ -20,13 +20,6 @@ class ProductsImages
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="product_id", type="integer", nullable=true, options={"default"="NULL"})
-     */
-    private $productId = 'NULL';
 
     /**
      * @var string|null
@@ -63,6 +56,15 @@ class ProductsImages
      */
     private $updatedAt = 'NULL';
 
+    /**
+     * @var Products
+     *
+     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * })
+     */
+    private $product;
 
     public function __construct()
     {
@@ -74,22 +76,6 @@ class ProductsImages
     public function getId(): int
     {
         return $this->id;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getProductId(): ?int
-    {
-        return $this->productId;
-    }
-
-    /**
-     * @param int|null $productId
-     */
-    public function setProductId(?int $productId): void
-    {
-        $this->productId = $productId;
     }
 
     /**
@@ -172,6 +158,20 @@ class ProductsImages
         $this->updatedAt = $updatedAt;
     }
 
+    /**
+     * @return Products
+     */
+    public function getProduct(): Products
+    {
+        return $this->product;
+    }
 
+    /**
+     * @param Products $product
+     */
+    public function setProduct(Products $product): void
+    {
+        $this->product = $product;
+    }
 
 }

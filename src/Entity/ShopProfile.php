@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ShopProfile
  *
- * @ORM\Table(name="shop_profile")
+ * @ORM\Table(name="shop_profile", indexes={@ORM\Index(name="user_fk", columns={"user_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\ShopProfileRepository")
  */
 class ShopProfile
@@ -20,13 +20,6 @@ class ShopProfile
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="user_id", type="integer", nullable=false)
-     */
-    private $userId;
 
     /**
      * @var string
@@ -84,6 +77,15 @@ class ShopProfile
      */
     private $longitude = 'NULL';
 
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
 
     public function __construct()
     {
@@ -98,19 +100,19 @@ class ShopProfile
     }
 
     /**
-     * @return int
+     * @return User
      */
-    public function getUserId(): int
+    public function getUser(): User
     {
-        return $this->userId;
+        return $this->user;
     }
 
     /**
-     * @param int $userId
+     * @param User $user
      */
-    public function setUserId(int $userId): void
+    public function setUser(User $user): void
     {
-        $this->userId = $userId;
+        $this->user = $user;
     }
 
     /**
