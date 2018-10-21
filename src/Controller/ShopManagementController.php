@@ -9,13 +9,15 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Security("has_role('ROLE_SHOP')")
  *
+ * @Route("/shop")
+ *
  * Class ShopManagementController
  * @package App\Controller
  */
 class ShopManagementController extends AbstractController
 {
     /**
-     * @Route("/shop/management", name="shop_management")
+     * @Route("/", name="shop_home")
      */
     public function index()
     {

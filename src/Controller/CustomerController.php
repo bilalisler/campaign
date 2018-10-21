@@ -9,13 +9,15 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Security("has_role('ROLE_CUSTOMER')")
  *
+ * @Route("/customer")
+ *
  * Class CustomerController
  * @package App\Controller
  */
 class CustomerController extends AbstractController
 {
     /**
-     * @Route("/customer", name="customer")
+     * @Route("/", name="customer_home")
      */
     public function index()
     {
