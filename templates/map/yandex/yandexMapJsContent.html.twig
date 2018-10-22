@@ -18,9 +18,14 @@ function init() {
 {% set latitude = latitude/(placeMarks | length)  %}
 {% set longitude = longitude/(placeMarks | length) %}
 
+{% set centerLocation = latitude ~','~ longitude %}
+{% if center is defined and center.latitude is not null and center.longitude is not null %}
+    {% set centerLocation = center.latitude ~','~ center.longitude %}
+{% endif %}
+
 var myMap = new ymaps.Map("map", {
-    center: [{{ latitude }},{{ longitude }}],
-    zoom: 5,
+    center: [{{ centerLocation }}],
+    zoom: 15,
     controls: []
 });
 

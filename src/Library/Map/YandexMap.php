@@ -28,18 +28,27 @@ class YandexMap extends AbstractMap
     }
 
     /**
-     * @param $placeMarks
+     * @param $variables
      * @return false|string
      */
-    public function generateJsMapFunction($placeMarks)
+    public function generateJsMapFunction($variables)
     {
         try{
             $view = 'map/yandex/yandexMapJsContent.html.twig';
 
-            $variables = array(
-                'placeMarks' => $placeMarks
-            );
-
+            /**
+                array(
+                  'center' => array(
+                    'latitude' => $_COOKIE['latitude'],
+                    'longitude' => $_COOKIE['longitude']
+                    ),
+                'placeMarks' => array(
+                    'cordinates' => '12,12',
+                    'title' => 'title',
+                    'content' =>'content',
+                    )
+                 )
+             */
             $mapTemplate = $this->twig->render($view,$variables);
 
             return json_encode(
@@ -59,6 +68,7 @@ class YandexMap extends AbstractMap
             );
         }
     }
+
     public function renderedMapTemplate($yandexJsMapContent)
     {
        try{
@@ -76,5 +86,24 @@ class YandexMap extends AbstractMap
        }catch (\Exception $e){
         var_dump($e->getMessage());
        }
+    }
+
+    public function renderedMapTemplateOnlyJs($yandexJsMapContent)
+    {
+        try{
+            $apiUrl = $this->apiUrl();
+
+            $view = 'map/yandex/yandexMapLayoutOnlyJs.html.twig';
+
+            $mapTemplate = $this->twig->render($view,array(
+                'apiUrl' => $apiUrl,
+                'jsMapContent' => $yandexJsMapContent
+            ));
+
+            return $mapTemplate;
+
+        }catch (\Exception $e){
+            var_dump($e->getMessage());
+        }
     }
 }

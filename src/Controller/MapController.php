@@ -28,15 +28,22 @@ class MapController extends AbstractController
      */
     public function mapGenerate(YandexMap $yandexMap)
     {
-        $variables = [];
-
+        $placeMarks = [];
         for($i = 0;$i<50;$i++){
-            $variables[] = array(
+            $placeMarks[] = array(
                 'cordinates' => sprintf('%s,%s',rand(30,80),rand(30,90)),
                 'title' => 'title',
                 'content' =>JSMin::minify($this->renderView('map/yandex/mapPopupBlock.html.twig')),
             );
         }
+
+        $variables = array(
+            'center' => array(
+                'latitude' => $_COOKIE['latitude'],
+                'longitude' => $_COOKIE['longitude']
+            ),
+            'placeMarks' => $placeMarks
+        );
 
         $jsMapContent = json_decode($yandexMap->generateJsMapFunction($variables),true);
 
