@@ -26,8 +26,8 @@ class HomeController extends AbstractController
 
         $variables = array(
             'center' => array(
-                'latitude' => $_COOKIE['latitude'],
-                'longitude' => $_COOKIE['longitude']
+                'latitude' => isset($_COOKIE['latitude']) ? $_COOKIE['latitude'] : null,
+                'longitude' => isset($_COOKIE['longitude']) ? $_COOKIE['longitude']: null
             ),
             'placeMarks' => $placeMarks
         );
