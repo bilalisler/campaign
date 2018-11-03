@@ -7,7 +7,7 @@ security:
         ROLE_ADMIN:          ROLE_USER
         ROLE_CUSTOMER:       ROLE_USER
         ROLE_SHOP:           ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_CUSTOMER,ROLE_SHOP]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN,ROLE_CUSTOMER,ROLE_SHOP]
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
@@ -23,8 +23,8 @@ security:
         main:
             anonymous: true
             form_login:
-                login_path: login
-                check_path: login
+                login_path: app_login
+                check_path: app_login
             logout:
                 path:   app_logout
             guard:
@@ -45,6 +45,6 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
-        - { path: ^/admin/, role: ROLE_SUPER_ADMIN }
+        - { path: ^/admin/, role: ['ROLE_SUPER_ADMIN','ROLE_SHOP'] }
         - { path: ^/shop/, role: ROLE_SHOP }
         - { path: ^/customer/, role: ROLE_CUSTOMER }

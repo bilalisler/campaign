@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Products
 {
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     /**
      * @var int
      *
@@ -26,91 +32,91 @@ class Products
      *
      * @ORM\Column(name="slug", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $slug = 'NULL';
+    private $slug = null;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $name = 'NULL';
+    private $name = null;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="code", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $code = 'NULL';
+    private $code = null;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="stock", type="smallint", nullable=true)
      */
-    private $stock = '0';
+    private $stock = 0;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="sub_description", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $subDescription = 'NULL';
+    private $subDescription = null;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $description = 'NULL';
+    private $description = null;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="metatags", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $metatags = 'NULL';
+    private $metatags = null;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="metakeys", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $metakeys = 'NULL';
+    private $metakeys = null;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="status", type="smallint", nullable=true, options={"default"="NULL"})
      */
-    private $status = 'NULL';
+    private $status = null;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="isActive", type="boolean", nullable=false, options={"default"="1"})
+     * @ORM\Column(name="isActive", type="boolean", nullable=false, options={"default"=1})
      */
-    private $isactive = '1';
+    private $isactive = 1;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="isDelete", type="boolean", nullable=false)
+     * @ORM\Column(name="isDelete", type="boolean", nullable=false, options={"default"=0})
      */
-    private $isdelete = '0';
+    private $isdelete = 0;
 
     /**
-     * @var string|null
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="created_at", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="created_at", type="datetime", length=255, nullable=true)
      */
-    private $createdAt = 'NULL';
+    private $createdAt = null;
 
     /**
-     * @var string|null
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="updated_at", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="updated_at", type="datetime", length=255, nullable=true)
      */
-    private $updatedAt = 'NULL';
+    private $updatedAt = null;
 
     /**
      * @var ProductsBrands
@@ -148,9 +154,9 @@ class Products
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -185,6 +191,9 @@ class Products
     public function setName(?string $name): void
     {
         $this->name = $name;
+
+        $slugify = new Slugify();
+        $this->setSlug($slugify->slugify($name));
     }
 
     /**
@@ -332,41 +341,9 @@ class Products
     }
 
     /**
-     * @return null|string
+     * @return ProductsBrands|null
      */
-    public function getCreatedAt(): ?string
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param null|string $createdAt
-     */
-    public function setCreatedAt(?string $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getUpdatedAt(): ?string
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param null|string $updatedAt
-     */
-    public function setUpdatedAt(?string $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    /**
-     * @return ProductsBrands
-     */
-    public function getBrand(): ProductsBrands
+    public function getBrand(): ?ProductsBrands
     {
         return $this->brand;
     }
@@ -380,9 +357,9 @@ class Products
     }
 
     /**
-     * @return Categories
+     * @return Categories|null
      */
-    public function getCategory(): Categories
+    public function getCategory(): ?Categories
     {
         return $this->category;
     }
@@ -396,9 +373,9 @@ class Products
     }
 
     /**
-     * @return ShopProfile
+     * @return ShopProfile|null
      */
-    public function getShop(): ShopProfile
+    public function getShop(): ?ShopProfile
     {
         return $this->shop;
     }
@@ -411,6 +388,36 @@ class Products
         $this->shop = $shop;
     }
 
+    /**
+     * @return \DateTime|null
+     */
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->createdAt;
+    }
 
+    /**
+     * @param \DateTime|null $createdAt
+     */
+    public function setCreatedAt(?\DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime|null $updatedAt
+     */
+    public function setUpdatedAt(?\DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
 
 }

@@ -3,24 +3,25 @@
 namespace App\Repository;
 
 
+use App\Entity\Products;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Denemee|null find($id, $lockMode = null, $lockVersion = null)
- * @method Denemee|null findOneBy(array $criteria, array $orderBy = null)
- * @method Denemee[]    findAll()
- * @method Denemee[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Products|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Products|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Products[]    findAll()
+ * @method Products[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class ProductsRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Denemee::class);
+        parent::__construct($registry, Products::class);
     }
 
 //    /**
-//     * @return Denemee[] Returns an array of Denemee objects
+//     * @return Products[] Returns an array of Products objects
 //     */
     /*
     public function findByExampleField($value)
@@ -37,7 +38,7 @@ class ProductsRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Denemee
+    public function findOneBySomeField($value): ?Products
     {
         return $this->createQueryBuilder('d')
             ->andWhere('d.exampleField = :val')

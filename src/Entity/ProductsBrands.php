@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ProductsBrands
 {
+    public function __toString()
+    {
+        return $this->brandName;
+    }
+
     /**
      * @var int
      *
@@ -24,30 +29,30 @@ class ProductsBrands
     /**
      * @var string|null
      *
-     * @ORM\Column(name="brand_name", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="name", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $brandName = 'NULL';
+    private $brandName = null;
 
     /**
      * @var int|null
      *
-     * @ORM\Column(name="brand_status", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="status", type="integer", nullable=true, options={"default"=1})
      */
-    private $brandStatus = 'NULL';
+    private $brandStatus = 1;
 
     /**
-     * @var string|null
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="created_at", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="created_at", type="datetime", length=255, nullable=true)
      */
-    private $createdAt = 'NULL';
+    private $createdAt = null;
 
     /**
-     * @var string|null
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="updated_at", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="updated_at", type="datetime", length=255, nullable=true)
      */
-    private $updatedAt = 'NULL';
+    private $updatedAt = null;
 
 
     public function __construct()
@@ -55,9 +60,9 @@ class ProductsBrands
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -95,36 +100,35 @@ class ProductsBrands
     }
 
     /**
-     * @return null|string
+     * @return \DateTime|null
      */
-    public function getCreatedAt(): ?string
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
     /**
-     * @param null|string $createdAt
+     * @param \DateTime|null $createdAt
      */
-    public function setCreatedAt(?string $createdAt): void
+    public function setCreatedAt(?\DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
     /**
-     * @return null|string
+     * @return \DateTime|null
      */
-    public function getUpdatedAt(): ?string
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
     /**
-     * @param null|string $updatedAt
+     * @param \DateTime|null $updatedAt
      */
-    public function setUpdatedAt(?string $updatedAt): void
+    public function setUpdatedAt(?\DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }
-
 
 }

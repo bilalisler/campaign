@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,6 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Categories
 {
+    public function __toString() {
+        return (string)$this->categoryName;
+    }
+
     /**
      * @var int
      *
@@ -22,125 +27,117 @@ class Categories
     private $id;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="lang_id", type="integer", nullable=true, options={"default"="NULL"})
+     * One Category has Many Categories.
+     * @ORM\OneToMany(targetEntity="App\Entity\Categories", mappedBy="parent")
      */
-    private $langId = 'NULL';
+    private $children;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="parent_id", type="integer", nullable=true, options={"default"="NULL"})
+     * Many Categories have One Category.
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categories", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
      */
-    private $parentId = 'NULL';
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="category_name", type="string", length=255, nullable=true, options={"default"="NULL"})
-     */
-    private $categoryName = 'NULL';
+    private $parent;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="category_subname", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="name", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $categorySubname = 'NULL';
+    private $categoryName = null;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="category_description", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="subname", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $categoryDescription = 'NULL';
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="category_order", type="integer", nullable=true, options={"default"="NULL"})
-     */
-    private $categoryOrder = 'NULL';
+    private $categorySubname = null;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="category_url", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="description", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $categoryUrl = 'NULL';
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="category_image", type="string", length=255, nullable=true, options={"default"="NULL"})
-     */
-    private $categoryImage = 'NULL';
+    private $categoryDescription = null;
 
     /**
      * @var int|null
      *
-     * @ORM\Column(name="category_status", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="c_order", type="integer", nullable=true, options={"default"="NULL"})
      */
-    private $categoryStatus = 'NULL';
+    private $categoryOrder = null;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="created_at", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $createdAt = 'NULL';
+    private $categorySlug = null;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="updated_at", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="image", type="simple_array", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $updatedAt = 'NULL';
+    private $categoryImage = null;
 
-    public function __construct()
-    {
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="c_status", type="integer", nullable=true, options={"default"=1})
+     */
+    private $categoryStatus = 1;
 
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="created_at", type="datetime", length=255, nullable=true)
+     */
+    private $createdAt = null;
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="updated_at", type="datetime", length=255, nullable=true)
+     */
+    private $updatedAt = null;
+
+
+    public function __construct() {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
 
+
     /**
-     * @return int|null
+     * @param mixed $id
      */
-    public function getLangId(): ?int
+    public function setId($id)
     {
-        return $this->langId;
+        $this->id = $id;
     }
 
     /**
-     * @param int|null $langId
+     * @return mixed
      */
-    public function setLangId(?int $langId): void
+    public function getParent()
     {
-        $this->langId = $langId;
+        return $this->parent;
     }
 
     /**
-     * @return int|null
+     * @param mixed $parent
      */
-    public function getParentId(): ?int
+    public function setParent($parent): void
     {
-        return $this->parentId;
-    }
-
-    /**
-     * @param int|null $parentId
-     */
-    public function setParentId(?int $parentId): void
-    {
-        $this->parentId = $parentId;
+        $this->parent = $parent;
     }
 
     /**
@@ -157,6 +154,9 @@ class Categories
     public function setCategoryName(?string $categoryName): void
     {
         $this->categoryName = $categoryName;
+
+        $slugify = new Slugify();
+        $this->setCategorySlug($slugify->slugify($categoryName));
     }
 
     /**
@@ -210,31 +210,27 @@ class Categories
     /**
      * @return null|string
      */
-    public function getCategoryUrl(): ?string
+    public function getCategorySlug(): ?string
     {
-        return $this->categoryUrl;
+        return $this->categorySlug;
     }
 
     /**
-     * @param null|string $categoryUrl
+     * @param null|string $categorySlug
      */
-    public function setCategoryUrl(?string $categoryUrl): void
+    public function setCategorySlug(?string $categorySlug): void
     {
-        $this->categoryUrl = $categoryUrl;
+        $this->categorySlug = $categorySlug;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getCategoryImage(): ?string
+
+    public function getCategoryImage()
     {
         return $this->categoryImage;
     }
 
-    /**
-     * @param null|string $categoryImage
-     */
-    public function setCategoryImage(?string $categoryImage): void
+
+    public function setCategoryImage( $categoryImage): void
     {
         $this->categoryImage = $categoryImage;
     }
@@ -256,34 +252,35 @@ class Categories
     }
 
     /**
-     * @return null|string
+     * @return \DateTime|null
      */
-    public function getCreatedAt(): ?string
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
     /**
-     * @param null|string $createdAt
+     * @param \DateTime|null $createdAt
      */
-    public function setCreatedAt(?string $createdAt): void
+    public function setCreatedAt(?\DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
     /**
-     * @return null|string
+     * @return \DateTime|null
      */
-    public function getUpdatedAt(): ?string
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
     /**
-     * @param null|string $updatedAt
+     * @param \DateTime|null $updatedAt
      */
-    public function setUpdatedAt(?string $updatedAt): void
+    public function setUpdatedAt(?\DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }
+
 }

@@ -1,0 +1,48 @@
+# This file sets the configuration of the 'Category' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+  entities:
+    Categories:
+      class: App\Entity\Categories
+      label: 'Categories'
+      image_base_path: 'http://static.acme.org/img/'
+      permissions:
+        list:  ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN']
+      show:
+        max_results: 5
+      list:
+        roles: ['ROLE_SUPER_ADMIN']
+        fields:
+        - id
+        - { property: 'categoryImage', type: 'App\Form\CategoryImageFormType', base_path: '' }
+        - parent
+        - categoryName
+        - categorySubname
+        - categoryOrder
+        - { property: 'categoryStatus', type: 'toggle' }
+        - { property: 'createdAt', type: 'datetime' }
+        - { property: 'updatedAt', type: 'datetime' }
+        title: "Most recent Categories"
+        max_results: 10
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        fields:
+        - parent
+        - categoryName
+        - categorySubname
+        - categoryOrder
+        - categoryStatus
+        #                - { property: 'createdAt', type: 'datetime' }
+        #                - { property: 'updatedAt', type: 'datetime' }
+        - property: 'categoryImage'
+          type: 'collection'
+          type_options:
+            entry_type: 'App\Form\CategoryImageFormType'
+            allow_delete: true
+            allow_add: true
+            by_reference: false

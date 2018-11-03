@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Orders
 {
+    public function __toString()
+    {
+        return $this->generatedOrderCode;
+    }
+
     /**
      * @var int
      *
@@ -33,21 +38,21 @@ class Orders
      *
      * @ORM\Column(name="generated_order_code", type="string", length=10, nullable=false)
      */
-    private $generatedOrderCode;
+    private $generatedOrderCode = null;
 
     /**
-     * @var string|null
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="created_at", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="created_at", type="datetime", length=255, nullable=true)
      */
-    private $createdAt = 'NULL';
+    private $createdAt = null;
 
     /**
-     * @var string|null
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="updated_at", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="updated_at", type="datetime", length=255, nullable=true)
      */
-    private $updatedAt = 'NULL';
+    private $updatedAt = null;
 
     /**
      * @var User
@@ -57,7 +62,7 @@ class Orders
      *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      * })
      */
-    private $customer;
+    private $customer = null;
 
     /**
      * @var Products
@@ -67,16 +72,16 @@ class Orders
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
      */
-    private $product;
+    private $product = null;
 
     public function __construct()
     {
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -84,39 +89,7 @@ class Orders
     /**
      * @return int|null
      */
-    public function getCustomerId(): ?int
-    {
-        return $this->customerId;
-    }
-
-    /**
-     * @param int|null $customerId
-     */
-    public function setCustomerId(?int $customerId): void
-    {
-        $this->customerId = $customerId;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getProductId(): ?int
-    {
-        return $this->productId;
-    }
-
-    /**
-     * @param int|null $productId
-     */
-    public function setProductId(?int $productId): void
-    {
-        $this->productId = $productId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getStatus(): int
+    public function getStatus(): ?int
     {
         return $this->status;
     }
@@ -130,9 +103,9 @@ class Orders
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getGeneratedOrderCode(): string
+    public function getGeneratedOrderCode(): ?string
     {
         return $this->generatedOrderCode;
     }
@@ -146,25 +119,25 @@ class Orders
     }
 
     /**
-     * @return null|string
+     * @return null|\DateTime
      */
-    public function getCreatedAt(): ?string
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
     /**
-     * @param null|string $createdAt
+     * @param null|\DateTime $createdAt
      */
-    public function setCreatedAt(?string $createdAt): void
+    public function setCreatedAt(?\DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
     /**
-     * @return null|string
+     * @return null|\DateTime
      */
-    public function getUpdatedAt(): ?string
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
@@ -172,15 +145,15 @@ class Orders
     /**
      * @param null|string $updatedAt
      */
-    public function setUpdatedAt(?string $updatedAt): void
+    public function setUpdatedAt(?\DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }
 
     /**
-     * @return User
+     * @return User | null
      */
-    public function getCustomer(): User
+    public function getCustomer(): ?User
     {
         return $this->customer;
     }
@@ -194,9 +167,9 @@ class Orders
     }
 
     /**
-     * @return Products
+     * @return Products|null
      */
-    public function getProduct(): Products
+    public function getProduct(): ?Products
     {
         return $this->product;
     }

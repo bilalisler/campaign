@@ -22,18 +22,11 @@ class Messages
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="user_id", type="integer", nullable=false)
-     */
-    private $userId;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="subject", type="string", length=200, nullable=false)
      */
-    private $subject;
+    private $subject = null;
 
     /**
      * @var string
@@ -91,33 +84,26 @@ class Messages
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
     /**
-     * @return int
+     * @param int $id
      */
-    public function getUserId(): int
+    public function setId(int $id): void
     {
-        return $this->userId;
+        $this->id = $id;
     }
 
-    /**
-     * @param int $userId
-     */
-    public function setUserId(int $userId): void
-    {
-        $this->userId = $userId;
-    }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSubject(): string
+    public function getSubject(): ?string
     {
         return $this->subject;
     }
@@ -131,9 +117,9 @@ class Messages
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->message;
     }
@@ -147,9 +133,9 @@ class Messages
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getStatus(): int
+    public function getStatus(): ?int
     {
         return $this->status;
     }
@@ -163,9 +149,9 @@ class Messages
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
@@ -179,9 +165,9 @@ class Messages
     }
 
     /**
-     * @return Products
+     * @return Products|null
      */
-    public function getProduct(): Products
+    public function getProduct(): ?Products
     {
         return $this->product;
     }
@@ -195,9 +181,9 @@ class Messages
     }
 
     /**
-     * @return ShopProfile
+     * @return ShopProfile|null
      */
-    public function getShop(): ShopProfile
+    public function getShop(): ?ShopProfile
     {
         return $this->shop;
     }
@@ -211,9 +197,9 @@ class Messages
     }
 
     /**
-     * @return User
+     * @return User|null
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }

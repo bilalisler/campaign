@@ -22,39 +22,47 @@ class ProductsPrices
     private $id;
 
     /**
-     * @var string|null
+     * @var float|null
      *
-     * @ORM\Column(name="buy_price", type="decimal", precision=10, scale=0, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="buy_price", type="float", nullable=true)
      */
-    private $buyPrice = 'NULL';
+    private $buyPrice = 0.0;
 
     /**
-     * @var string|null
+     * @var float|null
      *
-     * @ORM\Column(name="sell", type="decimal", precision=10, scale=0, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="sell", type="float", nullable=true)
      */
-    private $sell = 'NULL';
+    private $sellPrice = 0.0;
 
     /**
-     * @var string|null
+     * @var float|null
      *
-     * @ORM\Column(name="tax_price", type="decimal", precision=10, scale=0, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="tax_price", type="float", nullable=true)
      */
-    private $taxPrice = 'NULL';
+    private $taxPrice = 0.0;
+
 
     /**
-     * @var string|null
+     * @var float|null
      *
-     * @ORM\Column(name="created_at", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="other_price", type="float", nullable=true)
      */
-    private $createdAt = 'NULL';
+    private $otherPrice = 0.0;
 
     /**
-     * @var string|null
+     * @var \DateTime|null
      *
-     * @ORM\Column(name="updated_at", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="created_at", type="datetime", length=255, nullable=true)
      */
-    private $updatedAt = 'NULL';
+    private $createdAt = null;
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="updated_at", type="datetime", length=255, nullable=true)
+     */
+    private $updatedAt = null;
 
     /**
      * @var Campaigns
@@ -89,6 +97,102 @@ class ProductsPrices
     }
 
     /**
+     * @return float|null
+     */
+    public function getBuyPrice(): ?float
+    {
+        return $this->buyPrice;
+    }
+
+    /**
+     * @param float|null $buyPrice
+     */
+    public function setBuyPrice(?float $buyPrice): void
+    {
+        $this->buyPrice = $buyPrice;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getSellPrice(): ?float
+    {
+        return $this->sellPrice;
+    }
+
+    /**
+     * @param float|null $sellPrice
+     */
+    public function setSellPrice(?float $sellPrice): void
+    {
+        $this->sellPrice = $sellPrice;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getTaxPrice(): ?float
+    {
+        return $this->taxPrice;
+    }
+
+    /**
+     * @param float|null $taxPrice
+     */
+    public function setTaxPrice(?float $taxPrice): void
+    {
+        $this->taxPrice = $taxPrice;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getOtherPrice(): ?float
+    {
+        return $this->otherPrice;
+    }
+
+    /**
+     * @param float|null $otherPrice
+     */
+    public function setOtherPrice(?float $otherPrice): void
+    {
+        $this->otherPrice = $otherPrice;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime|null $createdAt
+     */
+    public function setCreatedAt(?\DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime|null $updatedAt
+     */
+    public function setUpdatedAt(?\DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
      * @return Campaigns
      */
     public function getCampaign(): Campaigns
@@ -119,87 +223,5 @@ class ProductsPrices
     {
         $this->product = $product;
     }
-
-    /**
-     * @return null|string
-     */
-    public function getBuyPrice(): ?string
-    {
-        return $this->buyPrice;
-    }
-
-    /**
-     * @param null|string $buyPrice
-     */
-    public function setBuyPrice(?string $buyPrice): void
-    {
-        $this->buyPrice = $buyPrice;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSell(): ?string
-    {
-        return $this->sell;
-    }
-
-    /**
-     * @param null|string $sell
-     */
-    public function setSell(?string $sell): void
-    {
-        $this->sell = $sell;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTaxPrice(): ?string
-    {
-        return $this->taxPrice;
-    }
-
-    /**
-     * @param null|string $taxPrice
-     */
-    public function setTaxPrice(?string $taxPrice): void
-    {
-        $this->taxPrice = $taxPrice;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCreatedAt(): ?string
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param null|string $createdAt
-     */
-    public function setCreatedAt(?string $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getUpdatedAt(): ?string
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param null|string $updatedAt
-     */
-    public function setUpdatedAt(?string $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-
 
 }

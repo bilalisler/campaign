@@ -53,17 +53,17 @@ class UserFavoriteProducts
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
     /**
-     * @return Products
+     * @return Products|null
      */
-    public function getProduct(): Products
+    public function getProduct(): ?Products
     {
         return $this->product;
     }
@@ -77,9 +77,9 @@ class UserFavoriteProducts
     }
 
     /**
-     * @return User
+     * @return User|null
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }
@@ -93,9 +93,9 @@ class UserFavoriteProducts
     }
 
     /**
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }

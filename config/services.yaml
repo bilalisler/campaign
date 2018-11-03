@@ -33,3 +33,9 @@ services:
         arguments:
             $twigEngine: '@twig'
         public: true
+
+    easyadmin.configuration.menu_config_pass:
+        class: App\Configuration\CustomMenuConfigPass
+        arguments: ['@security.token_storage']
+        tags:
+        - {name: 'easyadmin.config_pass', priority: 70}

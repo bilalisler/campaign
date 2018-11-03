@@ -1,0 +1,52 @@
+# This file sets the configuration of the 'Category' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+  entities:
+    Products:
+      class: App\Entity\Products
+      label: 'Products'
+      image_base_path: 'http://static.acme.org/img/'
+      permissions:
+        list:  ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN']
+      show:
+        max_results: 5
+      list:
+        fields:
+        - id
+        - name
+        - { property: 'code', help: 'EAN-13 valid code. Leave empty if unknown.' }
+        - stock
+        - status
+        - { property: 'isactive', type: 'toggle' }
+        - { property: 'isdelete', type: 'toggle' }
+        - brand
+        - category
+        - shop
+        - { property: 'createdAt', type: 'datetime' }
+        - { property: 'updatedAt', type: 'datetime' }
+        title: "Most recent Categories"
+        max_results: 10
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        fields:
+        - slug
+        - name
+        - code
+        - stock
+        - subDescription
+        - description
+        - metatags
+        - metakeys
+        - status
+        - isactive
+        - isdelete
+        - brand
+        - category
+        - shop
+        - { property: 'createdAt', type: 'datetime' }
+        - { property: 'updatedAt', type: 'datetime' }

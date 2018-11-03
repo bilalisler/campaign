@@ -11,6 +11,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
+    public function __toString()
+    {
+        return (string)$this->email;
+    }
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -34,10 +39,138 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=false)
+     */
+    private $firstName;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=false)
+     */
+    private $lastName;
+
+    /**
+     * @ORM\Column(type="boolean",nullable=false,options={"default"=1})
+     */
+    private $isActive = 1;
+
+    /**
+     * @ORM\Column(type="boolean",nullable=false,options={"default"=0})
+     */
+    private $isDeleted = 0;
+
+    /**
+     * @ORM\Column(type="datetime",nullable=null)
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime",nullable=null)
+     */
+    private $updatedAt;
+
+
     public function getId(): ?int
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName($firstName): void
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param string $lastName
+     */
+    public function setLastName($lastName): void
+    {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param boolean $isActive
+     */
+    public function setIsActive($isActive): void
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsDeleted()
+    {
+        return $this->isDeleted;
+    }
+
+    /**
+     * @param boolean $isDeleted
+     */
+    public function setIsDeleted($isDeleted): void
+    {
+        $this->isDeleted = $isDeleted;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
 
     public function getEmail(): ?string
     {

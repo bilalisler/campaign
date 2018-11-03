@@ -1,0 +1,46 @@
+# This file sets the configuration of the 'Category' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+  entities:
+    Campaigns:
+      class: App\Entity\Campaigns
+      label: 'Campaigns'
+      image_base_path: 'http://static.acme.org/img/'
+      permissions:
+        list:  ['ROLE_SHOP', 'ROLE_SUPER_ADMIN']
+      show:
+        max_results: 5
+      list:
+        fields:
+        - id
+        - campaignName
+        - { property: 'category', type_options: { class: 'App\Entity\Categories' }}
+        - { property: 'condition', type_options: { class: 'App\Entity\CampaignCondition' }}
+        - { property: 'product', type_options: { class: 'App\Entity\Products' }}
+        - { property: 'shop', type_options: { class: 'App\Entity\ShopProfile' }}
+        - { property: 'campaignStartDate', type: 'datetime' }
+        - { property: 'campaignEndDate', type: 'datetime' }
+        - { property: 'createdAt', type: 'datetime' }
+        - { property: 'updatedAt', type: 'datetime' }
+        - { property: 'campaignPhoto', type: 'image' }
+        title: "Most recent Categories"
+        max_results: 10
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        fields:
+        - campaignName
+        - campaignDescription
+        - category
+        - condition
+        - product
+        - shop
+        - { property: 'campaignStartDate', type: 'datetime' }
+        - { property: 'campaignEndDate', type: 'datetime' }
+        - { property: 'createdAt', type: 'datetime' }
+        - { property: 'updatedAt', type: 'datetime' }
+        - campaignPhoto

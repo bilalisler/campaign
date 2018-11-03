@@ -24,21 +24,21 @@ class ProductsImages
     /**
      * @var string|null
      *
-     * @ORM\Column(name="pimg_name", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="name", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
     private $pimgName = 'NULL';
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="pimg_extension", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="extension", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
     private $pimgExtension = 'NULL';
 
     /**
      * @var int|null
      *
-     * @ORM\Column(name="pimg_type", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="type", type="integer", nullable=true, options={"default"="NULL"})
      */
     private $pimgType = 'NULL';
 

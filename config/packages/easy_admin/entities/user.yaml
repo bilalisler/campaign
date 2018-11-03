@@ -1,0 +1,41 @@
+# This file sets the configuration of the 'Category' entity.
+#
+# NOTE: this demo application splits the backend configuration into several
+# small files for educational purposes. In your application you can put the
+# entire backend configuration in just one file.
+#
+# The configuration options are explained in detail in the bundle documentation,
+# which is published at https://github.com/javiereguiluz/EasyAdminBundle
+easy_admin:
+  entities:
+    User:
+      class: App\Entity\User
+      label: 'User'
+      image_base_path: 'http://static.acme.org/img/'
+      permissions:
+        list:  ['ROLE_SUPER_ADMIN']
+        edit:  ['ROLE_SUPER_ADMIN']
+      show:
+        max_results: 5
+      list:
+        fields:
+        - id
+        - firstName
+        - lastName
+        - email
+        - isActive
+        - isDeleted
+        - createdAt
+        - updatedAt
+        - { property: 'roles', type: 'array' }
+        title: "Most recent Categories"
+        max_results: 10
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        fields:
+        - firstName
+        - lastName
+        - isActive
+        - isDeleted
+        - { property: 'email', label: 'Contact' }
+        - { property: 'roles', type: 'json' }
+        - password

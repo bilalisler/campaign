@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ShopProfile
 {
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     /**
      * @var int
      *
@@ -33,49 +38,49 @@ class ShopProfile
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $description = 'NULL';
+    private $description = null;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="address", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $address = 'NULL';
+    private $address = null;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="phone", type="string", length=30, nullable=true, options={"default"="NULL"})
      */
-    private $phone = 'NULL';
+    private $phone = null;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="city", type="integer", nullable=true, options={"default"="NULL"})
      */
-    private $city = 'NULL';
+    private $city = null;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="town", type="integer", nullable=true, options={"default"="NULL"})
      */
-    private $town = 'NULL';
+    private $town = null;
 
     /**
      * @var float|null
      *
-     * @ORM\Column(name="Latitude", type="float", precision=10, scale=0, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="Latitude", type="float", precision=10, scale=0, nullable=true)
      */
-    private $latitude = 'NULL';
+    private $latitude = null;
 
     /**
      * @var float|null
      *
-     * @ORM\Column(name="Longitude", type="float", precision=10, scale=0, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="Longitude", type="float", precision=10, scale=0, nullable=true)
      */
-    private $longitude = 'NULL';
+    private $longitude = null;
 
     /**
      * @var User
@@ -92,17 +97,17 @@ class ShopProfile
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
     /**
-     * @return User
+     * @return User|null
      */
-    public function getUser(): User
+    public function getUser(): ?User
     {
         return $this->user;
     }
@@ -116,9 +121,9 @@ class ShopProfile
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }

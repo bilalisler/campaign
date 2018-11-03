@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class CampaignCondition
 {
+    public function __toString() {
+        return 'campaign Condition';
+    }
+
     /**
      * @var int
      *
@@ -33,25 +37,33 @@ class CampaignCondition
     }
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
 
     /**
-     * @return string
+     * @param int $id
      */
-    public function getConditions(): string
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConditions()
     {
         return $this->conditions;
     }
 
     /**
-     * @param string $conditions
+     * @param array $conditions
      */
-    public function setConditions(string $conditions): void
+    public function setConditions(array $conditions)
     {
         $this->conditions = $conditions;
     }

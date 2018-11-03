@@ -24,51 +24,51 @@ class Campaigns
     /**
      * @var string|null
      *
-     * @ORM\Column(name="campaign_name", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="name", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $campaignName = 'NULL';
+    private $campaignName = null;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="campaign_description", type="text", length=65535, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true, options={"default"="NULL"})
      */
-    private $campaignDescription = 'NULL';
+    private $campaignDescription = null;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="campaign_photo", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="photo", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $campaignPhoto = 'NULL';
+    private $campaignPhoto = null;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="campaign_start_date", type="date", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="start_date", type="datetime", nullable=true)
      */
-    private $campaignStartDate = 'NULL';
+    private $campaignStartDate = null;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="campaign_end_date", type="date", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="end_date", type="datetime", nullable=true)
      */
-    private $campaignEndDate = 'NULL';
+    private $campaignEndDate = null;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="created_at", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
-    private $createdAt = 'NULL';
+    private $createdAt = null;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="updated_at", type="datetime", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
-    private $updatedAt = 'NULL';
+    private $updatedAt = null;
 
     /**
      * @var Categories
@@ -117,12 +117,21 @@ class Campaigns
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
 
     /**
      * @return null|string
@@ -221,9 +230,9 @@ class Campaigns
     }
 
     /**
-     * @return Categories
+     * @return Categories|null
      */
-    public function getCategory(): Categories
+    public function getCategory(): ?Categories
     {
         return $this->category;
     }
@@ -237,9 +246,9 @@ class Campaigns
     }
 
     /**
-     * @return CampaignCondition
+     * @return CampaignCondition|null
      */
-    public function getCondition(): CampaignCondition
+    public function getCondition(): ?CampaignCondition
     {
         return $this->condition;
     }
@@ -253,9 +262,9 @@ class Campaigns
     }
 
     /**
-     * @return Products
+     * @return Products|null
      */
-    public function getProduct(): Products
+    public function getProduct(): ?Products
     {
         return $this->product;
     }
@@ -269,9 +278,9 @@ class Campaigns
     }
 
     /**
-     * @return ShopProfile
+     * @return ShopProfile|null
      */
-    public function getShop(): ShopProfile
+    public function getShop(): ?ShopProfile
     {
         return $this->shop;
     }
