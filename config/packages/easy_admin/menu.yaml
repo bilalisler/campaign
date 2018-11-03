@@ -20,6 +20,5 @@ easy_admin:
     - Orders
     - ProductsBrands
     - ProductsImages
-    - ProductsPrices
     - ShopProfile
     - { property: 'UserFavoriteProducts', roles: ['ROLE_SUPER_ADMIN'], route: 'easyadmin', params: {entity: 'UserFavoriteProducts',action: 'list',menuIndex: 0,submenuIndex: -1}, label: 'UserFavoriteProducts', icon: 'users' }

@@ -19,21 +19,13 @@ easy_admin:
       list:
         fields:
         - id
-        - parentId
-        - categoryName
-        - categorySubname
-        - categoryOrder
-        - { property: 'categoryStatus', type: 'toggle' }
-        - { property: 'updatedAt', type: 'datetime' }
-        - { property: 'categoryImage', type: 'image' }
+        - product
+        - status
+        - image
         title: "Most recent Categories"
         max_results: 10
       form:  # <-- 'form' is applied to both 'new' and 'edit' views
         fields:
-        - parentId
-        - categoryName
-        - categorySubname
-        - categoryOrder
-        - categoryStatus
-        - { property: 'updatedAt', type: 'datetime' }
-        - categoryImage
+          - product
+          - status
+          - image

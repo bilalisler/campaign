@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -95,14 +96,43 @@ class Products
      *
      * @ORM\Column(name="isActive", type="boolean", nullable=false, options={"default"=1})
      */
-    private $isactive = 1;
+    private $isActive = 1;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="isDelete", type="boolean", nullable=false, options={"default"=0})
      */
-    private $isdelete = 0;
+    private $isDelete = 0;
+
+
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(name="buy_price", type="float", nullable=true)
+     */
+    private $buyPrice = 0.0;
+
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(name="sell", type="float", nullable=true)
+     */
+    private $sellPrice = 0.0;
+
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(name="tax_price", type="float", nullable=true)
+     */
+    private $taxPrice = 0.0;
+
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(name="other_price", type="float", nullable=true)
+     */
+    private $otherPrice = 0.0;
 
     /**
      * @var \DateTime|null
@@ -148,9 +178,46 @@ class Products
      */
     private $shop;
 
+    /**
+     * @var ProductsImages[]|ArrayCollection
+     * @ORM\OneToMany(targetEntity="App\Entity\ProductsImages", mappedBy="product", cascade={"persist", "remove"}, orphanRemoval=true, fetch="LAZY")
+     */
+    public $productImages;
+
+    /**
+     * @return ProductsImages[]|ArrayCollection
+     */
+    public function getProductImages()
+    {
+        return $this->productImages;
+    }
+
+    /**
+     * @param ProductsImages[]|ArrayCollection $productImages
+     */
+    public function setProductImages($productImages)
+    {
+        foreach ($productImages as $productImage) {
+            $productImage->setProduct($this);
+
+            $this->productImages->add($productImage);
+        }
+    }
+
+    /**
+     * Remove image
+     *
+     * @param ProductsImages $image
+     */
+    public function removeProductImages(ProductsImages $image)
+    {
+        $image->setProduct(null);
+        $this->productImages->removeElement($image);
+    }
 
     public function __construct()
     {
+        $this->productImages = new ArrayCollection();
     }
 
     /**
@@ -311,33 +378,33 @@ class Products
     /**
      * @return bool
      */
-    public function isIsactive(): bool
+    public function isActive(): bool
     {
-        return $this->isactive;
+        return $this->isActive;
     }
 
     /**
      * @param bool $isactive
      */
-    public function setIsactive(bool $isactive): void
+    public function setIsActive(bool $isactive): void
     {
-        $this->isactive = $isactive;
+        $this->isActive = $isactive;
     }
 
     /**
      * @return bool
      */
-    public function isIsdelete(): bool
+    public function isDelete(): bool
     {
-        return $this->isdelete;
+        return $this->isDelete;
     }
 
     /**
      * @param bool $isdelete
      */
-    public function setIsdelete(bool $isdelete): void
+    public function setIsDelete(bool $isdelete): void
     {
-        $this->isdelete = $isdelete;
+        $this->isDelete = $isdelete;
     }
 
     /**
@@ -420,4 +487,67 @@ class Products
         $this->updatedAt = $updatedAt;
     }
 
+    /**
+     * @return float|null
+     */
+    public function getBuyPrice(): ?float
+    {
+        return $this->buyPrice;
+    }
+
+    /**
+     * @param float|null $buyPrice
+     */
+    public function setBuyPrice(?float $buyPrice): void
+    {
+        $this->buyPrice = $buyPrice;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getSellPrice(): ?float
+    {
+        return $this->sellPrice;
+    }
+
+    /**
+     * @param float|null $sellPrice
+     */
+    public function setSellPrice(?float $sellPrice): void
+    {
+        $this->sellPrice = $sellPrice;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getTaxPrice(): ?float
+    {
+        return $this->taxPrice;
+    }
+
+    /**
+     * @param float|null $taxPrice
+     */
+    public function setTaxPrice(?float $taxPrice): void
+    {
+        $this->taxPrice = $taxPrice;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getOtherPrice(): ?float
+    {
+        return $this->otherPrice;
+    }
+
+    /**
+     * @param float|null $otherPrice
+     */
+    public function setOtherPrice(?float $otherPrice): void
+    {
+        $this->otherPrice = $otherPrice;
+    }
 }

@@ -1,0 +1,10 @@
+{% for category in categories  %}
+    {% set imagePath = category_image_path ~ '/' ~ category.image %}
+
+    <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
+        <a href="category.html">
+            <img src="{{ asset(imagePath) }}" class="img-responsive" alt="img">
+            <h6> {{ category.categoryName }} </h6>
+        </a>
+    </div>
+{% endfor %}

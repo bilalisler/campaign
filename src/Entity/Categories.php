@@ -5,14 +5,57 @@ namespace App\Entity;
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 /**
  * Categories
- *
+ * @Vich\Uploadable
  * @ORM\Table(name="categories")
  * @ORM\Entity(repositoryClass="App\Repository\CategoriesRepository")
  */
 class Categories
 {
+    /**
+     * @ORM\Column(name="image", type="string", length=255)
+     * @var string
+     */
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="category_image", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
     public function __toString() {
         return (string)$this->categoryName;
     }
@@ -73,13 +116,6 @@ class Categories
      * @ORM\Column(name="slug", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
     private $categorySlug = null;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="image", type="simple_array", length=255, nullable=true, options={"default"="NULL"})
-     */
-    private $categoryImage = null;
 
     /**
      * @var int|null
@@ -221,18 +257,6 @@ class Categories
     public function setCategorySlug(?string $categorySlug): void
     {
         $this->categorySlug = $categorySlug;
-    }
-
-
-    public function getCategoryImage()
-    {
-        return $this->categoryImage;
-    }
-
-
-    public function setCategoryImage( $categoryImage): void
-    {
-        $this->categoryImage = $categoryImage;
     }
 
     /**

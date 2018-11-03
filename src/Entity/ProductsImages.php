@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * ProductsImages
- *
+ * @Vich\Uploadable
  * @ORM\Table(name="products_images", indexes={@ORM\Index(name="product_fk", columns={"product_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\ProductsImagesRepository")
  */
@@ -22,44 +24,29 @@ class ProductsImages
     private $id;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="name", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @var string
      */
-    private $pimgName = 'NULL';
+    private $image;
 
     /**
-     * @var string|null
+     * @var File
      *
-     * @ORM\Column(name="extension", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
      */
-    private $pimgExtension = 'NULL';
+    private $imageFile;
 
     /**
-     * @var int|null
+     * @var bool|null
      *
-     * @ORM\Column(name="type", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="status", nullable=true, type="boolean")
      */
-    private $pimgType = 'NULL';
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="created_at", type="string", length=255, nullable=true, options={"default"="NULL"})
-     */
-    private $createdAt = 'NULL';
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="updated_at", type="string", length=255, nullable=true, options={"default"="NULL"})
-     */
-    private $updatedAt = 'NULL';
+    private $status;
 
     /**
      * @var Products
      *
-     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\ManyToOne(targetEntity="Products", inversedBy="productImages")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -79,89 +66,25 @@ class ProductsImages
     }
 
     /**
-     * @return null|string
+     * @return bool|null
      */
-    public function getPimgName(): ?string
+    public function getStatus(): ?bool
     {
-        return $this->pimgName;
+        return $this->status;
     }
 
     /**
-     * @param null|string $pimgName
+     * @param bool|null $status
      */
-    public function setPimgName(?string $pimgName): void
+    public function setStatus(?bool $status): void
     {
-        $this->pimgName = $pimgName;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPimgExtension(): ?string
-    {
-        return $this->pimgExtension;
-    }
-
-    /**
-     * @param null|string $pimgExtension
-     */
-    public function setPimgExtension(?string $pimgExtension): void
-    {
-        $this->pimgExtension = $pimgExtension;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getPimgType(): ?int
-    {
-        return $this->pimgType;
-    }
-
-    /**
-     * @param int|null $pimgType
-     */
-    public function setPimgType(?int $pimgType): void
-    {
-        $this->pimgType = $pimgType;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCreatedAt(): ?string
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param null|string $createdAt
-     */
-    public function setCreatedAt(?string $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getUpdatedAt(): ?string
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param null|string $updatedAt
-     */
-    public function setUpdatedAt(?string $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
+        $this->status = $status;
     }
 
     /**
      * @return Products
      */
-    public function getProduct(): Products
+    public function getProduct(): ?Products
     {
         return $this->product;
     }
@@ -174,4 +97,41 @@ class ProductsImages
         $this->product = $product;
     }
 
+    /**
+     * @param File|null $image
+     * @return ProductsImages
+     */
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param string $image
+     * @return ProductsImages
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
 }

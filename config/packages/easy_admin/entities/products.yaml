@@ -23,6 +23,7 @@ easy_admin:
         - { property: 'code', help: 'EAN-13 valid code. Leave empty if unknown.' }
         - stock
         - status
+        - productImages
         - { property: 'isactive', type: 'toggle' }
         - { property: 'isdelete', type: 'toggle' }
         - brand
@@ -38,15 +39,26 @@ easy_admin:
         - name
         - code
         - stock
-        - subDescription
-        - description
+        - { property: subDescription, type: 'textarea'}
+        - { property: description, type: 'textarea'}
         - metatags
         - metakeys
         - status
-        - isactive
-        - isdelete
+        - isActive
+        - isDelete
         - brand
         - category
         - shop
-        - { property: 'createdAt', type: 'datetime' }
-        - { property: 'updatedAt', type: 'datetime' }
+        - { property: buyPrice, type: 'money', type_options: { currency: 'TRY' }}
+        - { property: sellPrice, type: 'money', type_options: { currency: 'TRY' }}
+        - { property: taxPrice, type: 'money', type_options: { currency: 'TRY' }}
+        - { property: otherPrice, type: 'money', type_options: { currency: 'TRY' }}
+        - { property: 'createdAt', type: 'datetime', type_options: { widget: 'single_text' }  }
+        - { property: 'updatedAt', type: 'datetime', type_options: { widget: 'single_text' }  }
+        - property: 'productImages'
+          type: 'collection'
+          type_options:
+            entry_type: 'App\Form\ProductImagesType'
+            allow_delete: true
+            allow_add: true
+            by_reference: false

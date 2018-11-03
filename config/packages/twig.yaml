@@ -2,3 +2,6 @@ twig:
     default_path: '%kernel.project_dir%/templates'
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        category_image_path: '%upload.category.images.path%'
+        product_image_path: 'upload.product.images.path'

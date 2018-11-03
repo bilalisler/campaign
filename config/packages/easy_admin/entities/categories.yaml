@@ -20,7 +20,7 @@ easy_admin:
         roles: ['ROLE_SUPER_ADMIN']
         fields:
         - id
-        - { property: 'categoryImage', type: 'App\Form\CategoryImageFormType', base_path: '' }
+        - { property: 'image', template: 'include/vich_uploader_image.html.twig' }
         - parent
         - categoryName
         - categorySubname
@@ -30,19 +30,21 @@ easy_admin:
         - { property: 'updatedAt', type: 'datetime' }
         title: "Most recent Categories"
         max_results: 10
-      form:  # <-- 'form' is applied to both 'new' and 'edit' views
-        fields:
+      edit:
+        - id
+        - { property: 'image', template: 'include/vich_uploader_image.html.twig' }
         - parent
         - categoryName
         - categorySubname
         - categoryOrder
+        - { property: 'categoryStatus', type: 'toggle' }
+        - { property: 'createdAt', type: 'datetime' }
+        - { property: 'updatedAt', type: 'datetime' }
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        fields:
+        - parent
+        - { property: categoryName, type: 'text'}
+        - { property: categorySubname, type: 'text'}
+        - { property: categoryOrder, type: 'integer'}
         - categoryStatus
-        #                - { property: 'createdAt', type: 'datetime' }
-        #                - { property: 'updatedAt', type: 'datetime' }
-        - property: 'categoryImage'
-          type: 'collection'
-          type_options:
-            entry_type: 'App\Form\CategoryImageFormType'
-            allow_delete: true
-            allow_add: true
-            by_reference: false
+        - { property: 'imageFile', type: 'file' }

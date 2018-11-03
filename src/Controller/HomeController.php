@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Library\Map\YandexMap;
 use App\Service\JSMin;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -48,5 +49,23 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
             'yandexMapJsContent' => $yandexMapJsContent,
         ]);
+    }
+
+    public function renderCategoryList(){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $qb = $em->getRepository("App:Categories")->createQueryBuilder("c");
+
+        $qb->where($qb->expr()->isNull('c.parent'));
+        $qb->andWhere($qb->expr()->eq('c.categoryStatus',':categoryStatus'))->setParameter('categoryStatus',true);
+        $qb->setMaxResults(12);
+        $qb->orderBy("c.categoryOrder","ASC");
+
+        $categories = $qb->getQuery()->getResult();
+
+        return $this->render('home/include/categoryBlock.html.twig',array(
+            'categories' => $categories
+        ));
     }
 }

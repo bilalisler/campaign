@@ -11,79 +11,12 @@
                 </div>
             </div>
 
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="category.html"><img src="{{ asset('assets/images/category/car-2.jpg') }}"
-                                             class="img-responsive" alt="img">
-                    <h6> Automobiles </h6></a>
-            </div>
-
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="category.html"><img src="{{ asset('assets/images/category/laptop-2.jpg') }}"
-                                             class="img-responsive"
-                                             alt="img"> <h6> Laptops </h6></a>
-            </div>
-
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="category.html"><img src="{{ asset('assets/images/category/mobile.jpg') }}"
-                                             class="img-responsive" alt="img">
-                    <h6> Mobiles </h6></a>
-            </div>
-
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="category.html"><img src="{{ asset('assets/images/category/tv.jpg') }}" class="img-responsive"
-                                             alt="img"> <h6>
-                        Electronics </h6></a>
-            </div>
-
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="category.html"><img src="{{ asset('assets/images/category/hdd.jpg') }}" class="img-responsive"
-                                             alt="img">
-                    <h6> Computer Accessories </h6></a>
-            </div>
-
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="property-list.html"><img src="{{ asset('assets/images/category/house.jpg') }}"
-                                                  class="img-responsive"
-                                                  alt="img">
-                    <h6> Real Estate </h6></a>
-            </div>
-
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="category.html"><img
-                            src="{{ asset('assets/images/category/Home-Electronics-Appliances-2.jpg') }}"
-                            class="img-responsive" alt="img"> <h6> Home Appliances </h6></a>
-            </div>
-
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="category.html"><img src="{{ asset('assets/images/category/camera.jpg') }}"
-                                             class="img-responsive" alt="img">
-                    <h6> Cameras </h6></a>
-            </div>
-
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="category.html"><img src="{{ asset('assets/images/category/fashion.jpg') }}"
-                                             class="img-responsive" alt="img">
-                    <h6> Fashion & Beauty </h6></a>
-            </div>
-
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="category.html"><img src="{{ asset('assets/images/category/toy.jpg') }}" class="img-responsive"
-                                             alt="img">
-                    <h6> Kids & Baby Products </h6></a>
-            </div>
-
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="category.html"><img src="{{ asset('assets/images/category/jobs.jpg') }}" class="img-responsive"
-                                             alt="img">
-                    <h6> Jobs </h6></a>
-            </div>
-
-            <div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">
-                <a href="category.html"><img src="{{ asset('assets/images/category/catalog.jpg') }}"
-                                             class="img-responsive" alt="img">
-                    <h6> Home & Furniture </h6></a>
-            </div>
-
+            {{ render(controller('App\\Controller\\HomeController::renderCategoryList')) }}
+            {#<div class="col-xl-2 col-md-3 col-sm-3 col-xs-4 f-category">#}
+                {#<a href="category.html"><img src="{{ asset('assets/images/category/car-2.jpg') }}"#}
+                                             {#class="img-responsive" alt="img">#}
+                    {#<h6> Automobiles </h6></a>#}
+            {#</div>#}
         </div>
 
 
