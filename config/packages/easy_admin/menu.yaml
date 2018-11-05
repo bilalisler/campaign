@@ -13,12 +13,12 @@ easy_admin:
     menu:
     #- { property: 'User', roles: ['ROLE_SUPER_ADMIN'], route: 'easyadmin', params: {entity: 'User',action: 'list',menuIndex: 0,submenuIndex: -1}, label: 'Users', icon: 'users' }
     - Products
-    - Categories
+    - { property: 'Categories', roles: ['ROLE_SUPER_ADMIN'], route: 'easyadmin', params: {entity: 'Categories',action: 'list',menuIndex: 0,submenuIndex: -1}, label: 'Categories', icon: 'list-alt' }
     - CampaignCondition
     - Campaigns
     - Messages
     - Orders
-    - ProductsBrands
+    - { property: 'ProductsBrands', roles: ['ROLE_SUPER_ADMIN'], route: 'easyadmin', params: {entity: 'ProductsBrands',action: 'list',menuIndex: 0,submenuIndex: -1}, label: 'ProductsBrands', icon: 'list-alt' }
     - ProductsImages
-    - ShopProfile
+    - { property: 'ShopProfile', roles: ['ROLE_SUPER_ADMIN','ROLE_SHOP'], route: 'easyadmin', params: {entity: 'ShopProfile',action: 'show',menuIndex: 0,submenuIndex: -1}, label: 'ShopProfile', icon: 'list-all' }
     - { property: 'UserFavoriteProducts', roles: ['ROLE_SUPER_ADMIN'], route: 'easyadmin', params: {entity: 'UserFavoriteProducts',action: 'list',menuIndex: 0,submenuIndex: -1}, label: 'UserFavoriteProducts', icon: 'users' }

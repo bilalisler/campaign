@@ -13,7 +13,7 @@ easy_admin:
       label: 'Categories'
       image_base_path: 'http://static.acme.org/img/'
       permissions:
-        list:  ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN']
+        list:  ['ROLE_SUPER_ADMIN']
       show:
         max_results: 5
       list:

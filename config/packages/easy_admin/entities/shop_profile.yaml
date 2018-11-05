@@ -13,9 +13,19 @@ easy_admin:
       label: 'ShopProfile'
       image_base_path: 'http://static.acme.org/img/'
       permissions:
-        list:  ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN']
+        list:  ['ROLE_SUPER_ADMIN']
       show:
         max_results: 5
+#        fields:
+#        - id
+#        - name
+#        - description
+#        - address
+#        - phone
+#        - city
+#        - town
+#        - latitude
+#        - longitude
       list:
         fields:
         - id

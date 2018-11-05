@@ -32,6 +32,14 @@ class CampaignCondition
      */
     private $conditions;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ShopProfile",inversedBy="campaignCondition")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
+     * })
+     */
+    private $shop;
+
     public function __construct()
     {
     }

@@ -33,6 +33,7 @@ easy_admin:
         - { property: 'updatedAt', type: 'datetime' }
         title: "Most recent Categories"
         max_results: 10
+#        dql_filter: "entity.shop.user.roles like 'ROLE_SUPER_ADMIN%'"
       form:  # <-- 'form' is applied to both 'new' and 'edit' views
         fields:
         - slug
