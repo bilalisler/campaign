@@ -1,3 +1,5 @@
+### PhpStorm
+/.idea/*
 
 ###> symfony/framework-bundle ###
 /.env
@@ -14,3 +16,7 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+## App
+/public/uploads/images/category/*
+/public/uploads/images/products/*
