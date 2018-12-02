@@ -19,12 +19,8 @@
 
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
-    <!-- styles needed for carousel slider -->
-    <link href="{{ asset('assets/plugins/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/plugins/owl-carousel/owl.theme.css') }}" rel="stylesheet">
-
-    <!-- bxSlider CSS file -->
-    <link href="{{ asset('assets/plugins/bxslider/jquery.bxslider.css') }}" rel="stylesheet"/>
+    {% block styles %}
+    {% endblock %}
 
     <!-- Just for debugging purposes. -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,6 +37,8 @@
     </script>
     <script src="{{ asset('assets/js/pace.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/modernizr/modernizr-custom.js') }}"></script>
+    {% block javascripts %}
+    {% endblock %}
 
     <script type="text/javascript">
         /**
@@ -103,14 +101,13 @@
 
         getLocation();
     </script>
-
-    {{ yandexMapJsContent | raw }}
 </head>
 <body>
 <div id="wrapper">
     <div id="mapholder"></div>
 
-    <div class="themeControll ">
+    {#SOL TARAF MENUSU#}
+    <div class="themeControll " style="display: none;">
 
         <h3 style=" color:#fff; font-size: 10px; line-height: 12px;" class="uppercase color-white text-center">
             <a target="_blank" href="../template-index.html"> All
@@ -308,148 +305,21 @@
     </div>
     <!-- /.header -->
 
-    {#<div class="intro" style="background-image: url({{ asset('assets/images/bg3.jpg') }});">#}
-    <div class="intro" style="position: relative">
-
-        <div id="map" style="position: absolute;width: 100%;height: 100%;top:0;left:0;z-index:-1;"></div>
-
-        <div class="clearfix"></div>
-
-        <div class="dtable hw100">
-            <div class="dtable-cell hw100">
-                <div class="container text-center">
-                    <h1 class="intro-title animated fadeInDown"> Ne Aramıştn ? </h1>
-
-                    <p class="sub animateme fittext3 animated fadeIn">
-                        Bulunduğun yere yakın mağazaları görebilirsin.
-                    </p>
-
-                    <div class="row search-row animated fadeInUp">
-                        <div class="col-xl-4 col-sm-4 search-col relative locationicon">
-                            <i class="icon-location-2 icon-append"></i>
-                            <input type="text" name="country" id="autocomplete-ajax"
-                                   class="form-control locinput input-rel searchtag-input has-icon"
-                                   placeholder="City/Zipcode..." value="">
-
-                        </div>
-                        <div class="col-xl-4 col-sm-4 search-col relative"><i class="icon-docs icon-append"></i>
-                            <input type="text" name="ads" class="form-control has-icon"
-                                   placeholder="I'm looking for a ..." value="">
-                        </div>
-                        <div class="col-xl-4 col-sm-4 search-col">
-                            <button class="btn btn-primary btn-search btn-block btn-gradient"><i
-                                        class="icon-search"></i><strong>Find</strong></button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.intro -->
-
+    {% block intro %}
+    {% endblock %}
 
     <!-- /.main-container -->
     <div class="main-container">
-        <div class="container">
-            {% block body %}
-            {% endblock %}
-        </div>
+        {% block body %}
+        {% endblock %}
     </div>
     <!-- /.main-container -->
 
-    <div class="page-info hasOverly"
-         style="background: url({{ asset('assets/images/bg.jpg') }}); background-size:cover">
-        <div class="bg-overly">
-            <div class="container text-center section-promo">
-                <div class="row">
-                    <div class="col-sm-3 col-xs-6 col-xxs-12">
-                        <div class="iconbox-wrap">
-                            <div class="iconbox">
-                                <div class="iconbox-wrap-icon">
-                                    <i class="icon  icon-group"></i>
-                                </div>
-                                <div class="iconbox-wrap-content">
-                                    <h5><span>2200</span></h5>
+    {% block page_info %}
+    {% endblock %}
 
-                                    <div class="iconbox-wrap-text">Trusted Seller</div>
-                                </div>
-                            </div>
-                            <!-- /..iconbox -->
-                        </div>
-                        <!--/.iconbox-wrap-->
-                    </div>
-
-                    <div class="col-sm-3 col-xs-6 col-xxs-12">
-                        <div class="iconbox-wrap">
-                            <div class="iconbox">
-                                <div class="iconbox-wrap-icon">
-                                    <i class="icon  icon-th-large-1"></i>
-                                </div>
-                                <div class="iconbox-wrap-content">
-                                    <h5><span>100</span></h5>
-
-                                    <div class="iconbox-wrap-text">Categories</div>
-                                </div>
-                            </div>
-                            <!-- /..iconbox -->
-                        </div>
-                        <!--/.iconbox-wrap-->
-                    </div>
-
-                    <div class="col-sm-3 col-xs-6  col-xxs-12">
-                        <div class="iconbox-wrap">
-                            <div class="iconbox">
-                                <div class="iconbox-wrap-icon">
-                                    <i class="icon  icon-map"></i>
-                                </div>
-                                <div class="iconbox-wrap-content">
-                                    <h5><span>700</span></h5>
-
-                                    <div class="iconbox-wrap-text">Location</div>
-                                </div>
-                            </div>
-                            <!-- /..iconbox -->
-                        </div>
-                        <!--/.iconbox-wrap-->
-                    </div>
-
-                    <div class="col-sm-3 col-xs-6 col-xxs-12">
-                        <div class="iconbox-wrap">
-                            <div class="iconbox">
-                                <div class="iconbox-wrap-icon">
-                                    <i class="icon icon-facebook"></i>
-                                </div>
-                                <div class="iconbox-wrap-content">
-                                    <h5><span>50,000</span></h5>
-
-                                    <div class="iconbox-wrap-text"> Facebook Fans</div>
-                                </div>
-                            </div>
-                            <!-- /..iconbox -->
-                        </div>
-                        <!--/.iconbox-wrap-->
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- /.page-info -->
-
-    <div class="page-bottom-info">
-        <div class="page-bottom-info-inner">
-
-            <div class="page-bottom-info-content text-center">
-                <h1>If you have any questions, comments or concerns, please call the Classified Advertising department
-                    at (000) 555-5556</h1>
-                <a class="btn  btn-lg btn-primary-dark" href="tel:+000000000">
-                    <i class="icon-mobile"></i> <span class="hide-xs color50">Call Now:</span> (000) 555-5555 </a>
-            </div>
-
-        </div>
-    </div>
+    {% block page_bottom %}
+    {% endblock %}
 
     <footer class="main-footer">
         <div class="footer-content">
@@ -1777,9 +1647,9 @@
 <script type="text/javascript" src="{{ asset('assets/plugins/autocomplete/jquery.mockjax.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/plugins/autocomplete/jquery.autocomplete.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/plugins/autocomplete/usastates.js') }}"></script>
-
 <script type="text/javascript" src="{{ asset('assets/plugins/autocomplete/autocomplete-demo.js') }}"></script>
 
-
+{% block javascript_inline %}
+{% endblock %}
 </body>
 </html>

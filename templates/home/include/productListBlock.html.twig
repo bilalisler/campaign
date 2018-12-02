@@ -1,0 +1,19 @@
+{% for product in products  %}
+
+    {% set imagePath = "" %}
+    {% for image in product.productImages %}
+        {% set imagePath = product_image_path ~ '/' ~ image.image %}
+    {% endfor %}
+
+    <div class="item">
+        <a href="{{ path("product_detail",{'slug':product.slug}) }}">
+            <span class="item-carousel-thumb">
+                <img class="img-responsive" src="{{ asset(imagePath) }}" alt="img">
+            </span>
+            <span class="item-name"> {{ product.name }}  </span>
+            <span class="price">  {{ product.buyPrice }} TL </span>
+        </a>
+    </div>
+{% endfor %}
+
+

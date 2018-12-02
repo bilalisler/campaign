@@ -20,6 +20,21 @@ class CategoriesRepository extends ServiceEntityRepository
         parent::__construct($registry, Categories::class);
     }
 
+    public function listParentCategories($limit = 10,$returnJson = false){
+        $em = $this->getEntityManager();
+        $qb = $em->getRepository("App:Categories")->createQueryBuilder("c");
+
+        $qb->where($qb->expr()->isNull('c.parent'));
+        $qb->andWhere($qb->expr()->eq('c.categoryStatus',':categoryStatus'))->setParameter('categoryStatus',true);
+        $qb->setMaxResults($limit);
+        $qb->orderBy("c.categoryOrder","ASC");
+
+        if($returnJson === true){
+            return json_encode($qb->getQuery()->getArrayResult());
+        }
+        return $qb->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Categories[] Returns an array of Categories objects
 //     */

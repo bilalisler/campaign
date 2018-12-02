@@ -56,16 +56,18 @@ class ShopProfile
     private $phone = null;
 
     /**
-     * @var int|null
+     * @var City|null
      *
-     * @ORM\Column(name="city", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\City")
+     * @ORM\JoinColumn(name="city",referencedColumnName="id")
      */
     private $city = null;
 
     /**
-     * @var int|null
+     * @var Town|null
      *
-     * @ORM\Column(name="town", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Town")
+     * @ORM\JoinColumn(name="town",referencedColumnName="id")
      */
     private $town = null;
 
@@ -192,33 +194,33 @@ class ShopProfile
     }
 
     /**
-     * @return int|null
+     * @return City|null
      */
-    public function getCity(): ?int
+    public function getCity(): ?City
     {
         return $this->city;
     }
 
     /**
-     * @param int|null $city
+     * @param City|null $city
      */
-    public function setCity(?int $city): void
+    public function setCity(?City $city): void
     {
         $this->city = $city;
     }
 
     /**
-     * @return int|null
+     * @return Town|null
      */
-    public function getTown(): ?int
+    public function getTown(): ?Town
     {
         return $this->town;
     }
 
     /**
-     * @param int|null $town
+     * @param Town|null $town
      */
-    public function setTown(?int $town): void
+    public function setTown(?Town $town): void
     {
         $this->town = $town;
     }

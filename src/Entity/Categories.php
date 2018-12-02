@@ -83,6 +83,13 @@ class Categories
     private $parent;
 
     /**
+     * Many Users have Many Groups.
+     * @ORM\ManyToMany(targetEntity="App\Entity\Products", inversedBy="categories")
+     * @ORM\JoinTable(name="categories_products")
+     */
+    private $products;
+
+    /**
      * @var string|null
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=true, options={"default"="NULL"})
@@ -141,6 +148,7 @@ class Categories
 
     public function __construct() {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

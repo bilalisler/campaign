@@ -6,7 +6,7 @@
 parameters:
     locale: 'en'
     upload.category.images.path: /uploads/images/category
-    upload.product.images.path: /uploads/images/category
+    upload.product.images.path: /uploads/images/products
 
 services:
     # default configuration for services in *this* file
@@ -41,3 +41,10 @@ services:
         arguments: ['@security.token_storage']
         tags:
         - {name: 'easyadmin.config_pass', priority: 70}
+
+#    gedmo.listener.timestampable:
+#        class: Gedmo\Timestampable\TimestampableListener
+#        tags:
+#        - { name: doctrine.event_subscriber, connection: default }
+#        calls:
+#        - [ setAnnotationReader, [ @annotation_reader ] ]

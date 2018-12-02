@@ -20,18 +20,19 @@ easy_admin:
         fields:
         - id
         - name
-        - { property: 'code', help: 'EAN-13 valid code. Leave empty if unknown.' }
+#        - { property: 'code', help: 'EAN-13 valid code. Leave empty if unknown.' }
         - stock
         - status
-        - productImages
+#        - productImages
         - { property: 'isactive', type: 'toggle' }
         - { property: 'isdelete', type: 'toggle' }
+        - { property: 'isSponsored', type: 'toggle' }
         - brand
-        - category
+#        - categories
         - shop
         - { property: 'createdAt', type: 'datetime' }
         - { property: 'updatedAt', type: 'datetime' }
-        title: "Most recent Categories"
+        title: "Product List"
         max_results: 10
 #        dql_filter: "entity.shop.user.roles like 'ROLE_SUPER_ADMIN%'"
       form:  # <-- 'form' is applied to both 'new' and 'edit' views
@@ -48,14 +49,15 @@ easy_admin:
         - isActive
         - isDelete
         - brand
-        - category
+        - categories
         - shop
+        - isSponsored
         - { property: buyPrice, type: 'money', type_options: { currency: 'TRY' }}
         - { property: sellPrice, type: 'money', type_options: { currency: 'TRY' }}
         - { property: taxPrice, type: 'money', type_options: { currency: 'TRY' }}
         - { property: otherPrice, type: 'money', type_options: { currency: 'TRY' }}
-        - { property: 'createdAt', type: 'datetime', type_options: { widget: 'single_text' }  }
-        - { property: 'updatedAt', type: 'datetime', type_options: { widget: 'single_text' }  }
+#        - { property: 'createdAt', type: 'datetime', type_options: { widget: 'single_text' }  }
+#        - { property: 'updatedAt', type: 'datetime', type_options: { widget: 'single_text' }  }
         - property: 'productImages'
           type: 'collection'
           type_options:

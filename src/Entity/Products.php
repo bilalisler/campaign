@@ -5,18 +5,21 @@ namespace App\Entity;
 use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
 
 /**
  * Products
  *
- * @ORM\Table(name="products", indexes={@ORM\Index(name="brand_property", columns={"brand_id"}), @ORM\Index(name="shop_property", columns={"shop_id"}), @ORM\Index(name="category_property", columns={"category_id"})})
+ * @ORM\Table(name="products", indexes={@ORM\Index(name="brand_property", columns={"brand_id"}), @ORM\Index(name="shop_property", columns={"shop_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\ProductsRepository")
  */
+//Table index => , @ORM\Index(name="category_property", columns={"category_id"})
 class Products
 {
     public function __toString()
     {
-        return $this->name;
+        return (string)$this->name;
     }
 
     /**
@@ -70,6 +73,14 @@ class Products
      */
     private $description = null;
 
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="is_sponsored", type="smallint",nullable=true, options={"default"=0})
+     */
+    private $isSponsored = 0;
+
     /**
      * @var string|null
      *
@@ -116,7 +127,7 @@ class Products
     /**
      * @var float|null
      *
-     * @ORM\Column(name="sell", type="float", nullable=true)
+     * @ORM\Column(name="sell_price", type="float", nullable=true)
      */
     private $sellPrice = 0.0;
 
@@ -136,14 +147,14 @@ class Products
 
     /**
      * @var \DateTime|null
-     *
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="created_at", type="datetime", length=255, nullable=true)
      */
     private $createdAt = null;
 
     /**
      * @var \DateTime|null
-     *
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(name="updated_at", type="datetime", length=255, nullable=true)
      */
     private $updatedAt = null;
@@ -158,7 +169,7 @@ class Products
      */
     private $brand;
 
-    /**
+    /*
      * @var Categories
      *
      * @ORM\ManyToOne(targetEntity="Categories")
@@ -166,7 +177,32 @@ class Products
      *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      * })
      */
-    private $category;
+//    private $category;
+
+    /**
+     * Many Groups have Many Users.
+     * @ORM\ManyToMany(targetEntity="App\Entity\Categories", mappedBy="products")
+     */
+    private $categories;
+
+    /**
+     * @return mixed
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param mixed $categories
+     */
+    public function setCategories($categories): void
+    {
+        $this->categories = $categories;
+    }
+
+
+
 
     /**
      * @var ShopProfile
@@ -218,6 +254,7 @@ class Products
     public function __construct()
     {
         $this->productImages = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     /**
@@ -550,4 +587,22 @@ class Products
     {
         $this->otherPrice = $otherPrice;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getisSponsored(): ?string
+    {
+        return $this->isSponsored;
+    }
+
+    /**
+     * @param null|string $isSponsored
+     */
+    public function setIsSponsored(?string $isSponsored): void
+    {
+        $this->isSponsored = $isSponsored;
+    }
+
+
 }

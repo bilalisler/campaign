@@ -14,7 +14,7 @@ class ProductsBrands
 {
     public function __toString()
     {
-        return $this->brandName;
+        return (string)$this->brandName;
     }
 
     /**

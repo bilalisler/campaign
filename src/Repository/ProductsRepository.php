@@ -20,6 +20,32 @@ class ProductsRepository extends ServiceEntityRepository
         parent::__construct($registry, Products::class);
     }
 
+
+    public function listAll($limit = -1,$returnJson = false){
+        $em = $this->getEntityManager();
+        $qb = $em->getRepository("App:Products")->createQueryBuilder("p");
+
+        $qb
+            ->where($qb->expr()->eq('p.isActive',":isActive"))
+            ->setParameter("isActive",1)
+            ->andWhere($qb->expr()->eq('p.isDelete',":isDelete"))
+            ->setParameter("isDelete",0)
+            ->andWhere($qb->expr()->eq('p.isSponsored',":isSponsored"))
+            ->setParameter("isSponsored",0)
+            ->orderBy("p.createdAt","DESC")
+        ;
+
+        $limit = intval($limit);
+        if($limit > -1){
+            $qb->setMaxResults($limit);
+        }
+
+        if($returnJson === true){
+            return json_encode($qb->getQuery()->getArrayResult());
+        }
+        return $qb->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Products[] Returns an array of Products objects
 //     */
