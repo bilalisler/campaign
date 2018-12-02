@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Table(name="town", indexes={@ORM\Index(name="IDX_4CE6C7A48BAC62AF", columns={"city_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\TownRepository")
  */
 class Town

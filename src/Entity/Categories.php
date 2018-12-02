@@ -11,7 +11,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * Categories
  * @Vich\Uploadable
- * @ORM\Table(name="categories")
+ * @ORM\Table(name="categories", indexes={@ORM\Index(name="IDX_3AF34668727ACA70", columns={"parent_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\CategoriesRepository")
  */
 class Categories

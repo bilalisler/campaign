@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CampaignCondition
  *
- * @ORM\Table(name="campaign_condition")
+ * @ORM\Table(name="campaign_condition", indexes={@ORM\Index(name="IDX_7D5E94384D16C4DD", columns={"shop_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\CampaignConditionRepository")
  */
 class CampaignCondition
@@ -26,14 +26,16 @@ class CampaignCondition
     private $id;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="conditions", type="json_array", nullable=false)
+     * @ORM\Column(name="conditions", type="json_array", length=255, nullable=false)
      */
     private $conditions;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ShopProfile",inversedBy="campaignCondition")
+     * @var \ShopProfile
+     *
+     * @ORM\ManyToOne(targetEntity="ShopProfile",inversedBy="campaignCondition")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
      * })
