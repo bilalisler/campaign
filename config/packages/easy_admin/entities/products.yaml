@@ -43,7 +43,7 @@ easy_admin:
         - code
         - stock
         - { property: subDescription, type: 'textarea'}
-        - { property: description, type: 'textarea'}
+        - { property: description, type: 'FOS\CKEditorBundle\Form\Type\CKEditorType'}
         - metatags
         - metakeys
         - status
