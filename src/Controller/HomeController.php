@@ -18,7 +18,6 @@ class HomeController extends AbstractController
     public function index(YandexMap $yandexMap)
     {
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController'
         ]);
     }
 

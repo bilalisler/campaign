@@ -219,6 +219,35 @@
                             </aside>
                         </div>
                     </div>
+
+                    <div class="content-footer">
+                        {{ render(controller('App\\Controller\\ProductController::productCommentInsert')) }}
+
+                        <hr>
+
+                        <div class="container-fluid">
+                            <h2>Yorumlar</h2>
+                            {% for comment in comments %}
+                                <ul>
+                                    <li style="border-bottom: 1px dotted #ddd;padding: 10px;">
+                                        <div class="comment-text">
+                                          *  {{ comment.comment }}
+                                        </div>
+                                        {% if comment.children |length > 0 %}
+                                            <ul>
+                                                {% for childrenComment in comment.children %}
+                                                    <li style="padding: 10px">
+                                                       > {{ childrenComment.comment }}
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                            {% endfor %}
+                        </div>
+                    </div>
+
                     <div class="content-footer text-left">
                         <div class="w100 map" id="prop-map">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387145.86637487786!2d-74.25819556904787!3d40.70531103651696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY!5e0!3m2!1sen!2sus!4v1473181424956" height="350" style="border:0;   width:100%"></iframe>
@@ -285,6 +314,30 @@
 {% endblock %}
 
 {% block javascript_inline %}
+    <script>
+        $(document).ready(function () {
+            $(document).on("submit","form[name='comment']",function (e) {
+                e.preventDefault();
+
+                var serializeData = $("form[name='comment']").serialize();
+
+                console.log(serializeData);
+
+                $.ajax({
+                   url: Routing.generate("product_comment_insert"),
+                   method: 'GET',
+                   data: serializeData,
+                    success: function (response) {
+                        console.log(response);
+                    },
+                    error: function (response) {
+                        console.log("error");
+                        console.log(response);
+                    },
+                });
+            });
+        });
+    </script>
 
     <script>
 

@@ -197,6 +197,29 @@ class Products
     public $productImages;
 
     /**
+     * @var ProductComments|null
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\ProductComments",mappedBy="product")
+     */
+    private $comments;
+
+    /**
+     * @return ProductComments|null
+     */
+    public function getComments(): ?ProductComments
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param ProductComments $comments
+     */
+    public function setComments(ProductComments $comments): void
+    {
+        $this->comments = $comments;
+    }
+
+    /**
      * @return ProductsImages[]|ArrayCollection
      */
     public function getProductImages()
