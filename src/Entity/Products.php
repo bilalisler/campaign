@@ -170,7 +170,7 @@ class Products
      */
     private $brand;
 
-    /*
+    /**
      * @var Categories
      *
      * @ORM\ManyToOne(targetEntity="Categories")
@@ -178,32 +178,7 @@ class Products
      *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      * })
      */
-//    private $category;
-
-    /**
-     * Many Groups have Many Users.
-     * @ORM\ManyToMany(targetEntity="App\Entity\Categories", mappedBy="products")
-     */
-    private $categories;
-
-    /**
-     * @return mixed
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
-    /**
-     * @param mixed $categories
-     */
-    public function setCategories($categories): void
-    {
-        $this->categories = $categories;
-    }
-
-
-
+    private $category;
 
     /**
      * @var ShopProfile

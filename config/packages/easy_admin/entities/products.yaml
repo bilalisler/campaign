@@ -28,7 +28,7 @@ easy_admin:
         - { property: 'isdelete', type: 'toggle' }
         - { property: 'isSponsored', type: 'toggle' }
         - brand
-#        - categories
+        - category
         - shop
         - sellPrice
         - { property: 'createdAt', type: 'datetime' }
@@ -50,7 +50,7 @@ easy_admin:
         - isActive
         - isDelete
         - brand
-        - categories
+        - category
         - shop
         - isSponsored
         - { property: buyPrice, type: 'money', type_options: { currency: 'TRY' }}
