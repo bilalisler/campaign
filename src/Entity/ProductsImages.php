@@ -44,6 +44,13 @@ class ProductsImages
     private $status;
 
     /**
+     * @var bool|null
+     *
+     * @ORM\Column(name="is_avatar", nullable=true, type="boolean",options={"default":false})
+     */
+    private $isAvatar = false;
+
+    /**
      * @var Products
      *
      * @ORM\ManyToOne(targetEntity="Products", inversedBy="productImages")
@@ -134,4 +141,22 @@ class ProductsImages
     {
         return $this->image;
     }
+
+    /**
+     * @return bool|null
+     */
+    public function getisAvatar(): ?bool
+    {
+        return $this->isAvatar;
+    }
+
+    /**
+     * @param bool|null $isAvatar
+     */
+    public function setIsAvatar(?bool $isAvatar): void
+    {
+        $this->isAvatar = $isAvatar;
+    }
+
+
 }

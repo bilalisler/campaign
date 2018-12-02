@@ -25,7 +25,7 @@ class City
     /**
      * @ORM\Column(name="city_name",type="string",length=100,nullable=true)
      */
-    private $cityName;
+    private $name;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Town",mappedBy="city")
@@ -56,18 +56,16 @@ class City
     /**
      * @return mixed
      */
-    public function getCityName()
+    public function getName()
     {
-        return $this->cityName;
+        return $this->name;
     }
 
     /**
-     * @param mixed $cityName
+     * @param mixed $name
      */
-    public function setCityName($cityName): void
+    public function setName($name): void
     {
-        $this->cityName = $cityName;
+        $this->name = $name;
     }
-
-
 }

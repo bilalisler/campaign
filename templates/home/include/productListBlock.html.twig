@@ -1,7 +1,7 @@
 {% for product in products  %}
 
-    {% set imagePath = "" %}
-    {% for image in product.productImages %}
+    {% set imagePath = asset('assets/images/none_product_image.png') %}
+    {% for image in product.productImages if image.isAvatar and image.status == 1 %}
         {% set imagePath = product_image_path ~ '/' ~ image.image %}
     {% endfor %}
 

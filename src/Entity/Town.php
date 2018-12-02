@@ -25,7 +25,7 @@ class Town
     /**
      * @ORM\Column(name="town_name",type="string",length=100,nullable=true)
      */
-    private $townName;
+    private $name;
 
     public function getId(): ?int
     {
@@ -51,16 +51,18 @@ class Town
     /**
      * @return mixed
      */
-    public function getTownName()
+    public function getName()
     {
-        return $this->townName;
+        return $this->name;
     }
 
     /**
-     * @param mixed $townName
+     * @param mixed $name
      */
-    public function setTownName($townName): void
+    public function setName($name): void
     {
-        $this->townName = $townName;
+        $this->name = $name;
     }
+
+
 }

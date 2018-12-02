@@ -28,10 +28,6 @@
                     <li class="breadcrumb-item active" aria-current="page">Search Results</li>
                 </ol>
             </nav>
-
-
-            <div class="pull-right backtolist"><a href="property-list.html"> <i class="fa fa-angle-double-left"></i> Back to Results</a></div>
-
         </div>
     </div>
 </div>
@@ -43,7 +39,7 @@
             <div class="inner inner-box ads-details-wrapper">
                 <h1 class="auto-heading">
                     <span class="auto-title left">{{ product.name }}</span>
-                    <span class="auto-price pull-right"> {{ product.buyPrice }} TL</span>
+                    <span class="auto-price pull-right"> {{ product.sellPrice }} TL</span>
                 </h1>
 
                 <div style="clear:both;"></div>
@@ -71,12 +67,14 @@
                                     <ul class="bxslider" style="width: 7215%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
                                         {% set productImagePath = "" %}
                                         {% for productImage in product.productImages %}
-                                            {% set productImagePath = product_image_path ~ '/' ~ productImage.image %}
-                                            {% set isHidden = loop.index > 5 ? 0 : 1 %}
+                                            {% if productImage.status == 1 %}
+                                                {% set productImagePath = product_image_path ~ '/' ~ productImage.image %}
+                                                {% set isHidden = loop.index > 5 ? 0 : 1 %}
 
-                                            <li style="float: left; list-style: none; position: relative; width: 585px;" aria-hidden="{{ isHidden == 1 ? 'false':'true' }}">
-                                                <img src="{{ asset(productImagePath) }}" alt="img">
-                                            </li>
+                                                <li style="float: left; list-style: none; position: relative; width: 585px;" aria-hidden="{{ isHidden == 1 ? 'false':'true' }}">
+                                                    <img src="{{ asset(productImagePath) }}" alt="img">
+                                                </li>
+                                            {% endif %}
                                         {% endfor %}
                                     </ul>
                                 </div>
@@ -89,14 +87,16 @@
                                         <ul id="bx-pager" class="product-view-thumb" style="width: 6215%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
                                             {% set productImagePath = "" %}
                                             {% for productImage in product.productImages %}
-                                                {% set productImagePath = product_image_path ~ '/' ~ productImage.image %}
-                                                {% set isHidden = loop.index > 5 ? 0 : 1 %}
+                                                {% if productImage.status == 1 %}
+                                                    {% set productImagePath = product_image_path ~ '/' ~ productImage.image %}
+                                                    {% set isHidden = loop.index > 5 ? 0 : 1 %}
 
-                                                <li aria-hidden="{{ isHidden == 1 ? 'false':'true' }}" style="float: left; list-style: none; position: relative; width: 100px; margin-right: 10px;">
-                                                    <a data-slide-index="{{ loop.index -1 }}" class="thumb-item-link" href="">
-                                                        <img src="{{ asset(productImagePath) }}" alt="img">
-                                                    </a>
-                                                </li>
+                                                    <li aria-hidden="{{ isHidden == 1 ? 'false':'true' }}" style="float: left; list-style: none; position: relative; width: 100px; margin-right: 10px;">
+                                                        <a data-slide-index="{{ loop.index -1 }}" class="thumb-item-link" href="">
+                                                            <img src="{{ asset(productImagePath) }}" alt="img">
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
                                             {% endfor %}
                                         </ul>
                                     </div>
@@ -188,53 +188,7 @@
 
                     <div class="row">
                         <div class="ads-details-info col-md-8">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                                euismod tincidunt ut
-                                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                                nostrud exerci tation
-                                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
-                                autem vel eum iriure dolor
-                                in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
-                                feugiat nulla facilisis at
-                                vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
-                                zzril delenit augue duis
-                                dolore te feugait nulla facilisi. Nam liber tempor.
-                            </p>
-                            <h4 class="text-uppercase">Property features</h4>
-
-                            <ul class="list-circle">
-
-                                <li>KfW Efficiency House 70 standard (EnEV 2014)</li>
-                                <li>Controlled ventilation with heat recovery</li>
-                                <li>Floor heating in all rooms</li>
-                                <li>Additional towel radiator in bath and shower products</li>
-                                <li>Shower units with floor-level shower trays</li>
-                                <li>Windows with 3 triple glazing</li>
-                                <li>Utility Room</li>
-                                <li>Three Further Double Bedrooms</li>
-                                <li>Entrance Hall</li>
-
-                            </ul>
-                            <h4 class="text-uppercase">Property info </h4>
-                            <ul class="list-circle">
-                                <li>3 bathrooms + guest toilet</li>
-                                <li>Furnished</li>
-                                <li>Private garden and terrace - with balcony or winter garden (OG)</li>
-                                <li>Garage and outdoor parking space</li>
-                            </ul>
-
-                            <h4 class="text-uppercase">Address </h4>
-                            <address>
-                                <p> Rickey S Marino <br>
-                                    3277 Horseshoe Lane<br>
-                                    New York 75105<br>
-                                    <br>
-                                    Phone Number: +484-448-1749<br>
-
-                                    E-Mail: info@RickeySMarino.com<br>
-                                    Web: www.exampledemo.com</p>
-                            </address>
+                            {{ product.description |raw }}
                         </div>
                         <div class="col-md-4">
                             <aside class="panel panel-body panel-details">
@@ -242,14 +196,12 @@
                                     <li>
                                         <p class=" no-margin "><strong>Prices:</strong> from € 775,000 </p>
                                     </li>
-
                                     <li>
                                         <p class="no-margin"><strong>Building Type:</strong> Appertment</p>
                                     </li>
                                     <li>
                                         <p class="no-margin"><strong>Size:</strong> ca. 120 m²</p>
                                     </li>
-
                                     <li>
                                         <p class="no-margin"><strong>Location:</strong> New York </p>
                                     </li>
@@ -263,18 +215,8 @@
                                         <p class="no-margin"><strong>Ready for occupancy:</strong> 15.09.2016
                                         </p>
                                     </li>
-
-
                                 </ul>
                             </aside>
-                            <div class="ads-action">
-                                <ul class="list-border">
-                                    <li><a href="#"> <i class=" fa fa-user"></i> More ads by User </a></li>
-                                    <li><a href="#"> <i class=" fa fa-heart"></i> Save ad </a></li>
-                                    <li><a href="#"> <i class="fa fa-share-alt"></i> Share ad </a></li>
-                                    <li><a href="#reportAdvertiser" data-toggle="modal"> <i class="fa icon-info-circled-alt"></i> Report abuse </a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                     <div class="content-footer text-left">
@@ -307,7 +249,7 @@
                                 </div>
                                 <h3 class="no-margin">{{ product.shop.name }}</h3>
 
-                                <p>Location: <strong>{{ product.shop.city }}/{{ product.shop.town }}</strong></p>
+                                <p>Location: <strong>{{ product.shop.city.name }}/{{ product.shop.town.name }}</strong></p>
 
                                 <p> Web: <strong>www.demoweb.com</strong></p>
                             </div>
