@@ -34,7 +34,7 @@ easy_admin:
       form:  # <-- 'form' is applied to both 'new' and 'edit' views
         fields:
         - campaignName
-        - campaignDescription
+        - { property: campaignDescription, type: 'FOS\CKEditorBundle\Form\Type\CKEditorType'}
         - category
         - condition
         - product
