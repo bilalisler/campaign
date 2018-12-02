@@ -30,6 +30,7 @@ easy_admin:
         - brand
 #        - categories
         - shop
+        - sellPrice
         - { property: 'createdAt', type: 'datetime' }
         - { property: 'updatedAt', type: 'datetime' }
         title: "Product List"
@@ -37,7 +38,7 @@ easy_admin:
 #        dql_filter: "entity.shop.user.roles like 'ROLE_SUPER_ADMIN%'"
       form:  # <-- 'form' is applied to both 'new' and 'edit' views
         fields:
-        - slug
+#        - slug
         - name
         - code
         - stock
@@ -53,9 +54,9 @@ easy_admin:
         - shop
         - isSponsored
         - { property: buyPrice, type: 'money', type_options: { currency: 'TRY' }}
-        - { property: sellPrice, type: 'money', type_options: { currency: 'TRY' }}
         - { property: taxPrice, type: 'money', type_options: { currency: 'TRY' }}
         - { property: otherPrice, type: 'money', type_options: { currency: 'TRY' }}
+#        - { property: sellPrice, type: 'money', type_options: { currency: 'TRY' }}
 #        - { property: 'createdAt', type: 'datetime', type_options: { widget: 'single_text' }  }
 #        - { property: 'updatedAt', type: 'datetime', type_options: { widget: 'single_text' }  }
         - property: 'productImages'

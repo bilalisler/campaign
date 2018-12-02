@@ -10,6 +10,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Products
+ * - gedmo document https://github.com/Atlantic18/DoctrineExtensions/blob/v2.4.x/doc/sluggable.md#including-extension
  *
  * @ORM\Table(name="products", indexes={@ORM\Index(name="brand_property", columns={"brand_id"}), @ORM\Index(name="shop_property", columns={"shop_id"})})
  * @ORM\Entity(repositoryClass="App\Repository\ProductsRepository")
@@ -33,7 +34,7 @@ class Products
 
     /**
      * @var string|null
-     *
+     * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(name="slug", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
     private $slug = null;
@@ -538,22 +539,8 @@ class Products
     public function setBuyPrice(?float $buyPrice): void
     {
         $this->buyPrice = $buyPrice;
-    }
 
-    /**
-     * @return float|null
-     */
-    public function getSellPrice(): ?float
-    {
-        return $this->sellPrice;
-    }
-
-    /**
-     * @param float|null $sellPrice
-     */
-    public function setSellPrice(?float $sellPrice): void
-    {
-        $this->sellPrice = $sellPrice;
+        $this->calculateTotalPrice();
     }
 
     /**
@@ -570,6 +557,8 @@ class Products
     public function setTaxPrice(?float $taxPrice): void
     {
         $this->taxPrice = $taxPrice;
+
+        $this->calculateTotalPrice();
     }
 
     /**
@@ -586,6 +575,34 @@ class Products
     public function setOtherPrice(?float $otherPrice): void
     {
         $this->otherPrice = $otherPrice;
+
+        $this->calculateTotalPrice();
+    }
+
+    public function calculateTotalPrice(){
+        $buyPrice = $this->getOtherPrice();
+        $taxPrice = $this->getOtherPrice();
+        $otherPrice = $this->getOtherPrice();
+
+        $this->setSellPrice($buyPrice + $taxPrice + $otherPrice);
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getSellPrice(): ?float
+    {
+        $this->calculateTotalPrice();
+
+        return $this->sellPrice;
+    }
+
+    /**
+     * @param float|null $sellPrice
+     */
+    public function setSellPrice(?float $sellPrice): void
+    {
+        $this->sellPrice = $sellPrice;
     }
 
     /**

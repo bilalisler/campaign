@@ -42,6 +42,26 @@ services:
         tags:
         - {name: 'easyadmin.config_pass', priority: 70}
 
+    gedmo.listener.sluggable:
+        class: Gedmo\Sluggable\SluggableListener
+        tags:
+          - { name: doctrine.event_subscriber, connection: default }
+        calls:
+          - method: setAnnotationReader
+            arguments:
+            - '@annotation_reader'
+        public: true
+
+    gedmo.listener.timestampable:
+      class: Gedmo\Timestampable\TimestampableListener
+      tags:
+      - { name: doctrine.event_subscriber, connection: default }
+      calls:
+      - method: setAnnotationReader
+        arguments:
+        - '@annotation_reader'
+      public: true
+
 #    gedmo.listener.timestampable:
 #        class: Gedmo\Timestampable\TimestampableListener
 #        tags:
