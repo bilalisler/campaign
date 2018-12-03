@@ -145,7 +145,7 @@ class ProductsImages
     /**
      * @return bool|null
      */
-    public function getisAvatar(): ?bool
+    public function getIsAvatar(): ?bool
     {
         return $this->isAvatar;
     }

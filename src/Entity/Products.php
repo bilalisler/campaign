@@ -128,13 +128,6 @@ class Products
     /**
      * @var float|null
      *
-     * @ORM\Column(name="sell_price", type="float", nullable=true)
-     */
-    private $sellPrice = 0.0;
-
-    /**
-     * @var float|null
-     *
      * @ORM\Column(name="tax_price", type="float", nullable=true)
      */
     private $taxPrice = 0.0;
@@ -145,6 +138,20 @@ class Products
      * @ORM\Column(name="other_price", type="float", nullable=true)
      */
     private $otherPrice = 0.0;
+
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(name="sell_price", type="float", nullable=true)
+     */
+    private $sellPrice = 0.0;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="currency", type="string",length=5, nullable=true)
+     */
+    private $currency = "TL";
 
     /**
      * @var \DateTime|null
@@ -173,7 +180,7 @@ class Products
     /**
      * @var Categories
      *
-     * @ORM\ManyToOne(targetEntity="Categories")
+     * @ORM\ManyToOne(targetEntity="Categories",inversedBy="products")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      * })
@@ -253,7 +260,7 @@ class Products
     public function __construct()
     {
         $this->productImages = new ArrayCollection();
-        $this->categories = new ArrayCollection();
+        $this->category = new ArrayCollection();
     }
 
     /**
@@ -601,6 +608,22 @@ class Products
     public function setSellPrice(?float $sellPrice): void
     {
         $this->sellPrice = $sellPrice;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param null|string $currency
+     */
+    public function setCurrency(?string $currency): void
+    {
+        $this->currency = $currency;
     }
 
     /**
