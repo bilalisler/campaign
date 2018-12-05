@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ProductComments;
 use App\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,9 +31,22 @@ class ProductController extends AbstractController
 
         $comments = $em->getRepository("App:ProductComments")->findByProduct($product);
 
+        $comment = new ProductComments();
+        $comment->setProduct($product->getId());
+
+        $commentForm = $this->createForm(CommentType::class,$comment,[]);
+        $commentForm->handleRequest($request);
+
+        if($request->isXmlHttpRequest() && $commentForm->isSubmitted() && $commentForm->isValid()){
+            var_dump($commentForm->getData());
+            die;
+        }
+
+
         return $this->render('product/index.html.twig', [
             'product' => $product,
-            'comments' => $comments
+            'comments' => $comments,
+            'commentForm' => $commentForm->createView()
         ]);
     }
 
@@ -41,6 +55,17 @@ class ProductController extends AbstractController
      */
     public function productCommentInsert(Request $request)
     {
+        if(!$request->isXmlHttpRequest() || $request->getMethod() !== 'GET'){
+            return new JsonResponse(
+                array(
+                    "status" => "error",
+                    "message" => "Başarısız İşlem"
+                )
+            );
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
         $comment = new ProductComments();
         $comment->setIpAddress($_SERVER["REMOTE_ADDR"]);
 
@@ -48,17 +73,14 @@ class ProductController extends AbstractController
             $comment->setUser($this->getUser()->getEmail());
         }
 
+
         $commentForm = $this->createForm(CommentType::class,$comment,array("action" => $this->generateUrl("product_comment_insert")));
         $commentForm->handleRequest($request);
 
-        if($request->isXmlHttpRequest() && $commentForm->isSubmitted() && $commentForm->isValid()){
-            var_dump($commentForm->getData());
-            die;
+        if($commentForm->isSubmitted() && $commentForm->isValid()){
+            $em->persist($comment);
+            $em->flush();
         }
-
-        return $this->render('comment/commentBlock.html.twig', [
-            'commentForm' => $commentForm->createView()
-        ]);
 
     }
 

@@ -221,7 +221,11 @@
                     </div>
 
                     <div class="content-footer">
-                        {{ render(controller('App\\Controller\\ProductController::productCommentInsert')) }}
+                        <div class="container-fluid">
+                            {{ form_start(commentForm) }}
+                            {{ form_widget(commentForm) }}
+                            {{ form_end(commentForm) }}
+                        </div>
 
                         <hr>
 
@@ -323,18 +327,27 @@
 
                 console.log(serializeData);
 
+                // $.mockjax({
+                //    url: Routing.generate("product_comment_insert"),
+                //    type: 'POST',
+                //     dataType: "json",
+                //    data: {'comment[comment]':'asdas'},
+                //     responseText: { bar: "hello world" },
+                //     response: function (resp) {
+                //         console.log(resp);
+                //     }
+                // });
+
                 $.ajax({
-                   url: Routing.generate("product_comment_insert"),
-                   method: 'GET',
-                   data: serializeData,
-                    success: function (response) {
-                        console.log(response);
-                    },
-                    error: function (response) {
-                        console.log("error");
-                        console.log(response);
-                    },
+                    url: Routing.generate("product_comment_insert") + "?" + serializeData,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                    }
                 });
+
+
             });
         });
     </script>

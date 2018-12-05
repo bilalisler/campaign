@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Table(name="town", indexes={@ORM\Index(name="IDX_4CE6C7A48BAC62AF", columns={"city_id"})})
@@ -19,13 +20,20 @@ class Town
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\City",inversedBy="towns")
+     * @ORM\JoinColumn(name="city_id",referencedColumnName="plate")
      */
     private $city;
 
     /**
-     * @ORM\Column(name="town_name",type="string",length=100,nullable=true)
+     * @ORM\Column(name="name",type="string",length=100,nullable=true)
      */
     private $name;
+
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(name="slug",type="string",length=100,nullable=true)
+     */
+    private $slug;
 
     public function getId(): ?int
     {
@@ -63,6 +71,24 @@ class Town
     {
         $this->name = $name;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug): void
+    {
+        $this->slug = $slug;
+    }
+
+
 
 
 }

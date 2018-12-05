@@ -23,14 +23,15 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->setAction($options["action"])
-            ->add('user',TextType::class, [
+            ->setMethod("GET")
+            ->add('email',TextType::class, [
                 "label" => "Email",
                 "attr" => array(
                     "class" => "form-control"
                 )
             ])
-            ->add('ipAddress', HiddenType::class, [])
+            ->add('product', HiddenType::class, [])
+//            ->add('ipAddress', HiddenType::class, [])
             ->add('comment', TextareaType::class, [
                 "label" => "Yorumunuz",
                 "attr" => array(
@@ -50,8 +51,7 @@ class CommentType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => ProductComments::class,
-            'action' => null
+            'data_class' => ProductComments::class
         ]);
     }
 }

@@ -260,7 +260,6 @@ class Products
     public function __construct()
     {
         $this->productImages = new ArrayCollection();
-        $this->category = new ArrayCollection();
     }
 
     /**

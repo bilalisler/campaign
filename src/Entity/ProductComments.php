@@ -18,21 +18,18 @@ class ProductComments
     private $id;
 
     /**
-     * @var ProductComments
+     * @var integer|null
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Products",inversedBy="comments")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="product", type="integer",nullable=true, options={"default"="NULL"})
      */
     private $product;
 
     /**
-     * @var integer|null
+     * @var string|null
      *
-     * @ORM\Column(name="user_id", type="integer", length=5, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="email", type="string", length=100, nullable=true, options={"default"="NULL"})
      */
-    private $user = null;
+    private $email = null;
 
     /**
      * @var string|null
@@ -112,38 +109,6 @@ class ProductComments
     }
 
     /**
-     * @return ProductComments
-     */
-    public function getProduct(): ProductComments
-    {
-        return $this->product;
-    }
-
-    /**
-     * @param ProductComments $product
-     */
-    public function setProduct(ProductComments $product): void
-    {
-        $this->product = $product;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getUser(): ?int
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param int|null $user
-     */
-    public function setUser(?int $user): void
-    {
-        $this->user = $user;
-    }
-
-    /**
      * @return null|string
      */
     public function getComment(): ?string
@@ -190,6 +155,40 @@ class ProductComments
     {
         $this->createdAt = $createdAt;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param null|string $email
+     */
+    public function setEmail(?string $email): void
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getProduct(): ?int
+    {
+        return $this->product;
+    }
+
+    /**
+     * @param int|null $product
+     */
+    public function setProduct(?int $product): void
+    {
+        $this->product = $product;
+    }
+
+
 
 
 
