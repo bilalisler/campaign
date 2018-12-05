@@ -113,68 +113,32 @@
 
                             <div class="key-features">
                                 <div class="media">
-
                                     <div class="media-body">
-                                        <span class="media-heading">ca. 120 m²</span>
-                                        <span class="data-type">size</span>
-                                    </div>
-                                </div>
-
-                                <div class="media">
-
-                                    <div class="media-body">
-                                        <span class="media-heading">4 Bed, 3 Bath</span>
-                                        <span class="data-type">Rooms</span>
-                                    </div>
-                                </div>
-
-                                <div class="media">
-
-                                    <div class="media-body">
-                                        <span class="media-heading">6 months</span>
-                                        <span class="data-type">min. rental period</span>
-                                    </div>
-                                </div>
-
-                                <div class="media">
-
-                                    <div class="media-body">
-                                        <span class="media-heading">Apartment</span>
-                                        <span class="data-type">Building Type</span>
+                                        <span class="media-heading">Mağaza Adı</span>
+                                        <span class="data-type">{{ shopProfile.name }}</span>
                                     </div>
                                 </div>
 
                                 <div class="media">
                                     <div class="media-body">
-                                        <span class="media-heading">15.09.2016 </span>
-                                        <span class="data-type">available from</span>
-                                    </div>
-                                </div>
-
-
-                                <div class="media">
-                                    <div class="media-body">
-                                        <span class="media-heading">Covered Parking</span>
-                                        <span class="data-type"> Parking</span>
+                                        <span class="media-heading">Mağaza Telefon</span>
+                                        <span class="data-type">{{ shopProfile.phone }}</span>
                                     </div>
                                 </div>
 
                                 <div class="media">
                                     <div class="media-body">
-                                        <span class="media-heading">Yes</span>
-                                        <span class="data-type"> Furnished</span>
+                                        <span class="media-heading">Konum(İl/İlçe)</span>
+                                        <span class="data-type">{{ shopProfile.city.name }} / {{ shopProfile.town.name }}</span>
                                     </div>
                                 </div>
-
 
                                 <div class="media">
                                     <div class="media-body">
-                                        <span class="media-heading">CD-TM-5680</span>
-                                        <span class="data-type"> Property Reference</span>
+                                        <span class="media-heading">Mağaza Puanı</span>
+                                        <span class="data-type"><img src="https://www.ultimus.com/hs-fs/hub/54405/file-15253807-png/images/fivestar.png" width="80"></span>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
 
@@ -187,37 +151,37 @@
                     <h5 class="list-title"><strong>Ürün Detayları</strong></h5>
 
                     <div class="row">
-                        <div class="ads-details-info col-md-8">
+                        <div class="ads-details-info col-md-12">
                             {{ product.description |raw }}
                         </div>
-                        <div class="col-md-4">
-                            <aside class="panel panel-body panel-details">
-                                <ul>
-                                    <li>
-                                        <p class=" no-margin "><strong>Prices:</strong> from € 775,000 </p>
-                                    </li>
-                                    <li>
-                                        <p class="no-margin"><strong>Building Type:</strong> Appertment</p>
-                                    </li>
-                                    <li>
-                                        <p class="no-margin"><strong>Size:</strong> ca. 120 m²</p>
-                                    </li>
-                                    <li>
-                                        <p class="no-margin"><strong>Location:</strong> New York </p>
-                                    </li>
-                                    <li>
-                                        <p class=" no-margin "><strong>Condition:</strong> New</p>
-                                    </li>
-                                    <li>
-                                        <p class="no-margin"><strong>Room:</strong> 4-5 </p>
-                                    </li>
-                                    <li>
-                                        <p class="no-margin"><strong>Ready for occupancy:</strong> 15.09.2016
-                                        </p>
-                                    </li>
-                                </ul>
-                            </aside>
-                        </div>
+                        {#<div class="col-md-4">#}
+                            {#<aside class="panel panel-body panel-details">#}
+                                {#<ul>#}
+                                    {#<li>#}
+                                        {#<p class=" no-margin "><strong>Prices:</strong> from € 775,000 </p>#}
+                                    {#</li>#}
+                                    {#<li>#}
+                                        {#<p class="no-margin"><strong>Building Type:</strong> Appertment</p>#}
+                                    {#</li>#}
+                                    {#<li>#}
+                                        {#<p class="no-margin"><strong>Size:</strong> ca. 120 m²</p>#}
+                                    {#</li>#}
+                                    {#<li>#}
+                                        {#<p class="no-margin"><strong>Location:</strong> New York </p>#}
+                                    {#</li>#}
+                                    {#<li>#}
+                                        {#<p class=" no-margin "><strong>Condition:</strong> New</p>#}
+                                    {#</li>#}
+                                    {#<li>#}
+                                        {#<p class="no-margin"><strong>Room:</strong> 4-5 </p>#}
+                                    {#</li>#}
+                                    {#<li>#}
+                                        {#<p class="no-margin"><strong>Ready for occupancy:</strong> 15.09.2016#}
+                                        {#</p>#}
+                                    {#</li>#}
+                                {#</ul>#}
+                            {#</aside>#}
+                        {#</div>#}
                     </div>
 
                     <div class="content-footer">
@@ -266,7 +230,7 @@
                 </div>
             </div>
             <!--/.ads-details-wrapper-->
-
+            {{ render(controller('App\\Controller\\HomeController::renderProductList')) }}
         </div>
         <!--/.page-content-->
 

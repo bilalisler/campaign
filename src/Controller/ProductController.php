@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ProductComments;
+use App\Entity\ShopProfile;
 use App\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -29,6 +30,11 @@ class ProductController extends AbstractController
             throw new NotFoundHttpException("Aradığınız Ürün Bulunamadı...");
         }
 
+        /**
+         * @var $shopProfile ShopProfile
+         */
+        $shopProfile = $product->getShop();
+
         $comments = $em->getRepository("App:ProductComments")->findByProduct($product);
 
         $comment = new ProductComments();
@@ -46,6 +52,7 @@ class ProductController extends AbstractController
         return $this->render('product/index.html.twig', [
             'product' => $product,
             'comments' => $comments,
+            'shopProfile' => $shopProfile,
             'commentForm' => $commentForm->createView()
         ]);
     }

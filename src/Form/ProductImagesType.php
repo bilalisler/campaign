@@ -20,6 +20,7 @@ class ProductImagesType extends AbstractType
         $builder
             ->add('imageFile',VichFileType::class, ['attr' => ['data-role' => 'thumbnail']])
             ->add('status', null, ['label' => 'is Active?'])
+            ->add('isAvatar', null, ['label' => 'is Avatar?'])
         ;
     }
 
