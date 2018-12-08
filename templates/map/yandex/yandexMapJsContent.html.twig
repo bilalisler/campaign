@@ -1,7 +1,3 @@
-ymaps.ready(init);
-
-function init() {
-
 {% set centerCordinate = '0,0' %}
 {% set latitude = 0.0  %}
 {% set longitude = 0.0 %}
@@ -13,8 +9,8 @@ function init() {
 {% endfor %}
 
 /**
- * this is the average of all latitudes and longitudes of latitude and longitude. so these are central coordinates
- */
+* this is the average of all latitudes and longitudes of latitude and longitude. so these are central coordinates
+*/
 {% set latitude = latitude/(placeMarks | length)  %}
 {% set longitude = longitude/(placeMarks | length) %}
 
@@ -23,6 +19,9 @@ function init() {
     {% set centerLocation = center.latitude ~','~ center.longitude %}
 {% endif %}
 
+ymaps.ready(init);
+
+function init() {
 var myMap = new ymaps.Map("map", {
     center: [{{ centerLocation }}],
     zoom: {{ zoom |default(10) }},
@@ -41,11 +40,55 @@ myMap.geoObjects.add(
         {
             openEmptyBalloon: true,
             iconLayout: 'default#image',
-            iconImageHref: "155 TL",
+            iconImageHref: "{{ asset('assets/images/shop.png') }}",
             iconImageSize: [40, 40],
             iconImageOffset: [-5, -38]
         }
     )
 );
 {% endfor %}
+
+var mapBounds = {
+    top: {
+        lat: 0,
+        lon: 0
+    },
+    bottom: {
+        lat: 0,
+        lon: 0
+    }
+};
+
+myMap.events.add('actionend', function (e) {
+//bu method ile birlikte kullanıcının cursor ile haritada yaptığı hareketleri kordinat olarak alabiliyoruz.
+// fakat sadece cursorun konumuna göre yani tek emlem ve boylam
+
+    var map_center_cursot = e.originalEvent.map.getCenter(); // cursor'un işaret ettiği yerin kordinatları
+    
+    console.log(this.mapBounds);
+});
+
+
+myMap.events.add('actiontickcomplete', function (e) {
+// bu method ise enlem ve boylamın alt ve üst sınırlarını da alır.
+//bu method ile birlikte kullanıcının cursor ile haritada yaptığı hareketleri kordinat olarak alabiliyoruz.
+    var map_bounds = e.originalEvent.map.getBounds();
+
+    this.mapBounds = {
+        top: {
+            lat: map_bounds[0][0],
+            lon: map_bounds[0][1]
+        },
+        bottom: {
+            lat: map_bounds[1][0],
+            lon: map_bounds[1][1]
+        }
+        };
+});
+
+
+
+
+
+
 }
