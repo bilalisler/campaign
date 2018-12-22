@@ -34,7 +34,7 @@ class HomeController extends AbstractController
             ]
         );
 
-        return $this->render('home/static_page.html.twig', [
+        return $this->render('home/staticPages/aboutus.html.twig', [
             'page_detail' => $pageDetail
         ]);
     }
