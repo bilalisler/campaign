@@ -21,6 +21,24 @@ class HomeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/{slug}", name="home_static_pages")
+     */
+    public function staticPageDetail($slug)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $pageDetail = $em->getRepository("App:StaticPage")->findOneBy(
+            [
+                'slug' => $slug
+            ]
+        );
+
+        return $this->render('home/static_page.html.twig', [
+            'page_detail' => $pageDetail
+        ]);
+    }
+
     public function renderCategoryList(){
 
         $em = $this->getDoctrine()->getManager();
