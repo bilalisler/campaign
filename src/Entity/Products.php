@@ -63,7 +63,7 @@ class Products
     /**
      * @var string|null
      *
-     * @ORM\Column(name="sub_description", type="string", length=255, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="sub_description", type="text", nullable=true, options={"default"="NULL"})
      */
     private $subDescription = null;
 
