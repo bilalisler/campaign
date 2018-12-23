@@ -100,6 +100,13 @@ class ShopProfile
      */
     private $campaignCondition;
 
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="rating", type="integer", nullable=true,options={"default":0})
+     */
+    private $rating = 0;
+
     public function __construct()
     {
         $this->campaignCondition = new ArrayCollection();
@@ -257,6 +264,20 @@ class ShopProfile
         $this->longitude = $longitude;
     }
 
+    /**
+     * @return int|null
+     */
+    public function getRating(): ?int
+    {
+        return $this->rating;
+    }
 
+    /**
+     * @param int|null $rating
+     */
+    public function setRating(?int $rating): void
+    {
+        $this->rating = $rating;
+    }
 
 }

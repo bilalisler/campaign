@@ -35,6 +35,18 @@ class CategoriesRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function listAllCategoriesExcludeSlug($excludeCategorySlug){
+        $em = $this->getEntityManager();
+        $qb = $em->getRepository("App:Categories")->createQueryBuilder("c");
+
+        $qb->where($qb->expr()->isNull('c.parent'));
+        $qb->andWhere($qb->expr()->eq('c.categoryStatus',':categoryStatus'))->setParameter('categoryStatus',true);
+        $qb->andWhere($qb->expr()->neq('c.categorySlug',':excludeCategorySlug'))->setParameter('excludeCategorySlug',$excludeCategorySlug);
+        $qb->orderBy("c.categoryOrder","ASC");
+
+        return $qb->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return Categories[] Returns an array of Categories objects
 //     */

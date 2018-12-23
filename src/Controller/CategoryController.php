@@ -28,12 +28,13 @@ class CategoryController extends AbstractController
             )
         );
 
-        $allCategories = $em->getRepository("App:Categories")->findAll();
-
         if(empty($category)){
             throw new NotFoundHttpException("Aradığınız Kategori Bulunamadı...");
         }
 
+        /**
+         * @var $products Products[]
+         */
         $products = $category->getProducts();
 
         if(empty($products)){
@@ -46,9 +47,19 @@ class CategoryController extends AbstractController
             $request->query->getInt('limit', 10)/*limit per page*/
         );
 
+        $allCategories = $em->getRepository("App:Categories")->listAllCategoriesExcludeSlug($slug);
+
+        $allSellers = [];
+        foreach ($products as $product){
+            if(array_key_exists($product->getShop()->getId(),$allSellers) === false){
+                $allSellers[$product->getShop()->getId()] = $product->getShop();
+            }
+        }
+
         return $this->render('category/category.html.twig', [
             'pagination' => $pagination,
-            'allCategories' => $allCategories
+            'allCategories' => $allCategories,
+            'allSellers' => $allSellers
         ]);
     }
 
