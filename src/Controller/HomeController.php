@@ -21,6 +21,24 @@ class HomeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/{slug}", name="home_static_pages")
+     */
+    public function staticPageDetail($slug)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $pageDetail = $em->getRepository("App:StaticPage")->findOneBy(
+            [
+                'slug' => $slug
+            ]
+        );
+
+        return $this->render('home/staticPages/aboutus.html.twig', [
+            'page_detail' => $pageDetail
+        ]);
+    }
+
     public function renderCategoryList(){
 
         $em = $this->getDoctrine()->getManager();
@@ -32,11 +50,17 @@ class HomeController extends AbstractController
         ));
     }
 
-    public function renderProductList(){
+    public function renderProductList($extractProductId = null){
 
         $em = $this->getDoctrine()->getManager();
 
-        $products = $em->getRepository("App:Products")->listAll(10);
+        $qb = $em->getRepository("App:Products")->createQueryBuilder("p");
+
+        if($extractProductId){
+            $qb->where($qb->expr()->eq("p.id",":id"))->setParameter("id",$extractProductId);
+        }
+
+        $products = $qb->getQuery()->getResult();
 
         return $this->render('home/include/productListBlock.html.twig',array(
             'products' => $products
