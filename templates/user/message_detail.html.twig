@@ -1,0 +1,125 @@
+{% extends 'base/base.html.twig' %}
+
+{% block javascript_inline %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            getMessages();
+
+
+           $("#sendMessage").on("click",function () {
+               var message = $("input[name='senderMessage']").val();
+
+              $.ajax({
+                  url: Routing.generate("customer_send_message"),
+                  method: 'POST',
+                  data: {'message': message,'parent_id':"{{ parentMessageId }}"},
+                  success: function (response) {
+                      if(response.status === 'error'){
+                          alert(response.message);
+                      }else{
+                          getMessages();
+                      }
+
+                      $("input[name='senderMessage']").val("");
+                  }
+              });
+           });
+           
+           function getMessages() {
+               $.ajax({
+                   url: Routing.generate("fetch_customer_messages"),
+                   method: 'GET',
+                   data: {'m': "{{ parentMessageId }}"},
+                   success: function (response) {
+                       if(response.status === 'success'){
+                           $(".message-chat-history").html(response.view);
+                       }
+                   }
+               });
+           }
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 page-sidebar">
+                <aside>
+                    <div class="inner-box">
+                        <div class="user-panel-sidebar">
+                            <div class="collapse-box">
+                                <h5 class="collapse-title" style="border-top:0 !important;"> Bana Özel <a href="#MyAds" aria-expanded="true" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
+
+                                <div class="panel-collapse collapse show" id="MyAds">
+                                    <ul class="acc-list">
+                                        <li><a href="account-myads.html"><i class="icon-docs"></i> My ads <span class="badge">42</span> </a></li>
+                                        <li><a href="account-favourite-ads.html"><i class="icon-heart"></i>
+                                                Favourite ads <span class="badge badge-secondary">42</span> </a></li>
+                                        <li><a href="account-saved-search.html"><i class="icon-star-circled"></i>
+                                                Saved search <span class="badge badge-secondary">42</span> </a></li>
+                                        <li><a href="account-archived-ads.html"><i class="icon-folder-close"></i>
+                                                Archived ads <span class="badge badge-secondary">42</span></a></li>
+                                        <li><a href="account-pending-approval-ads.html"><i class="icon-hourglass"></i> Pending approval <span class="badge">42</span></a></li>
+                                        <li class=""><a href="account-message-inbox.html"><i class="icon-mail"></i> Message Inbox <span class="badge">15</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.collapse-box  -->
+                        </div>
+                    </div>
+                    <!-- /.inner-box  -->
+
+                </aside>
+            </div>
+            <!--/.page-sidebar-->
+
+            <div class="col-md-9 page-content">
+                <div class="inner-box">
+                    <h2 class="title-2">
+                        <i class="icon-mail"></i> INBOX - <small>{{ (messageDetails |first).parent.product.name }}</small></h2>
+                    <div class="inbox-wrapper">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 ">
+                                <div class="user-bar-top">
+                                    <div class="user-top">
+                                        <p>
+                                            <a href="#user">
+                                                <strong>{{ (messageDetails |first).parent.product.name }}</strong> ürünü için satıcı
+                                                <strong>{{ (messageDetails |first).parent.shop.name }}</strong> ile iletişim kurdunuz.
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 chat-row" style="border-left:0 !important;">
+                                <div class="message-chat">
+                                    <div class="message-chat-history">
+
+                                    </div>
+
+                                    <div class="type-message">
+                                        <div class="type-form">
+                                            <input type="text" name="senderMessage" class="input-write form-control" placeholder="Type a message...">
+                                            <div class="button-wrap">
+                                                {#<button class="btn btn-secondary" type="button"><i class="fas fa-paperclip" aria-hidden="true"></i></button>#}
+                                                <button id="sendMessage" class="btn btn-secondary" type="button"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/. inbox-wrapper-->
+                </div>
+            </div>
+            <!--/.page-content-->
+        </div>
+        <!--/.row-->
+    </div>
+{% endblock %}

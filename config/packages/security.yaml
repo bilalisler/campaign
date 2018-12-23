@@ -47,4 +47,4 @@ security:
 
         - { path: ^/admin/, role: ['ROLE_SUPER_ADMIN','ROLE_SHOP'] }
         - { path: ^/shop/, role: ROLE_SHOP }
-        - { path: ^/customer/, role: ROLE_CUSTOMER }
+        - { path: ^/profile/, role: ROLE_CUSTOMER }

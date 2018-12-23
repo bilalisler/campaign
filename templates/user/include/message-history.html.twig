@@ -1,0 +1,21 @@
+{% for messageDetail in messageDetails %}
+    {% set selectedUser = "user" %}
+    {% if messageDetail.senderUserId.id == 1 %}
+        {% set selectedUser = "me" %}
+    {% endif %}
+    <div class="chat-item object-{{ selectedUser }}">
+        <div class="object-user-img">
+            <img src="{{ asset('assets/images/user.png') }}" alt="User ">
+        </div>
+        <div class="chat-item-content">
+            <div class="chat-item-content-inner">
+                <div class="msg">
+                    <p>
+                        {{ messageDetail.message }}
+                    </p>
+                </div>
+                <span class="time-and-date">{{ messageDetail.createdAt | date("Y-m-d H:i:s") }}</span>
+            </div>
+        </div>
+    </div>
+{% endfor %}

@@ -44,8 +44,6 @@ class AdminController extends BaseAdminController
             ->from($entityClass, 'entity')
         ;
 
-
-
         /**
          * Override
          */

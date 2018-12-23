@@ -3,7 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Table(name="fos_user", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_8D93D649E7927C74", columns={"email"})})
@@ -11,6 +15,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
+
+
     public function __toString()
     {
         return (string)$this->email;
@@ -48,6 +54,30 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=50, nullable=false)
      */
     private $lastName;
+
+    /**
+     * @ORM\Column(name="phone", type="string", length=50, nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @ORM\Column(name="address", type="text", length=500, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(name="Latitude", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $latitude = null;
+
+    /**
+     * @var float|null
+     *
+     * @ORM\Column(name="Longitude", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $longitude = null;
 
     /**
      * @ORM\Column(type="boolean",nullable=false,options={"default"=1})
@@ -244,4 +274,76 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+
+    #### new
+
+
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param mixed $address
+     */
+    public function setAddress($address): void
+    {
+        $this->address = $address;
+    }
+
+
+    /**
+     * @return float|null
+     */
+    public function getLatitude(): ?float
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @param float|null $latitude
+     */
+    public function setLatitude(?float $latitude): void
+    {
+        $this->latitude = $latitude;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getLongitude(): ?float
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * @param float|null $longitude
+     */
+    public function setLongitude(?float $longitude): void
+    {
+        $this->longitude = $longitude;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone): void
+    {
+        $this->phone = $phone;
+    }
+
+
+
 }

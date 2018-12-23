@@ -24,7 +24,7 @@ class Messages
     /**
      * @var string
      *
-     * @ORM\Column(name="subject", type="string", length=200, nullable=false)
+     * @ORM\Column(name="subject", type="string", length=200, nullable=true)
      */
     private $subject = null;
 
@@ -38,9 +38,33 @@ class Messages
     /**
      * @var int
      *
-     * @ORM\Column(name="status", type="integer", nullable=false)
+     * @ORM\Column(name="status", type="integer", nullable=true)
      */
     private $status;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="is_read", type="smallint", nullable=true)
+     */
+    private $isRead = 0;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="sender_user_id", referencedColumnName="id")
+     * })
+     */
+    private $senderUserId;
+
+    /**
+     * Many Categories have One Category.
+     * @ORM\ManyToOne(targetEntity="App\Entity\Messages", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $parent;
 
     /**
      * @var \DateTime
@@ -211,5 +235,54 @@ class Messages
     {
         $this->user = $user;
     }
+
+    /**
+     * @return int|null
+     */
+    public function getisRead(): ?int
+    {
+        return $this->isRead;
+    }
+
+    /**
+     * @param int $isRead
+     */
+    public function setIsRead(int $isRead): void
+    {
+        $this->isRead = $isRead;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param mixed $parent
+     */
+    public function setParent($parent): void
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * @return User
+     */
+    public function getSenderUserId(): User
+    {
+        return $this->senderUserId;
+    }
+
+    /**
+     * @param User $senderUserId
+     */
+    public function setSenderUserId(User $senderUserId): void
+    {
+        $this->senderUserId = $senderUserId;
+    }
+
 
 }

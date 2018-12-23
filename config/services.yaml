@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    upload.profile.images.path: /uploads/images/profile
     upload.category.images.path: /uploads/images/category
     upload.product.images.path: /uploads/images/products
 

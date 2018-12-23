@@ -22,7 +22,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="home_static_pages")
+     * @Route("/{slug}/", name="home_static_pages",requirements={"slug"="hakkimizda|iletisim"})
      */
     public function staticPageDetail($slug)
     {

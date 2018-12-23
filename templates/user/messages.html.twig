@@ -1,0 +1,131 @@
+{% extends 'base/base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 page-sidebar">
+                <aside>
+                    <div class="inner-box">
+                        <div class="user-panel-sidebar">
+                            <div class="collapse-box">
+                                <h5 class="collapse-title" style="border-top:0 !important;"> Bana Özel <a href="#MyAds" aria-expanded="true" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
+
+                                <div class="panel-collapse collapse show" id="MyAds">
+                                    <ul class="acc-list">
+                                        <li><a href="account-myads.html"><i class="icon-docs"></i> My ads <span class="badge">42</span> </a></li>
+                                        <li><a href="account-favourite-ads.html"><i class="icon-heart"></i>
+                                                Favourite ads <span class="badge badge-secondary">42</span> </a></li>
+                                        <li><a href="account-saved-search.html"><i class="icon-star-circled"></i>
+                                                Saved search <span class="badge badge-secondary">42</span> </a></li>
+                                        <li><a href="account-archived-ads.html"><i class="icon-folder-close"></i>
+                                                Archived ads <span class="badge badge-secondary">42</span></a></li>
+                                        <li><a href="account-pending-approval-ads.html"><i class="icon-hourglass"></i> Pending approval <span class="badge">42</span></a></li>
+                                        <li class=""><a href="account-message-inbox.html"><i class="icon-mail"></i> Message Inbox <span class="badge">15</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.collapse-box  -->
+                        </div>
+                    </div>
+                    <!-- /.inner-box  -->
+
+                </aside>
+            </div>
+            <!--/.page-sidebar-->
+
+            <div class="col-md-9 page-content">
+                <div class="inner-box">
+                    <h2 class="title-2"><i class="icon-mail"></i> INBOX </h2>
+                    <div class="inbox-wrapper">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+
+                                <div class="btn-group  mobile-only-inline">
+                                    <a href="account-message-compose.html" class="btn btn-primary text-uppercase"><i class="fas fa-pen"></i>
+                                    </a>
+                                </div>
+                                <div class="btn-group hidden-sm">
+                                    <button type="button" class="btn btn-secondary">
+                                        <div class="form-check p-0 m-0">
+                                            <input type="checkbox" id="form-check-all">
+                                        </div>
+                                    </button>
+
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                        <span class="dropdown-menu-sort-selected">All</span>
+                                    </button>
+
+                                    <ul class="dropdown-menu dropdown-menu-sort" role="menu">
+                                        <li class="dropdown-item active"><a>All</a>
+                                        </li>
+                                        <li class="dropdown-item"><a>None</a>
+                                        </li>
+                                        <li class="dropdown-item"><a>Read</a>
+                                        </li>
+                                        <li class="dropdown-item"><a>Unread</a>
+                                        </li>
+                                        <li class="dropdown-item"><a>Starred</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <button type="button" class="btn btn-secondary hidden-sm" data-toggle="tooltip" title="" data-original-title="Refresh"><span class="fas fa-sync-alt"></span>
+                                </button>
+
+                                <div class="message-tool-bar-right pull-right">
+                                    <span class="text-muted count-message"><b>1</b> - <b>20</b> of <b>255</b></span>
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-secondary"><span class="fas fa-arrow-left"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-secondary"><span class="fas fa-arrow-right"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                                <div class="message-list">
+                                    <div id="home">
+                                        {% for message in messages %}
+                                            <div class="list-group">
+                                                <div class="list-group-item {% if message.isRead == 1 %} seen {% endif %}">
+                                                    <div class="form-check">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                            <label class="custom-control-label" for="customCheck1"></label>
+                                                        </div>
+                                                    </div>
+                                                    <a href="account-message-details.html" class="list-box-user">
+                                                        <img src="{{ asset('assets/images/user.png') }}" alt="user">
+                                                    </a>
+                                                    <a href="account-message-details.html" class="list-box-content">
+                                                        <span class="title">{{ message.subject }}</span>
+                                                        <div class="message-text  ">
+                                                            {{ message.message }}
+                                                        </div>
+                                                        <div class="time text-muted">{{ message.createdAt | date("Y-m-d H:i:s") }}</div>
+                                                    </a>
+                                                    <div class="list-box-action">
+                                                        <a data-toggle="tooltip" data-placement="top" class="markAsStar" title="" data-original-title="Mark as Important "><i class="far fa-star"></i></a>
+                                                        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete ">
+                                                            <i class=" fas fa-trash"></i></a>
+                                                        <a class="markAsRead" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mark as read "> <i class=" fas fa-envelope"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/. inbox-wrapper-->
+                </div>
+            </div>
+            <!--/.page-content-->
+        </div>
+        <!--/.row-->
+    </div>
+{% endblock %}

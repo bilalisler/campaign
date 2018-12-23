@@ -1,0 +1,160 @@
+{% extends 'base/base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 page-sidebar">
+                <aside>
+                    <div class="inner-box">
+                        <div class="user-panel-sidebar">
+                            <div class="collapse-box">
+                                <h5 class="collapse-title" style="border-top:0 !important;"> Bana Özel <a href="#MyAds" aria-expanded="true" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
+
+                                <div class="panel-collapse collapse show" id="MyAds">
+                                    <ul class="acc-list">
+                                        <li><a href="account-myads.html"><i class="icon-docs"></i> My ads <span class="badge">42</span> </a></li>
+                                        <li><a href="account-favourite-ads.html"><i class="icon-heart"></i>
+                                                Favourite ads <span class="badge badge-secondary">42</span> </a></li>
+                                        <li><a href="account-saved-search.html"><i class="icon-star-circled"></i>
+                                                Saved search <span class="badge badge-secondary">42</span> </a></li>
+                                        <li><a href="account-archived-ads.html"><i class="icon-folder-close"></i>
+                                                Archived ads <span class="badge badge-secondary">42</span></a></li>
+                                        <li><a href="account-pending-approval-ads.html"><i class="icon-hourglass"></i> Pending approval <span class="badge">42</span></a></li>
+                                        <li class=""><a href="account-message-inbox.html"><i class="icon-mail"></i> Message Inbox <span class="badge">15</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.collapse-box  -->
+                        </div>
+                    </div>
+                    <!-- /.inner-box  -->
+
+                </aside>
+            </div>
+            <!--/.page-sidebar-->
+
+            <div class="col-md-9 page-content">
+                <div class="inner-box">
+                    <div class="row">
+                        <div class="col-md-5 col-xs-4 col-xxs-12">
+                            <h3 class="no-padding text-center-480 useradmin"><a href=""><img class="userImg" src="images/user.jpg" alt="user"> {{ user.firstName ~ " " ~ user.lastName }}
+                                </a></h3>
+                        </div>
+                        <div class="col-md-7 col-xs-8 col-xxs-12">
+                            <div class="header-data text-center-xs">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inner-box">
+                    <div id="accordion" class="panel-group">
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <h4 class="card-title"><a href="#collapseB1" aria-expanded="true" data-toggle="collapse"> Bilgilerim </a></h4>
+                            </div>
+                            <div class="panel-collapse collapse show" id="collapseB1">
+                                <div class="card-body">
+
+                                    {{ form_start(userForm) }}
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Ad</label>
+
+                                            <div class="col-sm-9">
+                                                {{ form_widget(userForm.firstName) }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Soyad</label>
+
+                                            <div class="col-sm-9">
+                                                {{ form_widget(userForm.lastName) }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Adres</label>
+
+                                            <div class="col-sm-9">
+                                                {{ form_widget(userForm.address) }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Telefon</label>
+
+                                            <div class="col-sm-9">
+                                                {{ form_widget(userForm.phone) }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Enlem / Boylam</label>
+
+                                            <div class="col-sm-9">
+                                                {{ form_widget(userForm.latitude) }}
+                                                {{ form_widget(userForm.longitude) }}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-9"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-9">
+                                                <button type="submit" class="btn btn-default">Update</button>
+                                            </div>
+                                        </div>
+                                    {{ form_end(userForm) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <h4 class="card-title"><a href="#collapseB2" aria-expanded="true" data-toggle="collapse"> Settings </a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse collapse" id="collapseB2">
+                                <div class="card-body">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox">
+                                                        Comments are enabled on my ads </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">New Password</label>
+
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Confirm Password</label>
+
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-9">
+                                                <button type="submit" class="btn btn-default">Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.row-box End-->
+
+                </div>
+            </div>
+            <!--/.page-content-->
+        </div>
+        <!--/.row-->
+    </div>
+{% endblock %}

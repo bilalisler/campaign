@@ -1,0 +1,1 @@
+fos.Router.setData({"base_url":"","routes":{"product_comment_insert":{"tokens":[["text","\/product-comment-insert"]],"defaults":[],"requirements":[],"hosttokens":[],"methods":[],"schemes":[]}},"prefix":"","host":"localhost","port":"","scheme":"http"});
