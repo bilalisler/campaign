@@ -28,7 +28,8 @@
         "symfony/validator": "*",
         "symfony/web-link": "*",
         "symfony/yaml": "*",
-        "vich/uploader-bundle": "^1.8"
+        "vich/uploader-bundle": "^1.8",
+        "friendsofsymfony/elastica-bundle": "^5.0"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.0",
