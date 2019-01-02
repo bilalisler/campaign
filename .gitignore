@@ -20,3 +20,5 @@
 ## App
 /public/uploads/images/category/*
 /public/uploads/images/products/*
+
+/node_modules/
