@@ -14,14 +14,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/product/{slug}", name="product_detail")
+     * @Route("/{categorySlug}/{slug}/product", name="product_detail")
      */
-    public function index(Request $request,$slug)
+    public function index(Request $request,$categorySlug,$slug)
     {
         $em = $this->getDoctrine()->getManager();
 
+        $category = $em->getRepository("App:Categories")->findOneBy(
+            array(
+               "categorySlug" => $categorySlug
+            )
+        );
+
         $product = $em->getRepository("App:Products")->findOneBy(
             array(
+                "category" => $category,
                 "slug" => $slug
             )
         );
@@ -48,12 +55,23 @@ class ProductController extends AbstractController
             die;
         }
 
+        $breadcrumb = array(
+            array(
+                'link' => $this->generateUrl("category_list",array("slug" => $categorySlug)),
+                'title' => $category->getCategoryName()
+            ),
+            array(
+                'link' => $this->generateUrl("product_detail",array("categorySlug" => $categorySlug,"slug" => $slug)),
+                'title' => $product->getName()
+            )
+        );
 
         return $this->render('product/index.html.twig', [
             'product' => $product,
             'comments' => $comments,
             'shopProfile' => $shopProfile,
-            'commentForm' => $commentForm->createView()
+            'commentForm' => $commentForm->createView(),
+            'breadcrumb' => $breadcrumb
         ]);
     }
 

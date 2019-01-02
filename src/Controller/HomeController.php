@@ -21,6 +21,16 @@ class HomeController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/search", name="searchingPage")
+     */
+    public function search(YandexMap $yandexMap)
+    {
+        return $this->render('home/search.html.twig', [
+        ]);
+    }
+
     /**
      * @Route("/{slug}/", name="home_static_pages",requirements={"slug"="hakkimizda|iletisim"})
      */

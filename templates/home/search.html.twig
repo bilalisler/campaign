@@ -1,0 +1,191 @@
+{% extends 'base/base.html.twig' %}
+
+{% block javascripts %}
+    <script src="https://api-maps.yandex.com/2.1/?lang=tr_TR&apikey=ee3fc44c-36e2-4b75-846b-383b64801751&mode=debug"
+            type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        ymaps.ready(init);
+
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [40.870778, 29.258543],
+                zoom: 14,
+                controls: []
+            });
+
+            myMap.geoObjects.add(
+                new ymaps.Placemark(
+                    [55.751574, 37.573856],
+                    {
+                        iconContent: 'title',
+                        hintContent: 'title',
+                        balloonContent: 'content'
+                    },
+                    {
+                        openEmptyBalloon: true,
+                        iconLayout: 'default#image',
+                        iconImageHref: "{{ asset('assets/images/shop.png') }}",
+                        iconImageSize: [40, 40],
+                        iconImageOffset: [-5, -38]
+                    }
+                )
+            );
+
+            var mapBounds = {
+                top: {
+                    lat: 0,
+                    lon: 0
+                },
+                bottom: {
+                    lat: 0,
+                    lon: 0
+                }
+            };
+
+            myMap.events.add('actionend', function (e) {
+//bu method ile birlikte kullanıcının cursor ile haritada yaptığı hareketleri kordinat olarak alabiliyoruz.
+// fakat sadece cursorun konumuna göre yani tek emlem ve boylam
+
+                var map_center_cursot = e.originalEvent.map.getCenter(); // cursor'un işaret ettiği yerin kordinatları
+
+                console.log(this.mapBounds);
+            });
+
+
+            myMap.events.add('actiontickcomplete', function (e) {
+// bu method ise enlem ve boylamın alt ve üst sınırlarını da alır.
+//bu method ile birlikte kullanıcının cursor ile haritada yaptığı hareketleri kordinat olarak alabiliyoruz.
+                var map_bounds = e.originalEvent.map.getBounds();
+
+                this.mapBounds = {
+                    top: {
+                        lat: map_bounds[0][0],
+                        lon: map_bounds[0][1]
+                    },
+                    bottom: {
+                        lat: map_bounds[1][0],
+                        lon: map_bounds[1][1]
+                    }
+                };
+            });
+        }
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper" style="background-color: white">
+        <div class="row">
+            <div class="left col-md-7" style="border: 1px solid #ddd;">
+                <div class="filter container">
+                    <div class="search_form">
+                        <form action="" method="get">
+                            <div class="form-group">
+                                <div class="select">
+                                    <select class="form-control">
+                                        <option>What are you looking for?</option>
+                                        <option>Real Estate</option>
+                                        <option>Restaurant</option>
+                                        <option>Real Estate</option>
+                                        <option>Health &amp; Fitness</option>
+                                        <option>Beauty &amp; Spas</option>
+                                        <option>Hotels &amp; Travel</option>
+                                        <option>Automotive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Locaton">
+                            </div>
+                            <div class="btn_group">
+                                <input type="submit" value="Search" class="btn btn-block">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="container" style="padding-right: 0">
+                    <div class="row">
+                        {% for item in 0..10 %}
+                            <div class="col-md-6 item">
+                                <div class="item_wrapper">
+                                    <div class="item_image">
+                                    <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
+                                        <span class="listing_like"><a href="#"><i class="fa fa-heart-o"></i></a></span>
+                                        <a href="#"><img
+                                                    src="http://themes.webmasterdriver.net/ElemoListing/assets/images/listing_img6.jpg"
+                                                    alt="image"></a>
+                                    </div>
+                                    <div class="item_info" style="padding: 15px">
+                                        <div class="post_category">
+                                            <a href="#">
+                                                Hotels &amp; Travel</a>
+                                        </div>
+                                        <h3 style="font-weight: 400;font-family: 'Montserrat',sans-serif;">
+                                            <a href="#" style="color: #000 !important;">The Morning Hotel</a>
+                                        </h3>
+                                        <p>5-star hotel with restaurant, Deluxe Rooms.</p>
+
+                                        <div class="listing_review_info">
+                                            <p>
+                                                <span class="review_score">4.0/5</span>
+
+                                                <i class="fa fa-star active"></i>
+                                                <i class="fa fa-star active"></i>
+                                                <i class="fa fa-star active"></i>
+                                                <i class="fa fa-star active"></i>
+                                                <i class="fa fa-star"></i>
+                                                (5 Reviews)
+                                            </p>
+                                            <p style="float:right;color: #555;margin: 0">
+                                                <i class="fa fa-map-marker"></i>
+                                                Los Angeles
+                                            </p>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <hr>
+                    <div class="container">
+                        123
+                    </div>
+                </div>
+            </div>
+            <div class="right col-md-5" style="position: relative">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ asset('assets/css/map_item.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/search_page.css') }}">
+    <style>
+        #map {
+            height: 100%;
+            position: fixed;
+            right: 0;
+            top: 0;
+            /*width: 41%;*/
+            width: 680px;
+            z-index: 1;
+        }
+    </style>
+{% endblock %}
+
+{% block page_info %}
+{% endblock %}
+
+{% block page_bottom %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

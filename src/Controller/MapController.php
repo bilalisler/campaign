@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MapController extends AbstractController
 {
     /**
-     * @Route("/generate", name="map_generate")
+     * @Route("/generate/", name="map_generate")
      */
     public function mapGenerate(YandexMap $yandexMap)
     {

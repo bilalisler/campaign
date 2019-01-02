@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|Roboto+Condensed:400,300,700,700italic|Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,400italic,700italic);
 @import url("animate.min.css");
@@ -1700,8 +1700,9 @@ label {
     border-radius: 0;
     border-bottom: solid 1px #ddd; }
   .navbar.navbar-site .navbar-nav > li, .navbar.navbar-light .navbar-nav > li {
-    margin-top: 10px;
-    margin-bottom: 10px; }
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px; */
+  }
     .navbar.navbar-site .navbar-nav > li > a:not(.btn), .navbar.navbar-site .navbar-nav > li .nav-link:not(.btn), .navbar.navbar-light .navbar-nav > li > a:not(.btn), .navbar.navbar-light .navbar-nav > li .nav-link:not(.btn) {
       border-radius: 3px;
       -moz-box-sizing: border-box;

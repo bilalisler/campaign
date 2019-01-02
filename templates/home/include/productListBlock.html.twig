@@ -31,7 +31,7 @@
                     {% endfor %}
 
                     <div class="item">
-                        <a href="{{ path("product_detail",{'slug':product.slug}) }}">
+                        <a href="{{ path("product_detail",{'categorySlug':product.category.categorySlug,'slug':product.slug}) }}">
                             <span class="item-carousel-thumb">
                                 <img class="img-responsive" src="{{ asset(imagePath) }}" alt="img">
                             </span>
