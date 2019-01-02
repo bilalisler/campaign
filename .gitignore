@@ -22,3 +22,4 @@
 /public/uploads/images/products/*
 
 /node_modules/
+/assets/node_modules/
