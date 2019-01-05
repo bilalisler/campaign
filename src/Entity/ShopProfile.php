@@ -96,6 +96,13 @@ class ShopProfile
     private $user;
 
     /**
+     * @var Products
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Products",mappedBy="shop")
+     */
+    private $products;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\CampaignCondition",mappedBy="shop")
      */
     private $campaignCondition;
@@ -118,6 +125,22 @@ class ShopProfile
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @return Products[]|null
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    /**
+     * @param Products $products
+     */
+    public function setProducts(Products $products): void
+    {
+        $this->products = $products;
     }
 
     /**

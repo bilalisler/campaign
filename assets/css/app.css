@@ -1,3 +1,3548 @@
-body {
-    background-color: lightgray;
+.commentHeader {
+    margin-bottom: 20px;
+    overflow: auto
+}
+
+.avarageRating {
+    float: left;
+    margin-right: 30px;
+    width: 38%;
+}
+
+.avarageRating .avarageText {
+    font-size: 15px;
+    font-weight: 700;
+    float: left;
+    line-height: 40px
+}
+
+.avarageRating .ratingCont {
+    margin: 7px 7px 20px 0;
+    padding: 0;
+    float: left
+}
+
+.proDetailArea .pointTable {
+    width: 310px
+}
+
+.proDetailArea .pointTable .td {
+    height: 26px;
+    vertical-align: middle
+}
+
+.pointTable {
+    clear: both;
+    border: 1px solid #dedede;
+    border-bottom: none;
+    margin-top: 20px
+}
+
+.pointTable .point {
+    cursor: pointer
+}
+
+.pointTable .point .commentNum, .pointTable .point .star {
+    color: #06c
+}
+
+.pointTable .point.active .commentNum, .pointTable .point.active .star {
+    color: gray
+}
+
+ .pointBar {
+    background: rgba(222, 222, 222, .5);
+    float: left;
+    margin: 6px 10px;
+    height: 10px;
+    width: 170px;
+    position: relative;
+    padding: 0;
+}
+
+.pointBar span {
+    background: #fec507;
+    display: block;
+    height: 100%;
+    width: 25%;
+}
+
+.pointTable .pointBar.p90 span {
+    width: 90%
+}
+
+.pointTable .pointBar.p80 span {
+    width: 80%
+}
+
+.pointTable .pointBar.p70 span {
+    width: 70%
+}
+
+.pointTable .pointBar.p60 span {
+    width: 60%
+}
+
+.pointTable .pointBar.p50 span {
+    width: 50%
+}
+
+.pointTable .pointBar.p40 span {
+    width: 40%
+}
+
+.pointTable .pointBar.p30 span {
+    width: 30%
+}
+
+.pointTable .pointBar.p20 span {
+    width: 20%
+}
+
+.pointTable .pointBar.p10 span {
+    width: 10%
+}
+
+.pointTable .commentNum {
+    color: gray;
+    float: left
+}
+
+.pointTable .td {
+    border-bottom: 1px solid #dedede;
+    height: 26px;
+}
+
+.pointTable .td.star {
+    background: #f7f7f7;
+    color: #202020;
+    width: 70px;
+    text-align: center;
+    float:left
+}
+
+.pointTable .tr.active {
+    background: #f7f7f7;
+    cursor: default
+}
+
+.pointTable .tr.active .td.star {
+    background: #f2f2f2
+}
+
+.comUseful {
+    border: 1px solid #ebebeb;
+    min-height: 102px;
+    margin-top: 39px;
+    overflow: hidden;
+    padding: 20px
+}
+
+.comUseful legend {
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: -10px;
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.comUseful p {
+    color: #202020;
+    font-family: Georgia, Helvetica, Arial;
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    max-width: 490px
+}
+
+.comUseful span {
+    color: gray
+}
+
+.commentHolderTop {
+    background: #f2f2f2;
+    height: 38px;
+    width: 100%
+}
+
+.commentHolderTop .pointInfo {
+    font-weight: 700;
+    float: left;
+    line-height: 38px;
+    margin-left: 10px
+}
+
+.commentHolderTop .showAllComment {
+    font-weight: 400;
+    color: #06c;
+    cursor: pointer;
+    display: none
+}
+
+.sortComment {
+    float: right;
+    margin: 5px;
+    top: 5px
+}
+
+.sortComment label {
+    width: auto;
+    margin-right: 5px;
+    min-width: 0;
+    top: -3px
+}
+
+[id=productDetailTab] .noResultHolder {
+    margin: 80px auto 20px;
+    width: 360px
+}
+
+[id=productDetailTab] .noResultHolder .noResultImg {
+    margin-right: 15px
+}
+
+[id=productDetailTab] .noResultHolder .title {
+    line-height: 90px
+}
+
+.noResultHolder .noResultImg.commentImg {
+    background-position: -406px -338px;
+    width: 110px;
+    height: 91px
+}
+
+.sssHolder {
+    display: inline-block;
+    width: 100%
+}
+
+.sssHolder h5 {
+    font-size: 14px
+}
+
+.sssHolder ol {
+    float: left
+}
+
+.sssHolder .questionItem {
+    font-weight: 700;
+    list-style: decimal;
+    margin-top: 20px;
+    width: 500px
+}
+
+.sssHolder .question {
+    font-weight: 700;
+    display: block
+}
+
+.sssHolder .answer {
+    display: block;
+    font-weight: 400
+}
+
+.askSeller {
+    background: #f7f7f7;
+    border: 1px solid #dedede;
+    margin: 30px auto;
+    padding: 20px;
+    height: 65px;
+    width: 600px
+}
+
+.askSeller p {
+    text-align: center;
+    margin-bottom: 15px
+}
+
+.askSeller a {
+    display: table;
+    margin: 0 auto
+}
+
+.tabPanel .holder .noResultText {
+    float: none;
+    padding-top: 20px
+}
+
+#tabPanelQA .holder {
+    border-top: 1px solid #ebebeb;
+    margin-top: 30px;
+    padding-top: 10px
+}
+
+#tabPanelQA .holder.empty {
+    border-top: 0 solid #ebebeb;
+    margin: 0;
+    padding: 0
+}
+
+#tabPanelQA .holder .question {
+    clear: both;
+    border-radius: 2px;
+    display: inline-block;
+    float: left;
+    padding: 10px;
+    border: 2px solid #f2f2f2
+}
+
+#tabPanelQA .holder .questionItem {
+    border-top: 1px solid #ebebeb;
+    display: block;
+    overflow: hidden;
+    padding: 20px 0
+}
+
+#tabPanelQA .holder .questionItem:first-child {
+    border: none
+}
+
+#tabPanelQA .holder .questionTitle span {
+    font-weight: 700
+}
+
+#tabPanelQA .holder .questionCat {
+    display: block
+}
+
+#tabPanelQA .holder .questionTitle .category {
+    font-weight: 400;
+    margin-left: 5px
+}
+
+#tabPanelQA .holder .questionTitle .userOnly {
+    color: #ea222f;
+    font-weight: 400;
+    margin-left: 5px
+}
+
+#tabPanelQA .holder .icon.people, #tabPanelQA .holder .questionTitle, #tabPanelQA .holder .questionTitle span, #tabPanelQA .holder .seller, #tabPanelQA .holder .user, #tabPanelQA .holder h5, #tabPanelQA .holder p {
+    float: left
+}
+
+#tabPanelQA .holder .seller {
+    font-weight: 700;
+    margin-right: 5px
+}
+
+#tabPanelQA .holder .questionTitle {
+    font-size: 13px;
+    margin-bottom: 6px;
+    width: 100%
+}
+
+#tabPanelQA .holder .user {
+    font-weight: 700;
+    margin-right: 5px
+}
+
+#tabPanelQA .holder .answer {
+    background: #f2f2f2;
+    border-radius: 2px;
+    color: #202020;
+    clear: both;
+    float: left;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 15px;
+    padding: 10px
+}
+
+#tabPanelQA .holder .answer i {
+    position: absolute;
+    top: -15px;
+    left: 47px
+}
+
+#tabPanelQA .holder .date {
+    color: gray;
+    display: block;
+    clear: both;
+    margin-top: 3px
+}
+
+#tabPanelInsOpt h4 i.iconQuestion .tooltip.bottom {
+    top: -82px
+}
+
+#askQuestionLightbox .form .errorMessage * {
+    white-space: normal
+}
+
+.thumbsHolder.slider .slidesjs-container {
+    border: none;
+    width: 100% !important
+}
+
+.thumbsHolder .slidesjs-control ul {
+    margin-left: 25px
+}
+
+.thumbsHolder .slidesjs-control ul li.thumb {
+    margin-left: 8px
+}
+
+.thumbsHolder.slider .slidesjs-pagination-holder {
+    display: none
+}
+
+.thumbsHolder.slider .slidesjs-navigation {
+    background-color: #fff;
+    margin-top: -23px;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    background-position: -724px -159px;
+    width: 10px;
+    height: 18px
+}
+
+.thumbsHolder.slider .slidesjs-navigation:hover {
+    opacity: .6;
+    filter: alpha(opacity=60)
+}
+
+.thumbsHolder.slider .slidesjs-navigation.slidesjs-previous {
+    background-position: -724px -159px
+}
+
+.thumbsHolder.slider .slidesjs-navigation.slidesjs-next {
+    background-position: -724px -179px
+}
+
+.proDetailArea .proStatus {
+    font-size: 16px;
+    line-height: 25px;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    left: 0
+}
+
+.proDetailArea .proStatus.closed {
+    top: 0
+}
+
+.proDetailArea .proStatus.closed span {
+    background-color: rgba(235, 235, 235, .8)
+}
+
+.form.proOpt.horizontal label {
+    margin-right: 5px;
+    text-align: left;
+    width: 126px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.form.proOpt.horizontal .guaranteeField label {
+    width: 55px;
+    min-width: 55px
+}
+
+.form.proOpt.horizontal .errorMessage {
+    margin-left: 130px;
+    clear: both;
+    top: 4px
+}
+
+.form.proOpt fieldset {
+    margin-top: 0
+}
+
+.form.proOpt.horizontal fieldset > :not(.errorMessage) {
+    float: left
+}
+
+.form.proOpt label span {
+    color: gray
+}
+
+.promotionBand {
+    margin-bottom: 15px;
+    display: table;
+    table-layout: fixed;
+    height: 44px;
+    width: 100%
+}
+
+.promotionBand.multiple .paymentBand {
+    width: 30%
+}
+
+.promotionBand.multiple .band > div {
+    text-align: center
+}
+
+.promotionBand.multiple .band span {
+    font-size: 18px;
+    line-height: 24px
+}
+
+.promotionBand.multiple .paymentBand span {
+    font-size: 14px;
+    vertical-align: middle
+}
+
+.promotionBand.multiple .band .endTime span {
+    top: -6px
+}
+
+.promotionBand.multiple .band .discountText i {
+    margin-top: 0
+}
+
+.promotionBand.multiple .band i.iconGiftBig {
+    vertical-align: middle
+}
+
+.promotionBand.multiple .band i.iconGiftBig + span {
+    font-weight: 400
+}
+
+.promotionBand.multiple .shockDiscountText {
+    display: none
+}
+
+.promotionBand .couponBand > div > div > a * {
+    color: #fff
+}
+
+.wrapper.moda .promotionBand .couponBand > div > div > a * {
+    color: #000
+}
+
+.wrapper.moda .promotionBand .couponBand .discountText i {
+    color: #fff
+}
+
+.promotionBand > div {
+    display: table-row
+}
+
+.promotionBand .band {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.promotionBand .band:not(:first-child) {
+    border-left: 1px solid #656565
+}
+
+.promotionBand .band > div {
+    color: #fff;
+    height: 24px;
+    padding: 10px;
+    text-align: center
+}
+
+.promotionBand .band.one > div {
+    text-align: center
+}
+
+.promotionBand .band > div > div {
+    display: block
+}
+
+.promotionBand .band .title {
+    font-weight: 700
+}
+
+.promotionBand .band span {
+    font-weight: 700;
+    height: 24px;
+    line-height: 38px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 88%;
+    font-size: 20px;
+    display: inline-block;
+    top: -5px
+}
+
+.promotionBand .band .discountText i {
+    font-size: 12px;
+    border-radius: 2px;
+    margin-left: 5px;
+    padding: 5px;
+    line-height: 12px;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 7px
+}
+
+.promotionBand .discountText i {
+    float: right !important;
+    text-transform: uppercase
+}
+
+.promotionBand .band .endTime {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 15px
+}
+
+.promotionBand .band .endTime.single-line {
+    top: 7px
+}
+
+.promotionBand .band .endTime strong {
+    font-weight: 400
+}
+
+.promotionBand .band .endTime span {
+    font-size: 16px;
+    font-weight: 400;
+    max-width: none;
+    top: -12px
+}
+
+.promotionBand .band .endTime a {
+    color: gray;
+    font-size: 11px;
+    top: -10px;
+    height: 7px;
+    text-align: left;
+    padding-right: 5px
+}
+
+.promotionBand .band .endTime a i {
+    height: 10px;
+    width: 8px;
+    min-height: 10px;
+    min-width: 8px;
+    display: inline-block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: absolute;
+    background-position: -52px -2166px;
+    top: 0;
+    right: -5px;
+    padding: 0
+}
+
+.promotionBand.multiple .band span {
+    top: 0
+}
+
+.promotionBand .band i {
+    display: inline-block
+}
+
+.promotionBand .band i.iconTime {
+    float: left;
+    margin-top: -2px
+}
+
+.promotionBand .band .shockDiscountText {
+    float: left;
+    line-height: 27px;
+    font-weight: 400;
+    font-size: 18px;
+    padding-left: 25px
+}
+
+.promotionBand .band .shockDiscountText .svgIcon {
+    position: absolute;
+    left: 0
+}
+
+.promotionBand .band .iconGiftBig {
+    position: relative;
+    top: -3px
+}
+
+.wrapper .promotionBand .band span.discountText {
+    margin-left: -130px;
+    white-space: normal;
+    font-weight: 400;
+    font-size: 18px
+}
+
+#contentProDetail .promotionBand .band {
+    background: #404040;
+    background: -moz-linear-gradient(top, #404040 0, #212121 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #404040), color-stop(100%, #212121));
+    background: -webkit-linear-gradient(top, #404040 0, #212121 100%);
+    background: -o-linear-gradient(top, #404040 0, #212121 100%);
+    background: -ms-linear-gradient(top, #404040 0, #212121 100%);
+    background: linear-gradient(to bottom, #404040 0, #212121 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#404040', endColorstr='#212121', GradientType=0)
+}
+
+#contentProDetail .promotionBand .band .discountText i {
+    background-color: #ea222f
+}
+
+.promotionBand.multiple .icon-label-white {
+    vertical-align: middle;
+    margin-right: 10px
+}
+
+#productRS.asideSlide .slideContent > div {
+    padding: 5px;
+    overflow: hidden;
+    border: 1px solid #ebebeb;
+    border-top: none
+}
+
+#productRS.asideSlide .slideContent a {
+    height: auto;
+    float: none;
+    display: inline-block;
+    line-height: 18px;
+    padding: 1px 5px;
+    margin: 3px;
+    border: 1px solid #dedede;
+    border-radius: 2px;
+    background-color: #fff;
+    color: #202020
+}
+
+.stockWarning {
+    color: #ea222f;
+    margin-left: 10px;
+    line-height: 18px;
+    padding-left: 21px;
+    padding-top: 3px
+}
+
+.stockWarning .iconWarning {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+#warrantyAgreement .scrolledContent .agreementHeader {
+    top: -40px
+}
+
+#warrantyAgreement .scrolledContent .agreementForm {
+    top: -20px
+}
+
+.easyzoom a {
+    height: 100%
+}
+
+.easyzoom-notice {
+    background: #fff;
+    line-height: 2em;
+    margin-left: -80px;
+    width: 160px;
+    text-align: center;
+    position: absolute;
+    bottom: 10%;
+    left: 50%
+}
+
+.easyzoom--overlay {
+    height: 100%
+}
+
+#productShipmentDetail.lightBox .content {
+    width: auto;
+    min-width: 410px;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    text-align: center;
+    background: 0 0;
+    border-top: none
+}
+
+#productShipmentDetail.lightBox .content.agt {
+    width: 750px;
+    margin-left: -375px
+}
+
+#productShipmentDetail.lightBox .content .kibris {
+    color: #505050;
+    font-style: italic
+}
+
+#productShipmentDetail.lightBox .content-product-detail {
+    width: auto;
+    display: inline-block;
+    background: #fff;
+    padding: 35px 17px 70px;
+    border-top: 2px solid #000
+}
+
+#productShipmentDetail.lightBox .content.dualLB .standartInfo {
+    float: none;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    box-sizing: border-box;
+    height: 480px
+}
+
+#productShipmentDetail.lightBox .content.dualLB .standartInfo.sdDelivery-info {
+    width: 500px
+}
+
+.sdDelivery-info {
+    margin-left: 3px
+}
+
+.sdDelivery-info-table {
+    margin-top: 5px;
+    border: 1px solid #ddf;
+    width: 100%
+}
+
+.sdDelivery-info-table-head {
+    background: #f6f6f7;
+    font-size: 10px
+}
+
+.sdDelivery-info-table-head th {
+    width: 115px;
+    padding: 5px;
+    border-right: 1px solid #ddf;
+    text-align: center
+}
+
+.sdDelivery-info-table-head th:last-child {
+    border-right: none
+}
+
+.sdDelivery-info-table td {
+    padding: 5px;
+    border-right: 1px solid #ddf;
+    border-top: 1px solid #ddf
+}
+
+.sdDelivery-info-table td:last-child {
+    border-right: none
+}
+
+.sdDelivery-info-column-head {
+    background: #f6f6f7;
+    text-align: left;
+    font-size: 10px
+}
+
+.sdDelivery-info-time {
+    display: block;
+    font-size: 13px;
+    font-weight: 700
+}
+
+.sdDelivery-info-tick {
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    display: block;
+    background-size: cover;
+    margin: 5px auto 0
+}
+
+.sdDelivery-info-cancel {
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    display: block;
+    background-size: cover;
+    margin: 5px auto 0
+}
+
+#lbProQuickView #sameDayDeliveryBtn, #lbProQuickView #shipmentDetailBtn {
+    cursor: auto
+}
+
+#lbProQuickView .proImg img {
+    width: 350px;
+    height: 350px
+}
+
+#lbProQuickView .proImgHolder .thumbsHolder ul li.thumb img {
+    width: 40px;
+    height: 40px
+}
+
+#lbProQuickView .easyzoom-flyout img {
+    height: auto;
+    width: auto
+}
+
+#lbProQuickView .proDetailArea fieldset.guaranteeField .extendedWarrantyDetail {
+    right: -266px
+}
+
+#lbProQuickView .proDetailArea .proDetailSocialBar {
+    width: 350px
+}
+
+.bargainDetail {
+    float: left;
+    left: 60px
+}
+
+.proDetailArea .paymentOpt + .bargainDetail {
+    margin-top: 10px
+}
+
+.bargainDetail em {
+    font-style: normal
+}
+
+.bargainDetail .btn {
+    padding: 3px 27px;
+    float: left;
+    font-size: 12px
+}
+
+.bargainDetail .bargainWarning {
+    color: #ea222f;
+    margin-left: 10px;
+    line-height: 18px;
+    padding-left: 21px;
+    padding-top: 3px
+}
+
+.bargainDetail .iconQuestion {
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    margin-left: 5px
+}
+
+.bargainDetail .iconQuestion .tooltip {
+    height: auto;
+    top: -70px;
+    right: -280px;
+    padding-bottom: 0
+}
+
+.bargainDetail .iconQuestion .detail {
+    padding: 5px 15px
+}
+
+#bargainLightbox h3 {
+    font-size: 18px;
+    text-align: center;
+    width: 135px;
+    display: block;
+    margin: 0 auto;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    top: 6px
+}
+
+#bargainLightbox .title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    width: 100%;
+    top: 6px
+}
+
+#bargainLightbox p {
+    text-align: center
+}
+
+#bargainLightbox .form {
+    width: 290px;
+    margin: 20px auto 0;
+    padding: 10px;
+    background-color: #f7f7f7
+}
+
+#bargainLightbox .form > fieldset {
+    margin-top: 0
+}
+
+#bargainLightbox #offer {
+    height: 30px;
+    width: 170px;
+    font-weight: 700;
+    font-size: 18px
+}
+
+#bargainLightbox .form .btnBlack {
+    padding: 5px 17px;
+    margin-left: 5px;
+    color: #fff;
+    font-weight: 400
+}
+
+#bargainLightbox .content {
+    padding-bottom: 25px
+}
+
+#bargainLightbox .captchaRefresh {
+    top: 48px;
+    left: 262px
+}
+
+#bargainLightbox #captchaText {
+    position: absolute;
+    width: 70px;
+    left: 175px;
+    top: 45px
+}
+
+#bargainLightbox .error #captchaContainer .errorMessage {
+    display: block !important
+}
+
+[id=contentProDetail] .saller h3 {
+    overflow: hidden
+}
+
+[id=contentProDetail] .saller h3 a {
+    width: 165px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+[id=contentProDetail] .saller .shopPoint {
+    margin-left: 40px
+}
+
+.trustLabel {
+    opacity: .5;
+    filter: alpha(opacity=50);
+    margin-top: 20px;
+    margin-left: 0;
+    display: inline-block;
+    width: 100%
+}
+
+.trustLabel li {
+    float: left;
+    margin-right: 6px
+}
+
+.trustLabel li span {
+    font-size: 9px;
+    line-height: 12px
+}
+
+.wrapper.product.marketProduct #header {
+    border-bottom: 2px solid #000;
+    height: 100px
+}
+
+.wrapper.product.marketProduct #header.sticky .logo img {
+    height: 52px;
+    width: 150px
+}
+
+.wrapper.product.marketProduct #header.sticky {
+    border-bottom: 1px solid #dedede
+}
+
+#wrapper.marketProduct > .content {
+    margin-top: 100px
+}
+
+.lazy[src='http://www.ayensoftware.com/poweredByAyen.png?v=1545830717294'] {
+    display: none !important
+}
+
+.proDetailArea .features .feaItem a, .proDetailArea .features .feaItem span {
+    display: inline !important;
+    word-break: break-all
+}
+
+.proDetailArea .features .feaItem a {
+    margin-right: -2px
+}
+
+#sellerAutoRecBox .asideSlide {
+    margin-top: 2px
+}
+
+#sellerAutoRecBox .asideSlide .slideList a {
+    width: 210px
+}
+
+#sellerAutoRecBox .asideSlide .slideContent {
+    overflow: visible !important;
+    border-top: none
+}
+
+#sellerAutoRecBox .slider .slidesjs-container {
+    border: none
+}
+
+#sellerAutoRecBox .slideTitle {
+    border-bottom: 1px solid #000;
+    margin: 0 10px
+}
+
+#sellerAutoRecBox .slideTitle span {
+    font-size: 14px
+}
+
+#sellerAutoRecBox .slideTitle a {
+    float: right;
+    width: auto;
+    font-size: 12px;
+    line-height: 12px;
+    position: relative;
+    top: 9px
+}
+
+#sellerAutoRecBox .slideList.slidesjs-slide {
+    padding: 0 10px;
+    box-sizing: border-box
+}
+
+#sellerAutoRecBox .asideSlide .slideList li {
+    height: 90px
+}
+
+.sameDayDelivery .tooltip .detail div span {
+    float: left;
+    margin-left: 5px;
+    font-weight: 400
+}
+
+.sameDayDelivery .tooltip .detail div span:first-child {
+    width: 110px
+}
+
+.sameDayDelivery .tooltip .detail div.item span:first-child:after {
+    content: "-";
+    margin-left: 20px
+}
+
+.sameDayDelivery .tooltip .detail div span i {
+    color: gray
+}
+
+.sameDayDelivery .tooltip .detail .item i {
+    font-style: italic
+}
+
+.sameDayDelivery .tooltip .detail div.header span {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 24px
+}
+
+.sameDayDelivery .tooltip .detail div.header {
+    background-color: #f2f2f2;
+    display: inline-block;
+    width: 100%
+}
+
+.similarProducts a {
+    color: #06c;
+    padding: 10px;
+    padding-left: 20px
+}
+
+.similarProducts a:before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 13px;
+    background-position: -725px -528px;
+    width: 4px;
+    height: 7px
+}
+
+.similarProducts ul.slideContent {
+    border-right: 1px solid #ebebeb;
+    border-left: 1px solid #ebebeb
+}
+
+.similarProducts ul.slideContent > li {
+    border-bottom: 1px solid #ebebeb
+}
+
+.rightArea .compareHolder {
+    border: 1px solid #ebebeb;
+    padding: 20px 25px;
+    height: 45px;
+    margin-top: 18px
+}
+
+.rightArea .compareHolder a {
+    color: #06c;
+    display: inline;
+    font-size: 16px;
+    top: 5px
+}
+
+.rightArea .compareHolder i {
+    float: left;
+    margin-right: 15px
+}
+
+.rightArea .adBanner.sticky {
+    top: 45px
+}
+
+.carSalesHolder {
+    width: 1188px;
+    height: 430px;
+    background-color: #f7f7f7;
+    margin-top: 10px
+}
+
+.carSalesHolder .carImg {
+    width: 660px;
+    height: 430px;
+    float: left;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.carSalesHolder .carImg img {
+    max-width: 100%;
+    max-height: 100%
+}
+
+.carSalesHolder .carDetail {
+    padding: 38px;
+    box-sizing: border-box;
+    float: left;
+    width: 527px;
+    height: 100%
+}
+
+.carSalesHolder .proStatus {
+    width: 100%;
+    top: auto;
+    left: 0;
+    bottom: 0
+}
+
+.carSalesHolder .proStatus span {
+    font-family: museosans500;
+    font-size: 22px;
+    background: #f2f2f2;
+    padding: 12px 10px
+}
+
+.carSalesHolder .title {
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: 400;
+    font-family: museosans500;
+    min-height: 83px
+}
+
+.carSalesHolder .subTitle {
+    font-size: 18px;
+    color: #505050;
+    font-weight: 400;
+    margin-top: 18px;
+    font-family: museosans300
+}
+
+.carSalesHolder .oldPrice {
+    color: gray;
+    font-size: 22px;
+    padding: 0;
+    margin-top: 25px;
+    position: relative;
+    font-family: museosans300
+}
+
+.carSalesHolder .newPrice {
+    font-size: 34px;
+    padding: 0;
+    margin: 0;
+    font-family: museosans700
+}
+
+.carSalesHolder .newPrice-red {
+    color: #ea222f
+}
+
+.carSalesHolder .btn {
+    display: block;
+    line-height: 62px;
+    font-size: 22px;
+    margin-top: 60px;
+    font-family: museosans700
+}
+
+.carSalesHolder .discount {
+    font-family: museosans700
+}
+
+.carSalesHolder .info {
+    width: 100%;
+    height: 120px;
+    margin: 20px auto 0;
+    display: table;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-family: museosans500
+}
+
+.carSalesHolder .info p {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 26px
+}
+
+.carSalesHolder .info i {
+    font-family: museosans300;
+    font-style: normal;
+    font-size: 20px
+}
+
+.carSalesHolder .info.infoTime {
+    border: solid 3px #ea222f
+}
+
+.carSalesHolder .info.infoTime p {
+    font-size: 28px;
+    color: #ea222f
+}
+
+.carSalesHolder .info.infoEnded {
+    background-color: gray;
+    font-family: museosans300
+}
+
+.carSalesHolder .info.infoEnded p {
+    color: #fff
+}
+
+.carSalesHolder .info.infoCampaign {
+    background-color: #fff;
+    border: solid 1px #dedede;
+    font-family: museosans300
+}
+
+.carSalesHolder .info.infoCampaign p {
+    color: #ea222f;
+    font-size: 22px;
+    float: left
+}
+
+.carSalesHolder .info.infoCampaign img {
+    float: right
+}
+
+.carSalesHolder .carCaptcha {
+    display: none;
+    margin-top: 25px;
+    padding-top: 10px;
+    border-top: 1px solid #d8d8d8;
+    position: relative;
+    z-index: 1
+}
+
+.carSalesHolder .carCaptcha .carSend {
+    width: 97px;
+    height: 34px;
+    border-radius: 2px;
+    font-family: museosans700;
+    background-image: linear-gradient(to bottom, #36cd1e, #21bb00 97%);
+    border: solid 1px #21bb00;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 63px
+}
+
+.carSalesHolder .carCaptcha .captcha .captchaImage {
+    float: left;
+    margin: 5px
+}
+
+.carSalesHolder .carCaptcha .captcha input {
+    width: 155px;
+    height: 36px;
+    text-indent: 5px;
+    margin-right: 5px;
+    margin-top: 11px
+}
+
+.carSalesHolder .carCaptcha .captcha .captchaRefresh {
+    text-indent: 0;
+    background: 0 0;
+    border: none;
+    width: auto;
+    left: 0;
+    top: 90px;
+    overflow: visible;
+    line-height: 23px;
+    color: #06c
+}
+
+.carSalesHolder .carCaptcha .captcha strong {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #212121
+}
+
+.carSalesHolder .carCaptcha .captcha em {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: #505050;
+    font-style: normal
+}
+
+.carSalesHolder .carCaptcha::before {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background-color: #ebebeb;
+    content: ' ';
+    z-index: 0;
+    top: 51px;
+    left: 0
+}
+
+.productHistories {
+    position: relative;
+    cursor: pointer
+}
+
+.productHistories .accordion-arrow {
+    width: 14px;
+    height: 9px;
+    display: inline-block;
+    
+    background-size: cover;
+    position: absolute;
+    right: 17px;
+    top: 10px;
+    cursor: pointer
+}
+
+.productHistories .accordion-arrow.active {
+    }
+
+.productHistories .histories-container {
+    text-align: center;
+    cursor: auto
+}
+
+.productHistories .histories-tab ul {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    display: inline-block
+}
+
+.productHistories .histories-tab ul li {
+    display: inline-block;
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+    min-width: 103px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ebebeb;
+    cursor: pointer
+}
+
+.productHistories .histories-tab ul li.active {
+    font-weight: 700;
+    border-color: #ed1d26
+}
+
+.productHistories #productHistories {
+    width: 100%;
+    height: 350px;
+    margin-top: 23px
+}
+
+.productHistories #productHistories a[href^="http://www.amcharts.com"] {
+    display: none !important
+}
+
+.productHistories .rate-of-change {
+    font-size: 14px;
+    text-align: center;
+    color: #202020;
+    padding: 12px 17px;
+    background-color: #fff9e8;
+    display: inline-block;
+    box-sizing: border-box
+}
+
+.productHistories .rate-of-change.rate-up {
+    background-color: #feeff0
+}
+
+.productHistories .rate-of-change.rate-up b {
+    color: #ed1d26
+}
+
+.productHistories .rate-of-change.rate-up b:before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 6.5px solid transparent;
+    border-right: 6.5px solid transparent;
+    border-bottom: 9px solid #ea222f;
+    margin: 0 3px
+}
+
+.productHistories .rate-of-change.rate-down {
+    background-color: #f1faef
+}
+
+.productHistories .rate-of-change.rate-down b {
+    color: #27c007
+}
+
+.productHistories .rate-of-change.rate-down b:before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 6.5px solid transparent;
+    border-right: 6.5px solid transparent;
+    border-top: 9px solid #32be23;
+    margin: 0 3px
+}
+
+.productHistories h4.title {
+    color: #ed1d26
+}
+
+@-moz-document url-prefix() {
+    .asideSlide .slideTitle {
+        letter-spacing: -1px
+    }
+}
+
+@media (max-width: 1187px) {
+    .carSalesHolder .carCaptcha .captcha input {
+        width: 90px
+    }
+
+    .wrapper .promotionBand .band span.discountText {
+        margin-left: -160px
+    }
+
+    .proTab {
+        width: 730px
+    }
+
+    .proDetailArea {
+        width: 740px
+    }
+
+    .proDetailArea .proDetailSocialBar, .proDetailArea .proImgHolder {
+        width: 350px
+    }
+
+    .proDetailArea .proImgHolder .proImg {
+        height: 348px;
+        width: 348px
+    }
+
+    .proDetailArea .proImgHolder .proImg .imgObj img {
+        height: 350px;
+        width: 350px
+    }
+
+    .proDetailArea .proImgHolder .thumbsHolder {
+        height: 50px;
+        width: 353px
+    }
+
+    .proDetailArea .proImgHolder .thumbsHolder ul.slidesjs-slide {
+        margin-left: 22px
+    }
+
+    .proDetailArea .proImgHolder .thumbsHolder ul li.thumb {
+        margin-left: 2px;
+        height: 40px;
+        width: 40px
+    }
+
+    .proDetailArea .proImgHolder .thumbsHolder ul li.thumb img {
+        height: 100%;
+        width: 100%
+    }
+
+    .proDetailArea .proImgHolder .thumbsHolder.slider .slidesjs-navigation {
+        margin-top: -37px
+    }
+
+    .proDetailArea .proNameHolder {
+        width: 630px
+    }
+
+    .proDetailArea .proNameHolder .nameHolder {
+        max-width: 565px
+    }
+
+    .proDetailArea .proDetail {
+        margin: 0 10px;
+        width: 370px
+    }
+
+    .proDetailArea .priceDetail .newPrice {
+        font-size: 26px
+    }
+
+    .proDetailArea .priceDetail .newPrice > span {
+        top: 2px
+    }
+
+    .proDetailArea .paymentDetail {
+        padding-right: 12px;
+        width: 343px
+    }
+
+    #lbProQuickView .proDetailArea .paymentDetail {
+        width: 415px
+    }
+
+    .proDetailArea .priceDetail .newPrice {
+        margin-top: 1px
+    }
+
+    .btnAddBasket {
+        margin-left: 8px;
+        padding: 0 10px
+    }
+
+    .proDetailArea .cardOpt {
+        display: none
+    }
+
+    .proDetailArea .bonusCampaign {
+        padding: 10px 15px 10px 0;
+        width: 263px
+    }
+
+    .proDetailArea .bonusCampaign div {
+        width: 227px
+    }
+
+    .proDetailArea .bonusCampaign h5 {
+        font-size: 13px
+    }
+
+    .proDetailArea .bonusCampaign img {
+        margin-top: 17px
+    }
+
+    .proDetailArea .bonusCampaign span {
+        width: 215px
+    }
+
+    .proTab .tab ul li h3 {
+        font-size: 12px
+    }
+
+    .bundle.asideSlide {
+        width: 730px
+    }
+
+    .bundle.asideSlide ul.slideList li {
+        width: 243px
+    }
+
+    .bundle.asideSlide .slideList a {
+        width: auto
+    }
+
+    .bundle.asideSlide .slider {
+        width: 730px
+    }
+
+    .bundle.asideSlide .slider .slidesjs-container {
+        height: 90px !important;
+        width: 728px !important
+    }
+
+    .bundle.asideSlide.recomOtherProSlide, .bundle.asideSlide.recomOtherProSlide .slider {
+        width: 990px
+    }
+
+    .bundle.asideSlide.recomOtherProSlide ul.slideList li {
+        width: 246px
+    }
+
+    .bundle.asideSlide.recomOtherProSlide .slider .slidesjs-container {
+        height: 90px !important;
+        width: 990px !important
+    }
+
+    .bundle.asideSlide.recomOtherProSlide .slideList a {
+        width: 100%
+    }
+
+    .proDetailArea .discount {
+        right: -20px
+    }
+
+    .proDetailArea .paymentOpt.closed {
+        max-width: 190px
+    }
+
+    .promotionBand {
+        width: 990px
+    }
+
+    .form.proOpt.horizontal label {
+        width: 63px
+    }
+
+    .form.proOpt.horizontal .errorMessage {
+        margin-left: 70px
+    }
+
+    .trustLabel {
+        margin-left: 0
+    }
+
+    .trustLabel li {
+        margin-right: 3px
+    }
+
+    .trustLabel li span {
+        font-size: 9px
+    }
+
+    .carSalesHolder {
+        width: 990px
+    }
+
+    .carSalesHolder .carImg {
+        width: 550px
+    }
+
+    .carSalesHolder .carDetail {
+        padding: 40px 30px;
+        width: 440px
+    }
+
+    .carSalesHolder .carDetail .title {
+        font-size: 30px
+    }
+}
+
+#contentPromotion .combineGroup, #contentPromotion .setGroup {
+    display: none !important
+}
+
+.combine {
+    display: inline-block;
+    margin: 10px 0 20px
+}
+
+#contentPromotion .pageHeader {
+    margin-top: 0
+}
+
+#contentPromotion .pageHeader h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 850px
+}
+
+#contentPromotion .promotionHeader {
+    margin: 0
+}
+
+#contentPromotion .promotionHeader .banner {
+    float: none;
+    width: 100%;
+    text-align: center;
+    z-index: 1
+}
+
+#contentPromotion .promotionHeader .banner img {
+    display: block
+}
+
+#contentPromotion .group {
+    border: none;
+    margin-top: 30px
+}
+
+#contentPromotion .multiBanner, #contentPromotion .multiSlider {
+    margin-top: 20px
+}
+
+#contentPromotion ~ .loader {
+    display: none !important
+}
+
+.group.combineGroup {
+    border: none
+}
+
+.combineGroup.combine {
+    clear: both;
+    display: inline-block
+}
+
+.combineGroup.combine3 .combine {
+    margin-top: 10px
+}
+
+.combineGroup .arrowMenu {
+    padding: 15px 15px 0;
+    position: absolute;
+    top: 300px;
+    left: 0
+}
+
+.newPrice.inline, .oldPrice.inline {
+    display: inline-block;
+    float: left
+}
+
+.newPrice.inline {
+    padding: 0 5px 0 15px
+}
+
+.oldPrice.inline {
+    padding: 0;
+    line-height: 20px
+}
+
+.combineGroup .columnX2 img {
+    border: 1px solid #dedede;
+    display: block;
+    margin: -1px auto 10px;
+    z-index: -1
+}
+
+.combineGroup .columnX2 a {
+    float: right
+}
+
+.combineGroup .columnX2 a:hover {
+    text-decoration: none
+}
+
+.combineGroup .columnX2 .productName {
+    float: left;
+    font-weight: 400;
+    font-size: 14px;
+    height: 33px;
+    width: 250px;
+    overflow: hidden;
+    padding: 0 10px 0 0;
+    word-wrap: break-word
+}
+
+.combineGroup .columnX2 .newPrice, .setGroup.set3 .column .newPrice {
+    font-size: 18px
+}
+
+.combineGroup .columnX2 .oldPrice, .setGroup.set3 .column .oldPrice {
+    font-size: 13px
+}
+
+.combineGroup .columnX2 .newPrice, .combineGroup .columnX2 .oldPrice {
+    display: block;
+    float: right;
+    text-align: right;
+    padding-right: 0
+}
+
+.combineGroup .columnX2 .oldPrice {
+    right: 0
+}
+
+.combineGroup .columnX2 .productName + .newPrice {
+    margin-top: 0
+}
+
+.combineGroup .columnX2 .freeShipping {
+    margin-left: 18px;
+    position: relative
+}
+
+.combineGroup .columnX2 .ratingCont {
+    padding-left: 17px
+}
+
+.combineGroup .columnX2 .freeShipping + .ratingCont {
+    margin-top: 5px
+}
+
+.combineGroup .columnX2 .mobileSpecial {
+    float: right
+}
+
+.combineGroup .labelArea {
+    border-top: 1px solid #ebebeb;
+    margin-top: 30px;
+    padding-top: 15px
+}
+
+.combineGroup .labelList {
+    height: 85px;
+    width: 100%
+}
+
+.combineGroup.combine3 .proItemDetail {
+    padding: 10px 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    height: 25px;
+    width: 178px;
+    z-index: 2
+}
+
+.combineGroup.combine3 .columnX2 .proItemDetail {
+    bottom: 0;
+    width: 376px
+}
+
+.combineGroup.combine3 .newPrice, .combineGroup.combine3 .oldPrice {
+    display: inline-block;
+    float: left;
+    padding-left: 10px
+}
+
+.combineGroup.combine3 .newPrice {
+    margin: 0
+}
+
+.combineGroup.combine3 .oldPrice {
+    padding-left: 3px;
+    right: auto
+}
+
+.combineGroup.combine3 .column {
+    margin-bottom: 20px
+}
+
+.combineGroup.combineTab .tab ul {
+    border-top: 2px solid #000
+}
+
+.combineGroup.combineTab .tab ul li:first-child {
+    border-left: 1px solid #dedede
+}
+
+.combineGroup.combineTab .tab ul li {
+    border-right: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    background: #f7f7f7;
+    height: 50px;
+    width: 196px;
+    text-align: center
+}
+
+.combineGroup.combineTab .tab ul li.active {
+    background: #fff;
+    border-bottom: none
+}
+
+.combineGroup.combineTab .tab ul li img {
+    max-width: 195px;
+    max-height: 50px
+}
+
+.group.set6 .column {
+    height: 345px;
+    width: 198px
+}
+
+.group.set6 .column img {
+    height: 178px;
+    width: 178px
+}
+
+.group.set5 .column {
+    height: 360px;
+    width: 237px
+}
+
+.group.set5 .column img {
+    height: 217px;
+    width: 217px
+}
+
+.group.set4 .column {
+    height: 435px;
+    width: 297px
+}
+
+.group.set4 .column img {
+    height: 277px;
+    width: 277px
+}
+
+.group.set3 .column {
+    height: 530px;
+    width: 396px
+}
+
+.group.set3 .column img {
+    height: 376px;
+    width: 376px
+}
+
+.group.set2 .column {
+    height: 277px;
+    width: 594px;
+    margin-bottom: 15px
+}
+
+.group.set2 .column img {
+    height: 277px;
+    width: 277px;
+    float: left
+}
+
+.group.set6 .proStatus {
+    width: 178px;
+    top: 154px
+}
+
+.group.set5 .proStatus {
+    width: 217px;
+    top: 193px
+}
+
+.group.set4 .proStatus {
+    width: 277px;
+    top: 253px
+}
+
+.group.set3 .proStatus {
+    width: 376px;
+    top: 352px
+}
+
+.group.set2 .proStatus {
+    width: 277px;
+    top: 253px
+}
+
+.group.set4 .column .productName {
+    font-size: 14px;
+    line-height: 18px;
+    height: 37px
+}
+
+.group.set4 .column .newPrice {
+    font-size: 18px
+}
+
+.group.set4 .column .oldPrice {
+    font-size: 13px
+}
+
+.group.set3 .column .productName {
+    font-size: 16px;
+    height: 42px;
+    line-height: 20px
+}
+
+.group.set3 .column .newPrice {
+    font-size: 20px
+}
+
+.group.set3 .column .oldPrice {
+    font-size: 15px
+}
+
+.group.set2 .column .productName {
+    font-size: 14px;
+    height: 39px;
+    line-height: 18px
+}
+
+.group.set2 .column .newPrice {
+    font-size: 18px;
+    float: left
+}
+
+.group.set2 .column .oldPrice {
+    font-size: 13px;
+    left: 278px;
+    width: 40%
+}
+
+.group.set2 .column .proItemDetail {
+    float: left;
+    padding-left: 15px;
+    width: 48%
+}
+
+.group.set2 .column .proDesc {
+    display: inline-block;
+    height: 132px;
+    width: 45%;
+    margin: 10px 15px;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-align: left
+}
+
+.group.set2 .column .freeShipping {
+    float: left;
+    clear: none
+}
+
+.group.set2 .column .ratingCont {
+    clear: none;
+    float: left;
+    width: 45%
+}
+
+.group.set5 .boxView .column {
+    height: 344px;
+    width: 221px
+}
+
+.group.set5 .boxView .column img {
+    height: 200px;
+    width: 200px
+}
+
+.group.set4.seperatedSet ul {
+    margin-left: -20px
+}
+
+.group.set4.seperatedSet .column {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    height: 400px;
+    width: 281px
+}
+
+.group.set4.seperatedSet .column .columnContent {
+    min-height: 369px;
+    padding-top: 20px
+}
+
+.group.set4.seperatedSet .column img {
+    height: 242px;
+    width: 242px;
+    margin-bottom: 5px
+}
+
+.group.set4.seperatedSet .proStatus {
+    width: 260px;
+    top: 218px
+}
+
+.group.set3.seperatedSet ul {
+    margin-left: -30px
+}
+
+.group.set3.seperatedSet .column {
+    margin-left: 30px;
+    margin-bottom: 30px;
+    height: 450px;
+    width: 375px
+}
+
+.group.set3.seperatedSet.counterSet .column .columnContent {
+    min-height: 450px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+.group.set3.seperatedSet.counterSet .column img {
+    height: 217px;
+    width: 217px
+}
+
+.group.set3.seperatedSet.counterSet .proStatus {
+    width: 354px;
+    top: 193px
+}
+
+.catalogView.boxView .column {
+    margin-right: 16px
+}
+
+.catalogView.boxView .column:last-child {
+    margin-right: 0
+}
+
+.catalogView.boxView .column .columnContent {
+    background: #fff;
+    border: 1px solid #c9c9c9;
+    box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, .18);
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+#contentPromotion .group.set6 .catalogView .column .sallerInfo .sallerName {
+    width: 130px
+}
+
+#contentPromotion .group.set5 .catalogView .column .sallerInfo .sallerName {
+    width: 165px
+}
+
+#contentPromotion .group.set2 .catalogView {
+    min-height: 0
+}
+
+#contentPromotion .group.set2 .catalogView > ul {
+    margin-right: -14px;
+    margin-left: -14px
+}
+
+#contentPromotion .group.set2 .catalogView > ul:after, #contentPromotion .group.set2 .catalogView > ul:before {
+    content: '';
+    display: table
+}
+
+#contentPromotion .group.set2 .catalogView > ul:after {
+    clear: both
+}
+
+#contentPromotion .group.set2 .catalogView .column {
+    height: 300px;
+    width: 580px;
+    float: left;
+    margin-bottom: 17px;
+    padding-right: 14px;
+    padding-left: 14px
+}
+
+#contentPromotion .group.set2 .catalogView .column .columnContent {
+    border: 1px solid #dedede;
+    min-height: 285px;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+#contentPromotion .group.set2 .catalogView .column .freeShipping {
+    top: 40px;
+    left: 288px;
+    float: none
+}
+
+#contentPromotion .group.set2 .catalogView .column .sameDayDelivery {
+    position: absolute;
+    top: 12px;
+    right: 6px;
+    margin-left: 0
+}
+
+#contentPromotion .group.set2 .catalogView .column .discount.discountS ~ .sameDayDelivery {
+    top: 32px
+}
+
+#contentPromotion .group.set2 .catalogView .column .mobileSpecial ~ .sameDayDelivery {
+    top: 37px
+}
+
+#contentPromotion .group.set2 .catalogView .column .discountS, #contentPromotion .group.set2 .catalogView .column .mobileSpecial {
+    top: 0
+}
+
+#contentPromotion .group.set2 .catalogView .column .ratingCont {
+    margin-top: 27px;
+    left: 10px
+}
+
+#contentPromotion .group.set2 .catalogView .column .oldPrice {
+    left: 287px;
+    top: -2px
+}
+
+#contentPromotion .group.set2 .catalogView .column .sallerInfo {
+    position: absolute;
+    width: 265px;
+    background: 0 0;
+    border-top: none;
+    top: 240px;
+    right: 0
+}
+
+#contentPromotion .group.set2 .catalogView .column .followBtn {
+    position: absolute;
+    left: 287px;
+    top: 77px
+}
+
+#contentPromotion .group.set2 .catalogView .column .productName {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 10px 10px 0 25px
+}
+
+#contentPromotion .group.set2 .catalogView .column .newPrice {
+    left: 10px;
+    margin-top: 12px
+}
+
+#contentPromotion .group.set2 .catalogView .column .badgeSaller {
+    top: 20px;
+    right: 6px
+}
+
+#contentPromotion .group.set2 .catalogView .column img {
+    left: 10px
+}
+
+#contentPromotion .group.set2 .catalogView .column .moreOpt {
+    display: none
+}
+
+#contentPromotion .group.set2 .catalogView .column .freeShipping + .followBtn, #contentPromotion .group.set2 .catalogView .column .freeShipping + form + .followBtn {
+    margin-top: 5px
+}
+
+.group.set3 .catalogView .column .productName {
+    height: 42px !important
+}
+
+.carouselGroup .carouselTriple .column {
+    width: 376px;
+    margin: 10px 0 10px 30px
+}
+
+.carouselTriple {
+    border-bottom: none
+}
+
+.carouselTriple .column:first-child {
+    margin-left: 0
+}
+
+.carouselTriple .column:hover .proItemDetail {
+    display: block
+}
+
+.carouselTriple .column > a {
+    border: 1px solid #dedede
+}
+
+.carouselTriple .column img {
+    display: block;
+    margin-top: -1px;
+    margin-left: -1px;
+    height: 376px;
+    width: 376px;
+    z-index: -1
+}
+
+.carouselTriple .proItemDetail {
+    display: none;
+    background: rgba(0, 0, 0, .6);
+    position: absolute;
+    left: 1px;
+    bottom: 1px;
+    padding: 0;
+    height: 100px;
+    width: 374px;
+    z-index: 2
+}
+
+.carouselTriple .productName {
+    color: #fff;
+    font-size: 16px;
+    height: 36px;
+    width: 280px;
+    line-height: 18px;
+    overflow: hidden
+}
+
+.carouselTriple .newPrice, .carouselTriple .oldPrice {
+    float: right;
+    position: absolute;
+    right: 0
+}
+
+.carouselTriple .oldPrice {
+    color: #afafaf;
+    font-size: 15px;
+    top: 38px
+}
+
+.carouselTriple .newPrice {
+    color: #fff;
+    font-size: 20px;
+    margin: 0;
+    top: 55px
+}
+
+.carouselTriple .ratingCont {
+    color: gray;
+    margin-top: 6px
+}
+
+.proCarousel2 .slidesjs-container {
+    height: 470px
+}
+
+.carouselGroup .column, .setGroup .column {
+    margin: 10px 0
+}
+
+.group.carouselGroup {
+    border: none
+}
+
+.promotionHeader h1 {
+    font-size: 28px;
+    line-height: 32px
+}
+
+.resultActionsBar {
+    margin-top: 20px
+}
+
+.resultActionsBar .promotionFilterBar, .resultActionsBar .promotionTabMenu {
+    margin-top: 0
+}
+
+.resultActionsBar.sticky {
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    z-index: 101
+}
+
+.promotionTabMenu {
+    margin-top: 20px;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 700;
+    border-bottom: 2px solid #000;
+    background-color: #fff
+}
+
+.promotionTabMenu li {
+    display: table-cell;
+    border-left: 1px solid #dedede;
+    border-top: 1px solid #dedede;
+    text-align: center;
+    vertical-align: middle
+}
+
+.promotionTabMenu li:last-child {
+    border-right: 1px solid #dedede
+}
+
+.promotionTabMenu li.active, .promotionTabMenu li:hover {
+    border-color: #000;
+    background-color: #000
+}
+
+.promotionTabMenu li.active a, .promotionTabMenu li:hover a {
+    color: #fff
+}
+
+.promotionTabMenu li.active + li, .promotionTabMenu li:hover + li {
+    border-left-color: transparent
+}
+
+.promotionTabMenu li a {
+    display: block;
+    padding: 15px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+.promotionTabMenu li a:hover, .promotionTabMenu li.active a {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none
+}
+
+.promotionTabMenu + .promotionFilterBar {
+    margin-top: 0
+}
+
+.promotionFilterBar {
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f2f2f2;
+    z-index: 1
+}
+
+.promotionFilterBar .nSelect {
+    border-color: #c9c9c9;
+    width: 180px;
+    background-color: #fff;
+    cursor: pointer
+}
+
+.promotionFilterBar .multiSelect:not(.selected):hover .selection, .promotionFilterBar .multiSelect:not(.selected):not(.disabled):hover .head, .promotionFilterBar .nSelect:hover {
+    border-color: gray
+}
+
+.promotionFilterBar .leftSide {
+    float: left
+}
+
+.promotionFilterBar .leftSide > * {
+    float: left;
+    margin-right: 10px
+}
+
+.promotionFilterBar .rightSide, .promotionFilterBar .rightSide > * {
+    float: right
+}
+
+.promotionFilterBar .rightSide .nSelect {
+    margin-left: 10px
+}
+
+.promotionFilterBar .rightSide .searchInput input {
+    width: 180px;
+    padding-left: 10px;
+    font-size: 12px
+}
+
+.promotionFilterBar .rightSide .searchInput span {
+    right: 5px
+}
+
+.promotionFilterBar .filterFreeShipping {
+    position: absolute;
+    left: -9999px
+}
+
+.promotionFilterBar .filterFreeShipping + label {
+    position: relative;
+    height: 30px;
+    width: 100px;
+    color: #000;
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box
+}
+
+.promotionFilterBar .filterFreeShipping + label:hover {
+    border: 1px solid gray;
+    line-height: 28px
+}
+
+.promotionFilterBar .filterFreeShipping:checked + label {
+    border: 2px solid #000;
+    line-height: 26px
+}
+
+.promotionFilterBar .filterFreeShipping:checked + label:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    content: '';
+    height: 12px;
+    width: 12px;
+}
+
+.promotionFilterBar .clearAllBtn {
+    margin-top: 9px;
+    margin-right: 0;
+    font-size: 11px;
+    color: #06c;
+    cursor: pointer
+}
+
+.promotionFilterBar .clearAllBtn:hover {
+    text-decoration: underline
+}
+
+.selectHolder {
+    background: #f2f2f2;
+    padding: 10px 5px;
+    height: 32px
+}
+
+.banner img {
+    display: block
+}
+
+.optionHolder select {
+    border: 1px solid #dedede;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    margin: 10px 5px;
+    padding: 5px;
+    width: 224px
+}
+
+.choiceTitle {
+    color: #202020;
+    font-weight: 700;
+    float: left;
+    line-height: 40px;
+    margin-right: 20px
+}
+
+.choice .close {
+    cursor: pointer;
+    float: right;
+    margin-left: 5px;
+    height: 17px;
+    width: 17px
+}
+
+.choice .close:after {
+    content: '';
+    background-position: -727px -256px;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    top: 5px;
+    left: 5px
+}
+
+.choice {
+    border-radius: 3px;
+    border: 1px solid #dedede;
+    display: inline-block;
+    float: left;
+    line-height: 16px;
+    margin: 10px 4px 0 0;
+    padding: 1px 0 1px 7px
+}
+
+.choice > span:first-child {
+    float: left;
+    word-break: break-all
+}
+
+.choice .color {
+    border: 1px solid #dedede;
+    display: block;
+    float: left;
+    margin-right: 3px;
+    height: 13px;
+    width: 22px
+}
+
+#contentPromotion .pagination {
+    width: 100%
+}
+
+.timerPromotion {
+    position: absolute;
+    right: 0;
+    top: -24px;
+    font-size: 13px
+}
+
+.timerPromotion .holder {
+    padding-left: 15px
+}
+
+.timerPromotion .holder.countDownContainer {
+    display: none
+}
+
+.timerPromotion .title {
+    display: inline-block;
+    padding-left: 22px;
+    color: #202020;
+    line-height: 18px
+}
+
+.timerPromotion .title:before {
+    content: '';
+    position: absolute;
+    left: 0;
+}
+
+.timerPromotion .title.isDate:before {
+    top: -1px;
+    height: 17px;
+    width: 16px;
+    background-position: 0 -724px
+}
+
+.timerPromotion .title.isCountdown:before {
+    top: 0;
+    height: 16px;
+    width: 16px;
+    background-position: -19px -725px
+}
+
+.timerPromotion .counter .countdownEl {
+    display: inline
+}
+
+.timerPromotion.isWhite, .timerPromotion.isWhite .title {
+    color: #fff
+}
+
+.timerPromotion.isWhite .title.isCountdown:before {
+    background-position: -38px -725px;
+    color: #fff
+}
+
+.timerPromotion.isWhite .counter.counter-noText .counter-number {
+    color: #fff
+}
+
+.group.multiBanner h2 {
+    margin-bottom: 10px
+}
+
+.group.multiBanner .column {
+    margin: 0 10px
+}
+
+.group.multiBanner .column img {
+    height: 100%;
+    width: 100%
+}
+
+.group.multiBanner.multiSlider .column {
+    margin: 10px
+}
+
+.group.multiBanner.multiSlider h2 {
+    margin-bottom: 0
+}
+
+.group.multiBanner.multiSlider .slidesjs-slide a {
+    display: inline
+}
+
+.group.multiBanner.mb6 .column {
+    height: 178px;
+    width: 178px
+}
+
+.group.multiBanner.mb5 .column {
+    height: 217px;
+    width: 217px
+}
+
+.group.multiBanner.mb4 .column {
+    height: 277px;
+    width: 277px
+}
+
+.group.multiBanner.mb3 .column {
+    height: 376px;
+    width: 376px
+}
+
+.group.multiBanner.mb2 .column {
+    height: 376px;
+    width: 574px
+}
+
+.group.multiBanner.mb1 .column {
+    height: 376px;
+    width: 1188px
+}
+
+.group.multiBanner.mb1 .column img {
+    height: 376px;
+    width: 100%
+}
+
+#contentPromotion .banner.bottom {
+    margin-top: 28px
+}
+
+#contentPromotion .quickAttrEmpty {
+    margin-top: 40px
+}
+
+#contentPromotion .menuSep, #contentPromotion .menuSep.bottom {
+    top: 73px
+}
+
+#contentPromotion .noResultHolder {
+    padding-bottom: 50px
+}
+
+.wrapper.micrositePromotion #header {
+    border-bottom: 1px solid #dedede !important
+}
+
+.wrapper.moda .group.listingGroup .column .blackBadgeS {
+    top: 18px !important
+}
+
+#wrapper:not(.moda) #contentPromotion .group.set3 .catalogView .badgeSaller {
+    top: 5px;
+    right: 10px
+}
+
+#wrapper:not(.moda) #contentPromotion .group.set3 .catalogView .followBtn {
+    margin-top: 85px
+}
+
+#wrapper:not(.moda) #contentPromotion .group.set3 .catalogView .freeShipping + .followBtn, #wrapper:not(.moda) #contentPromotion .group.set3 .catalogView .location-discount + .followBtn {
+    margin-top: 67px
+}
+
+#wrapper:not(.moda) #contentPromotion .group.set3 .catalogView .ratingCont + .followBtn {
+    margin-top: 47px
+}
+
+.wrapper.moda #contentPromotion .carouselTriple .column .productName {
+    margin-top: 10px;
+    margin-bottom: 2px;
+    font-size: 14px;
+    padding-left: 10px;
+    font-family: montserratlight;
+    max-height: 36px;
+    white-space: nowrap;
+    width: 96%;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.wrapper.moda #contentPromotion .carouselTriple .column .newPrice {
+    font-size: 18px;
+    left: -5px;
+    top: 25px
+}
+
+.wrapper.moda #contentPromotion .carouselTriple .column .oldPrice {
+    top: 25px;
+    left: -5px;
+    font-size: 14px
+}
+
+.wrapper.moda #contentPromotion .carouselTriple .column .freeShipping.white {
+    background-position: 0 -215px;
+    height: 11px;
+    width: 94px;
+    top: 75px;
+    right: 9px
+}
+
+.wrapper.moda #contentPromotion .carouselTriple .column .discount {
+    top: 60px;
+    position: absolute;
+    background: 0 0;
+    right: 11px !important;
+    left: auto
+}
+
+.wrapper.moda #contentPromotion .carouselTriple .column .discount .ratio {
+    font-size: 14px;
+    font-family: montserratregular
+}
+
+.wrapper.moda #contentPromotion .carouselTriple .column .blackBadgeS.white {
+    background-position: -60px -248px;
+    top: 60px;
+    right: 111px
+}
+
+.wrapper.moda #contentPromotion .carouselTriple .column .blackBadgeS.white .iconVehicleS {
+    background-position: 0 -1864px
+}
+
+#promosyonlar:after, #promosyonlar:before {
+    content: '';
+    display: table
+}
+
+#promosyonlar:after {
+    clear: both
+}
+
+@media (max-width: 1187px) {
+    .promotionHeader .banner img {
+        height: auto;
+        width: 990px
+    }
+
+    .group.set6 .column {
+        width: 165px;
+        height: 285px;
+        margin: 0
+    }
+
+    .group.set6 .column img {
+        height: 145px;
+        width: 145px
+    }
+
+    .group.set5 .column {
+        width: 198px;
+        height: 320px;
+        margin: 0
+    }
+
+    .group.set5 .column img {
+        height: 178px;
+        width: 178px
+    }
+
+    .group.set4 .column {
+        width: 247px;
+        height: 375px;
+        margin: 0
+    }
+
+    .group.set4 .column img {
+        height: 227px;
+        width: 227px
+    }
+
+    .group.set3 .column {
+        width: 330px;
+        height: 460px;
+        margin: 0
+    }
+
+    .group.set3 .column img {
+        height: 310px;
+        width: 310px
+    }
+
+    .group.set3 .column .productName {
+        font-size: 14px;
+        line-height: 16px;
+        height: 34px
+    }
+
+    .group.set2 .column {
+        width: 495px;
+        margin-bottom: 15px
+    }
+
+    .group.set2 .column img {
+        float: left;
+        height: 227px;
+        width: 227px
+    }
+
+    .group.set2 .column .proDesc {
+        height: 84px
+    }
+
+    .group.set2 .column .oldPrice {
+        left: 228px
+    }
+
+    .group.multiBanner.mb6 .column {
+        height: 145px;
+        width: 145px
+    }
+
+    .group.multiBanner.mb5 .column {
+        height: 178px;
+        width: 178px
+    }
+
+    .group.multiBanner.mb4 .column {
+        height: 227px;
+        width: 227px
+    }
+
+    .group.multiBanner.mb3 .column {
+        height: 310px;
+        width: 310px
+    }
+
+    .group.multiBanner.mb2 .column {
+        height: 310px;
+        width: 475px
+    }
+
+    .group.multiBanner.mb1 .column {
+        height: 310px;
+        width: 990px
+    }
+
+    .group.multiBanner.mb1 .column img {
+        height: 310px;
+        width: 100%
+    }
+
+    .combineGroup.combineTab .tab ul li {
+        width: 162px
+    }
+
+    .combineGroup.combineTab .tab ul li img {
+        max-width: 162px
+    }
+
+    .group.set6 .proStatus {
+        width: 145px;
+        top: 121px
+    }
+
+    .group.set5 .proStatus {
+        width: 178px;
+        top: 154px
+    }
+
+    .group.set4 .proStatus {
+        width: 227px;
+        top: 203px
+    }
+
+    .group.set3 .proStatus {
+        width: 310px;
+        top: 286px
+    }
+
+    .carouselGroup .carouselTriple .column {
+        width: 310px
+    }
+
+    .carouselTriple .proItemDetail {
+        width: 308px
+    }
+
+    .carouselTriple .column img {
+        height: 310px;
+        width: 310px
+    }
+
+    .carouselTriple .productName {
+        width: 210px
+    }
+
+    .promotionBanner img {
+        height: 218px;
+        width: 990px
+    }
+
+    .optionHolder select {
+        width: 185px
+    }
+
+    .group.listingGroup.set3 .catalogView .productName {
+        max-height: 34px
+    }
+
+    .resultActionsBar.sticky {
+        width: 990px
+    }
+
+    .promotionFilterBar .multiSelect, .promotionFilterBar .nSelect {
+        width: 130px
+    }
+
+    #contentPromotion .group.set2 .catalogView .column {
+        height: 250px;
+        width: 481px;
+        margin-bottom: 12px
+    }
+
+    #contentPromotion .group.set2 .catalogView .column img {
+        height: 230px;
+        width: 230px
+    }
+
+    #contentPromotion .group.set2 .catalogView .column .proStatus {
+        width: 230px;
+        top: 206px
+    }
+
+    #contentPromotion .group.set2 .catalogView .column .columnContent {
+        min-height: 240px
+    }
+
+    #contentPromotion .group.set2 .catalogView .column .followBtn, #contentPromotion .group.set2 .catalogView .column .oldPrice {
+        left: 240px
+    }
+
+    #contentPromotion .group.set2 .catalogView .column .sallerInfo {
+        width: 215px;
+        top: 195px
+    }
+
+    #contentPromotion .group.set2 .catalogView .column .freeShipping {
+        left: 240px !important
+    }
+
+    .wrapper.moda #contentPromotion .carouselTriple .column .productName {
+        width: 277px
+    }
+}
+
+.wrapper.market #header {
+    border-bottom: 2px solid #000;
+    height: 100px
+}
+
+.wrapper.market #header h1 {
+    display: inline-block;
+    float: left;
+    margin-top: 6px
+}
+
+.wrapper.market #header.sticky {
+    height: 65px;
+    border-bottom: 1px solid #dedede
+}
+
+.wrapper.market #header.sticky h1 {
+    margin-top: 1px;
+    margin-left: 55px
+}
+
+.wrapper.market #header.sticky .logo img {
+    height: 52px;
+    width: 150px
+}
+
+.wrapper.market #header.sticky .hMenu {
+    top: 0
+}
+
+.wrapper.market #header .hTopMenu {
+    margin-left: 0;
+    left: -1px
+}
+
+.wrapper.market #header .hTopMenu .hTMItem:first-child .btnMenu {
+    padding-left: 0
+}
+
+.wrapper.market #header .hTopMenu .hTMItem.quickAccess .hOpenMenu {
+    left: 5px
+}
+
+.wrapper.market.search #header {
+    border-bottom: 1px solid #dedede
+}
+
+.wrapper.market .hTMItem.quickAccess .hOpenMenu {
+    left: 5px
+}
+
+#wrapper.market > .content {
+    margin-top: 100px
+}
+
+.wrapper.market .group {
+    border: none
+}
+
+.wrapper.market .catGroup {
+    margin-top: 0
+}
+
+.wrapper.market .categoryMenuTab {
+    margin-bottom: 7px
+}
+
+.wrapper.market .categoryMenuTab > ul {
+    border-bottom: 1px solid #dedede
+}
+
+.wrapper.market .categoryMenuTab > ul ul {
+    border-bottom: none
+}
+
+.wrapper.market .categoryMenuTab > ul li {
+    background-color: #fff
+}
+
+#contentMarket .categoryMenuTab > ul > li span, .wrapper.market .categoryMenuTab > ul > li {
+    width: 118px
+}
+
+.wrapper.market .categoryMenuTab > ul > li > a {
+    padding-top: 0
+}
+
+.wrapper.market .categoryMenuTab > ul > li span:last-child, .wrapper.market .categoryMenuTab > ul > li:last-child {
+    width: 115px
+}
+
+#contentMarket .categoryMenuTab > ul > li.active, .wrapper.market .categoryMenuTab > ul > li:hover {
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease
+}
+
+#contentMarket .categoryMenuTab > ul > li.active i, .wrapper.market .categoryMenuTab > ul > li:hover i {
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease
+}
+
+.wrapper.market .bannerSlider {
+    float: left;
+    height: 445px;
+    width: 928px
+}
+
+.wrapper.market .asideSlide {
+    float: right;
+    margin-top: 0;
+    z-index: 0
+}
+
+.wrapper.market .asideSlide h3 {
+    background: gray;
+    color: #fff;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 48px;
+    padding: 0 10px;
+    z-index: 3
+}
+
+.wrapper.market .slideVertical {
+    border: 1px solid #dedede;
+    margin-top: -1px
+}
+
+.wrapper.market .slideVertical ul li {
+    border-bottom: none;
+    border-top: 1px solid #ebebeb;
+    display: block;
+    height: 98px
+}
+
+.wrapper.market .slideVertical ul li a {
+    padding: 13px 10px
+}
+
+.wrapper.market .listingHolder {
+    padding-top: 20px
+}
+
+.wrapper.market .proDetailCarousel.slider .slidesjs-container {
+    border: none
+}
+
+.wrapper.market .proDetailCarousel.slider .slidesjs-pagination-holder {
+    margin-top: -40px
+}
+
+.wrapper.market .proDetailCarousel.slider .slidesjs-pagination-holder.disable {
+    z-index: -1
+}
+
+.wrapper.market .carouselGroup.largeContent {
+    z-index: 3
+}
+
+.wrapper.market .carouselGroup.largeContent + .group {
+    margin-top: -25px;
+    z-index: 2
+}
+
+.wrapper.market .carouselGroup.largeContent + .catPromoGroup {
+    z-index: 1
+}
+
+.wrapper.market .column .blackBadgeS {
+    top: 280px
+}
+
+.wrapper.market .categoryMenuTab > ul > li span {
+    width: 118px
+}
+
+#wrapper.market .catalogView:not(.slider) .column:hover .columnContent {
+    padding-bottom: 12px
+}
+
+#contentPromotion .group .catalogView .column .blackBadgeS {
+    top: 30px
+}
+
+#contentPromotion .group.set3 .catalogView .column .blackBadgeS {
+    top: 17px
+}
+
+.largeContent .column .columnContent {
+    padding-top: 10px
+}
+
+.categoryMenuTab.noTabLink {
+    z-index: 1
+}
+
+.categoryMenuTab.noTabLink > ul > li .hOpenMenu {
+    top: 72px;
+    left: -1px
+}
+
+.categoryMenuTab.noTabLink > ul > li .hOpenMenu a {
+    color: #202020;
+    max-width: 193px;
+    padding-top: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.categoryMenuTab.noTabLink > ul > li .hOpenMenu .hOpenMenuContent {
+    float: left;
+    min-width: 205px
+}
+
+.categoryMenuTab.noTabLink > ul > li .hOpenMenu.large {
+    width: 418px
+}
+
+.categoryMenuTab.noTabLink > ul > li:hover .hOpenMenu {
+    display: block
+}
+
+.categoryMenuTab.noTabLink > ul > li:last-child .hOpenMenu {
+    left: auto;
+    right: -1px
+}
+
+.categoryMenuTab.noTabLink ul li i {
+    margin-top: 15px
+}
+
+.categoryMenuTab.noTabLink ul li i:not(.iconDress) {
+    height: 28px
+}
+
+.categoryMenuTab.noTabLink ul li i.iconDress {
+    margin-top: 18px
+}
+
+.labelArea.quartet {
+    border-top: 1px solid #ebebeb;
+    margin-top: 15px;
+    padding-top: 10px;
+    width: 760px
+}
+
+.labelArea.quartet h6 {
+    line-height: 24px;
+    color: #505050
+}
+
+.wrapper.market .labelArea.quartet {
+    float: right;
+    margin-top: 0;
+    width: 770px;
+    padding-left: 0
+}
+
+.wrapper.market .labelArea.quartet .labelList {
+    height: 59px
+}
+
+.columnX2 .bannerText {
+    background: rgba(255, 255, 255, .8);
+    font-size: 22px;
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    padding: 30px 20px;
+    text-align: center;
+    height: 45px;
+    width: 295px
+}
+
+.wrapper.market [id=contentMarket] .column {
+    height: 360px
+}
+
+.wrapper.market [id=contentMarket] .column .ratingCont {
+    margin-top: 10px
+}
+
+.wrapper.market [id=contentListing] .listingGroup .column {
+    height: 354px
+}
+
+.wrapper.market [id=contentPromotion] .listingGroup .column .columnContent {
+    min-height: inherit
+}
+
+.wrapper.market [id=contentPromotion] .listingGroup .column .ratingCont {
+    margin-bottom: -20px
+}
+
+.wrapper.market .column .btn {
+    display: none;
+    font-size: 14px;
+    line-height: 28px;
+    margin: 5px 10px 0
+}
+
+.wrapper.market .column .btn i {
+    background-position: 0 -147px;
+    display: block;
+    margin: 7px auto 6px;
+    height: 13px;
+    width: 45px
+}
+
+.wrapper.market .column .followBtn {
+    display: none;
+    margin-left: 15px
+}
+
+#contentMarket .column .freeShipping + .btn, .wrapper.market .column .freeShipping + .followBtn {
+    margin-top: 25px
+}
+
+.wrapper.market .column:hover {
+    z-index: 1
+}
+
+#contentMarket .column:hover .followBtn, .wrapper.market .column:hover .btn {
+    display: block
+}
+
+.wrapper.market .catalogView .column .followBtn {
+    margin-bottom: 0
+}
+
+.wrapper.market .group .column:hover .columnContent {
+    background: #fff;
+    border: 1px solid #c9c9c9;
+    box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, .18)
+}
+
+.wrapper.market .column .columnContent {
+    border: 1px solid transparent;
+    padding-bottom: 12px
+}
+
+.wrapper.market .column .oldPrice {
+    top: -15px
+}
+
+.wrapper.market .carouselTriple .column .oldPrice {
+    top: 38px
+}
+ 
+
+.wrapper.market .catalogView .ratingCont {
+    margin-bottom: 0 !important;
+    margin-top: 3px !important
+}
+
+.wrapper.market .catalogView .textImg.freeShipping {
+    position: relative !important
+}
+
+#lbProQuickView .content {
+    margin-left: -450px;
+    width: 835px;
+    padding: 40px;
+    max-height: 485px;
+    overflow: auto;
+    overflow-x: hidden
+}
+
+#lbProQuickView .proDetailArea {
+    width: 100%;
+    min-width: 825px
+}
+
+#lbProQuickView .proDetailArea .proImgHolder {
+    width: 350px
+}
+
+#lbProQuickView .proDetailArea .proImgHolder .proImg {
+    height: 348px;
+    width: 348px
+}
+
+#lbProQuickView .proDetailArea .proImgHolder .thumbsHolder {
+    margin-top: 4px;
+    padding-bottom: 10px
+}
+
+#lbProQuickView .proDetailArea .proDetail {
+    margin: 0 10px 0 20px;
+    width: 438px
+}
+
+#lbProQuickView .proDetailArea .proNameHolder {
+    width: 100%
+}
+
+#lbProQuickView .proDetailArea .proName {
+    line-height: 24px;
+    max-height: 50px
+}
+
+#lbProQuickView .proDetailArea .proSubName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+#lbProQuickView .proDetailArea .proNameHolder .nameHolder {
+    max-width: 100%
+}
+
+#lbProQuickView .proDetailArea .ratingCont {
+    margin-top: 0
+}
+
+#lbProQuickView .content .btnHolder {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%
+}
+
+#lbProQuickView .proDetailArea .priceDetail .newPrice > span.kdv {
+    line-height: 12px;
+    top: -2px;
+    margin-top: 0
+}
+
+#lbProQuickView .proDetailArea .priceDetail .newPrice {
+    margin-top: 5px
+}
+
+#lbProQuickView .proDetailArea .priceDetail .mobileSpecial.hasMenu.right:after {
+    content: 'â–¼';
+    top: 11px
+}
+
+#lbProQuickView .proDetailArea .priceDetail .msTooltipHolder {
+    padding: 5px;
+    margin: -12px -5px -5px 5px
+}
+
+#lbProQuickView .proDetailArea .priceDetail .msTooltipHolder .tooltipContainer.right {
+    top: -250px;
+    left: -34px
+}
+
+#lbProQuickView .btn {
+    line-height: 36px
+}
+
+#lbProQuickView .btn.btnAddBasket {
+    color: #fff;
+    margin-left: 0
+}
+
+#lbProQuickView .thumbsHolder.slider .slidesjs-container {
+    width: 350px !important
 }

@@ -190,7 +190,7 @@ class Products
     /**
      * @var ShopProfile
      *
-     * @ORM\ManyToOne(targetEntity="ShopProfile")
+     * @ORM\ManyToOne(targetEntity="ShopProfile",inversedBy="products")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
      * })

@@ -66,12 +66,20 @@ class ProductController extends AbstractController
             )
         );
 
+
+        $commentRateDetails = ['commentRates' => [5=>0,4=>0,3=>0,2=>0,1=>0],'totalComment' => 0];
+        foreach ($comments as $comment){
+            $commentRateDetails['commentRates'][$comment->getRating()] +=1;
+            $commentRateDetails['totalComment'] +=1;
+        }
+
         return $this->render('product/index.html.twig', [
             'product' => $product,
             'comments' => $comments,
             'shopProfile' => $shopProfile,
             'commentForm' => $commentForm->createView(),
-            'breadcrumb' => $breadcrumb
+            'breadcrumb' => $breadcrumb,
+            'commentRateDetails' => $commentRateDetails
         ]);
     }
 

@@ -489,9 +489,9 @@
 
                             <div class="listing_review_info">
                                 <p>
-                                    <span class="review_score"> {{ (product.comments |getRating |number_format(1)) ~ '/' ~ constant('App\\Entity\\ProductComments::MAX_RATING')|number_format(1) }} </span>
+                                    <span class="review_score"> {{ (product.comments |getProductRating |number_format(1)) ~ '/' ~ constant('App\\Entity\\ProductComments::MAX_RATING')|number_format(1) }} </span>
                                     <span class="product-rating">
-                                        {{ product.comments |getRating(1) |raw }}
+                                        {{ product.comments |getProductRating(1) |raw }}
                                     </span>
                                     ({{ product.comments |length }} Yorum)
                                 </p>

@@ -25,46 +25,47 @@
 
 
 {% block body %}
-<div class="main-container">
-    {#BreadCrumb#}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+    <div class="main-container">
+        {#BreadCrumb#}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
 
-                <nav aria-label="breadcrumb" role="navigation" class="pull-left">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#"><i class="icon-home fa"></i></a></li>
-                        {% for bread_crumb in breadcrumb %}
-                            {% if loop.last == true %}
-                                <li class="breadcrumb-item active" aria-current="page">{{ bread_crumb.title }}</li>
-                            {% else %}
-                                <li class="breadcrumb-item"><a href="{{ bread_crumb.link }}">{{ bread_crumb.title }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </ol>
-                </nav>
+                    <nav aria-label="breadcrumb" role="navigation" class="pull-left">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="icon-home fa"></i></a></li>
+                            {% for bread_crumb in breadcrumb %}
+                                {% if loop.last == true %}
+                                    <li class="breadcrumb-item active" aria-current="page">{{ bread_crumb.title }}</li>
+                                {% else %}
+                                    <li class="breadcrumb-item"><a
+                                                href="{{ bread_crumb.link }}">{{ bread_crumb.title }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ol>
+                    </nav>
+                </div>
             </div>
         </div>
-    </div>
 
-    {#Details    #}
-    <div class="container">
-    <div class="row">
-        <div class="col-md-9 page-content col-thin-right">
-            <div class="inner inner-box ads-details-wrapper">
-                <h1 class="auto-heading">
-                    <span class="auto-title left">{{ product.name }}</span>
-                    <span class="auto-price pull-right"> {{ product.sellPrice }} TL</span>
-                </h1>
+        {#Details    #}
+        <div class="container" style="max-width: 1400px">
+            <div class="row">
+                <div class="col-md-9 page-content col-thin-right">
+                    <div class="inner inner-box ads-details-wrapper">
+                        <h1 class="auto-heading">
+                            <span class="auto-title left">{{ product.name }}</span>
+                            <span class="auto-price pull-right"> {{ product.sellPrice }} TL</span>
+                        </h1>
 
-                <div style="clear:both;"></div>
-                <span class="info-row">
+                        <div style="clear:both;"></div>
+                        <span class="info-row">
                     <span class="date">
                         <i class=" icon-clock"> </i>
-                        {{ product.createdAt | date("d")  }}
-                        {{ product.createdAt | date("F")  }},
-                        {{ product.createdAt | date("l")  }}
-                        {{ product.createdAt | date("Y")  }}
+                        {{ product.createdAt | date("d") }}
+                        {{ product.createdAt | date("F") }},
+                        {{ product.createdAt | date("l") }}
+                        {{ product.createdAt | date("Y") }}
                     </span> -
                     <span class="item-location">
                         544 Union Avenue, Brooklyn, NY 11211 |
@@ -73,233 +74,319 @@
                 </span>
 
 
-                <div class="row ">
-                    <div class="col-sm-9 automobile-left-col">
+                        <div class="row ">
+                            <div class="col-sm-9 automobile-left-col">
 
-                        <div class="ads-image">
-                            <div class="bx-wrapper" style="max-width: 100%;">
-                                <div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 327.922px;">
-                                    <ul class="bxslider" style="width: 7215%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
-                                        {% set productImagePath = "" %}
-                                        {% for productImage in product.productImages %}
-                                            {% if productImage.status == 1 %}
-                                                {% set productImagePath = product_image_path ~ '/' ~ productImage.image %}
-                                                {% set isHidden = loop.index > 5 ? 0 : 1 %}
+                                <div class="ads-image">
+                                    <div class="bx-wrapper" style="max-width: 100%;">
+                                        <div class="bx-viewport" aria-live="polite"
+                                             style="width: 100%; overflow: hidden; position: relative; height: 327.922px;">
+                                            <ul class="bxslider"
+                                                style="width: 7215%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                                                {% set productImagePath = "" %}
+                                                {% for productImage in product.productImages %}
+                                                    {% if productImage.status == 1 %}
+                                                        {% set productImagePath = product_image_path ~ '/' ~ productImage.image %}
+                                                        {% set isHidden = loop.index > 5 ? 0 : 1 %}
 
-                                                <li style="float: left; list-style: none; position: relative; width: 585px;" aria-hidden="{{ isHidden == 1 ? 'false':'true' }}">
-                                                    <img src="{{ asset(productImagePath) }}" alt="img">
-                                                </li>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <div class="bx-controls"></div>
-                            </div>
-
-                            <div class="product-view-thumb-wrapper">
-                                <div class="bx-wrapper" style="max-width: 540px;">
-                                    <div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 75px;">
-                                        <ul id="bx-pager" class="product-view-thumb" style="width: 6215%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
-                                            {% set productImagePath = "" %}
-                                            {% for productImage in product.productImages %}
-                                                {% if productImage.status == 1 %}
-                                                    {% set productImagePath = product_image_path ~ '/' ~ productImage.image %}
-                                                    {% set isHidden = loop.index > 5 ? 0 : 1 %}
-
-                                                    <li aria-hidden="{{ isHidden == 1 ? 'false':'true' }}" style="float: left; list-style: none; position: relative; width: 100px; margin-right: 10px;">
-                                                        <a data-slide-index="{{ loop.index -1 }}" class="thumb-item-link" href="">
+                                                        <li style="float: left; list-style: none; position: relative; width: 585px;"
+                                                            aria-hidden="{{ isHidden == 1 ? 'false':'true' }}">
                                                             <img src="{{ asset(productImagePath) }}" alt="img">
-                                                        </a>
-                                                    </li>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!--ads-image-->
-                    </div>
-                    <!-- /.automobile-left-col-->
-
-                    <div class="col-sm-3 automobile-right-col">
-                        <div class="inner">
-
-                            <div class="key-features">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <span class="media-heading">Mağaza Adı</span>
-                                        <span class="data-type">{{ shopProfile.name }}</span>
-                                    </div>
-                                </div>
-
-                                <div class="media">
-                                    <div class="media-body">
-                                        <span class="media-heading">Mağaza Telefon</span>
-                                        <span class="data-type">{{ shopProfile.phone }}</span>
-                                    </div>
-                                </div>
-
-                                <div class="media">
-                                    <div class="media-body">
-                                        <span class="media-heading">Konum(İl/İlçe)</span>
-                                        <span class="data-type">{{ shopProfile.city.name }} / {{ shopProfile.town.name }}</span>
-                                    </div>
-                                </div>
-
-                                <div class="media">
-                                    <div class="media-body">
-                                        <span class="media-heading">Ürün Puanı</span>
-                                        <span class="data-type">
-                                            <span class="product-rating">
-                                                {{ product.comments |getRating(1) |raw }}
-                                            </span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!--/.row-->
-
-
-                <div class="Ads-Details">
-                    <h5 class="list-title"><strong>Ürün Detayları</strong></h5>
-
-                    <div class="row">
-                        <div class="ads-details-info col-md-12">
-                            {{ product.description |raw }}
-                        </div>
-                        {#<div class="col-md-4">#}
-                            {#<aside class="panel panel-body panel-details">#}
-                                {#<ul>#}
-                                    {#<li>#}
-                                        {#<p class=" no-margin "><strong>Prices:</strong> from € 775,000 </p>#}
-                                    {#</li>#}
-                                    {#<li>#}
-                                        {#<p class="no-margin"><strong>Building Type:</strong> Appertment</p>#}
-                                    {#</li>#}
-                                    {#<li>#}
-                                        {#<p class="no-margin"><strong>Size:</strong> ca. 120 m²</p>#}
-                                    {#</li>#}
-                                    {#<li>#}
-                                        {#<p class="no-margin"><strong>Location:</strong> New York </p>#}
-                                    {#</li>#}
-                                    {#<li>#}
-                                        {#<p class=" no-margin "><strong>Condition:</strong> New</p>#}
-                                    {#</li>#}
-                                    {#<li>#}
-                                        {#<p class="no-margin"><strong>Room:</strong> 4-5 </p>#}
-                                    {#</li>#}
-                                    {#<li>#}
-                                        {#<p class="no-margin"><strong>Ready for occupancy:</strong> 15.09.2016#}
-                                        {#</p>#}
-                                    {#</li>#}
-                                {#</ul>#}
-                            {#</aside>#}
-                        {#</div>#}
-                    </div>
-
-                    <div class="content-footer">
-                        <div class="container-fluid">
-                            {{ form_start(commentForm) }}
-                            {{ form_widget(commentForm) }}
-                            {{ form_end(commentForm) }}
-                        </div>
-
-                        <hr>
-
-                        root:
-                        (<div id="root"></div>)
-
-                        <div class="container-fluid">
-                            <h2>Yorumlar</h2>
-                            {% for comment in comments %}
-                                <ul>
-                                    <li style="border-bottom: 1px dotted #ddd;padding: 10px;">
-                                        <div class="comment-text">
-                                          *  {{ comment.comment }}
-                                        </div>
-                                        {% if comment.children |length > 0 %}
-                                            <ul>
-                                                {% for childrenComment in comment.children %}
-                                                    <li style="padding: 10px">
-                                                       > {{ childrenComment.comment }}
-                                                    </li>
+                                                        </li>
+                                                    {% endif %}
                                                 {% endfor %}
                                             </ul>
-                                        {% endif %}
-                                    </li>
-                                </ul>
-                            {% endfor %}
-                        </div>
-                    </div>
+                                        </div>
+                                        <div class="bx-controls"></div>
+                                    </div>
 
-                    <div class="content-footer text-left">
-                        <div class="w100 map" id="prop-map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387145.86637487786!2d-74.25819556904787!3d40.70531103651696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY!5e0!3m2!1sen!2sus!4v1473181424956" height="350" style="border:0;   width:100%"></iframe>
-                        </div>
-                        <div style="clear: both"></div>
+                                    <div class="product-view-thumb-wrapper">
+                                        <div class="bx-wrapper" style="max-width: 540px;">
+                                            <div class="bx-viewport" aria-live="polite"
+                                                 style="width: 100%; overflow: hidden; position: relative; height: 75px;">
+                                                <ul id="bx-pager" class="product-view-thumb"
+                                                    style="width: 6215%; position: relative; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                                                    {% set productImagePath = "" %}
+                                                    {% for productImage in product.productImages %}
+                                                        {% if productImage.status == 1 %}
+                                                            {% set productImagePath = product_image_path ~ '/' ~ productImage.image %}
+                                                            {% set isHidden = loop.index > 5 ? 0 : 1 %}
 
-                        <a class="btn  btn-default" data-toggle="modal" href="#contactAdvertiser">
-                            <i class=" icon-mail-2"></i> Send a message </a>
-                        <a class="btn  btn-info" href="tel:01680531345452">
-                            <i class=" icon-phone-1"></i> {{ product.shop.phone }} </a>
-                    </div>
-                </div>
-            </div>
-            <!--/.ads-details-wrapper-->
-            {{ render(controller('App\\Controller\\HomeController::renderProductList')) }}
-        </div>
-        <!--/.page-content-->
+                                                            <li aria-hidden="{{ isHidden == 1 ? 'false':'true' }}"
+                                                                style="float: left; list-style: none; position: relative; width: 100px; margin-right: 10px;">
+                                                                <a data-slide-index="{{ loop.index -1 }}"
+                                                                   class="thumb-item-link" href="">
+                                                                    <img src="{{ asset(productImagePath) }}" alt="img">
+                                                                </a>
+                                                            </li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
 
-        <div class="col-md-3  page-sidebar-right">
-            <aside>
-                <div class="card sidebar-card card-contact-seller">
-                    <div class="card-header">Satıcı Bilgileri</div>
-                    <div class="card-content user-info">
-                        <div class="card-body text-center">
-                            <div class="seller-info">
-                                <div class="company-logo-thumb">
-                                    <a><img src="{{ asset('assets/images/shop-profile-icon.png') }}" class="" width="100" height="100" alt="img"> </a>
                                 </div>
-                                <h3 class="no-margin">{{ product.shop.name }}</h3>
-
-                                <p>Location: <strong>{{ product.shop.city.name }}/{{ product.shop.town.name }}</strong></p>
-
-                                <p> Web: <strong>www.demoweb.com</strong></p>
+                                <!--ads-image-->
                             </div>
-                            <div class="user-ads-action">
+                            <!-- /.automobile-left-col-->
 
-                                <a href="#" data-toggle="modal" class="btn   btn-danger btn-block"><i class=" icon-link"></i> View Details </a>
-                                <a href="#contactAdvertiser" data-toggle="modal" class="btn   btn-info btn-block"><i class=" icon-mail-2"></i> Send Enquiry
-                                </a></div>
+                            <div class="col-sm-3 automobile-right-col">
+                                <div class="inner">
+
+                                    <div class="key-features">
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <span class="media-heading">Mağaza Adı</span>
+                                                <span class="data-type">{{ shopProfile.name }}</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <span class="media-heading">Mağaza Telefon</span>
+                                                <span class="data-type">{{ shopProfile.phone }}</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <span class="media-heading">Konum(İl/İlçe)</span>
+                                                <span class="data-type">{{ shopProfile.city.name }}
+                                                    / {{ shopProfile.town.name }}</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <span class="media-heading">Ürün Puanı</span>
+                                                <span class="data-type">
+                                            <span class="product-rating">
+                                                {{ product.comments |getProductRating(1) |raw }}
+                                            </span>
+                                        </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/.row-->
+
+
+                        <div class="Ads-Details">
+                            <h5 class="list-title"><strong>Ürün Detayları</strong></h5>
+
+                            <div class="row">
+                                <div class="ads-details-info col-md-12">
+                                    {{ product.description |raw }}
+                                </div>
+                                {#<div class="col-md-4">#}
+                                {#<aside class="panel panel-body panel-details">#}
+                                {#<ul>#}
+                                {#<li>#}
+                                {#<p class=" no-margin "><strong>Prices:</strong> from € 775,000 </p>#}
+                                {#</li>#}
+                                {#<li>#}
+                                {#<p class="no-margin"><strong>Building Type:</strong> Appertment</p>#}
+                                {#</li>#}
+                                {#<li>#}
+                                {#<p class="no-margin"><strong>Size:</strong> ca. 120 m²</p>#}
+                                {#</li>#}
+                                {#<li>#}
+                                {#<p class="no-margin"><strong>Location:</strong> New York </p>#}
+                                {#</li>#}
+                                {#<li>#}
+                                {#<p class=" no-margin "><strong>Condition:</strong> New</p>#}
+                                {#</li>#}
+                                {#<li>#}
+                                {#<p class="no-margin"><strong>Room:</strong> 4-5 </p>#}
+                                {#</li>#}
+                                {#<li>#}
+                                {#<p class="no-margin"><strong>Ready for occupancy:</strong> 15.09.2016#}
+                                {#</p>#}
+                                {#</li>#}
+                                {#</ul>#}
+                                {#</aside>#}
+                                {#</div>#}
+                            </div>
+
+                            <div class="content-footer">
+                                <div class="container-fluid">
+                                    {{ form_start(commentForm) }}
+                                    {{ form_widget(commentForm) }}
+                                    {{ form_end(commentForm) }}
+                                </div>
+
+                                <hr>
+
+                                <div class="container-fluid">
+                                    <h2>Yorumlar</h2>
+                                    <div class="commentHeader">
+                                        <div class="avarageRating ">
+                                            <span class="ratingCont big">
+                                                {{ product.comments |getProductRating(1) |raw }}
+                                            </span>
+                                            <div class="avarageText">Ürün
+                                                Notu: {{ product.comments |getProductRating() }} Yıldız
+                                            </div>
+
+                                            <div class="pointTable table">
+
+                                                {% for rateNumber,totalRateThisRate in commentRateDetails.commentRates %}
+                                                    <div id="point_{{ rateNumber }}" class="tr  point ">
+                                                        <div class="td star">{{ rateNumber }} yıldız</div>
+                                                        <div class="td">
+                                                            <div class="pointBar">
+                                                                {% set percent = totalRateThisRate*100/commentRateDetails.totalComment %}
+                                                                <span style="width:{{ percent }}%"></span>
+                                                            </div>
+                                                            <span class="commentNum">({{ totalRateThisRate }})</span>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <div class="comUseful ">
+                                            <legend>En Yeni Yorum</legend>
+
+                                            <p class="expd">
+                                                {{ (comments |last).comment }}
+                                            </p>
+
+                                            <span>kampanyam.net üyesi</span>
+                                        </div>
+                                    </div>
+                                    {% for comment in comments %}
+                                        <ul>
+                                            <li class="comment" data-reviewid="5069647565"
+                                                style="padding: 15px 0;border-top: 1px solid #ebebeb;width: 100%;float: none;">
+                                                <div class="commentTop">
+                                                    <span class="ratingCont">
+                                                        {{ comment |getCommentRating(1) |raw }}
+                                                    </span>
+                                                    <span class="userName" style="font-weight: 700;margin-left: 10px;">
+                                                        {{ comment.email is null ? 'kampanyam.net üyesi':comment.email }}
+                                                    </span>
+                                                    <span class="seperator" style="margin: 0 5px;"> - </span>
+                                                    <span class="commentDate"
+                                                          style="color: gray;display: inline-block;">
+                                                        {{ comment.createdAt |date("d.m.Y") }}
+                                                    </span>
+                                                </div>
+                                                <h5 class="commentTitle"
+                                                    style="font-size: 14px; margin-bottom: 5px;padding: 0 !important;font-weight: bold;">
+                                                    {{ comment.title }}
+                                                </h5>
+                                                <p style="padding: 0; margin: 0;">
+                                                    {{ comment.comment }}
+                                                </p>
+                                                {#<div class="subComment">#}
+                                                    {#{% if comment.children |length > 0 %}#}
+                                                        {#<ul>#}
+                                                            {#{% for childrenComment in comment.children %}#}
+                                                                {#<li style="padding: 10px">#}
+                                                                    {#> {{ childrenComment.comment }}#}
+                                                                {#</li>#}
+                                                            {#{% endfor %}#}
+                                                        {#</ul>#}
+                                                    {#{% endif %}#}
+                                                {#</div>#}
+                                            </li>
+
+                                        </ul>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <div class="content-footer text-left">
+                                <div class="w100 map" id="prop-map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387145.86637487786!2d-74.25819556904787!3d40.70531103651696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY!5e0!3m2!1sen!2sus!4v1473181424956"
+                                            height="350" style="border:0;   width:100%"></iframe>
+                                </div>
+                                <div style="clear: both"></div>
+
+                                <a class="btn  btn-default" data-toggle="modal" href="#contactAdvertiser">
+                                    <i class=" icon-mail-2"></i> Send a message </a>
+                                <a class="btn  btn-info">
+                                    <i class=" icon-phone-1"></i> {{ product.shop.phone }} </a>
+                            </div>
                         </div>
                     </div>
+                    <!--/.ads-details-wrapper-->
+                    {{ render(controller('App\\Controller\\HomeController::renderProductList')) }}
                 </div>
-                <div class="card sidebar-card">
-                    <div class="card-header">Safety Tips for Buyers</div>
-                    <div class="card-content">
-                        <div class="card-body text-left">
-                            <ul class="list-check">
-                                <li> Meet seller at a public place</li>
-                                <li> Check the item before you buy</li>
-                                <li> Pay only after collecting the item</li>
-                            </ul>
-                            <p><a class="pull-right" href="#"> Know more <i class="fa fa-angle-double-right"></i> </a></p>
+                <!--/.page-content-->
+
+                <div class="col-md-3  page-sidebar-right">
+                    <aside>
+                        <div class="card sidebar-card card-contact-seller">
+                            <div class="card-header">Satıcı Bilgileri</div>
+                            <div class="card-content user-info">
+                                <div class="card-body text-center">
+                                    <div class="seller-info">
+                                        <div class="company-logo-thumb">
+                                            <a><img src="{{ asset('assets/images/shop-profile-icon.png') }}" class=""
+                                                    width="70" height="70" alt="img"> </a>
+                                        </div>
+                                        <h3 class="no-margin">{{ product.shop.name }}</h3>
+
+                                        <p style="font-size: 10px;">
+                                            {% set sellerRatingPercent = product.shop |getShopRating(0,1) %}
+
+                                            {#Satıcı Puanı: {{ product.shop |getShopRating(1,0) | raw }} ({{ '%' ~ sellerRatingPercent }})#}
+                                            <span>
+                                                Mağaza Puanı
+                                            </span>
+                                            <div>
+                                            <span style="display:block;width: 100px !important;background: rgba(222, 222, 222, .5);margin: 6px 33%;height: 15px;position: relative;padding: 0;">
+                                                <span style="width:{{ sellerRatingPercent }}%;background: #fec507;display: block;height: 100%;"></span>
+                                                <span style="position: absolute; top: 1px; color: #8c8c8c; font-size: 10px; left: 45%;">({{ '%' ~ sellerRatingPercent }})</span>
+                                            </span>
+
+                                        </div>
+                                            <div class="clearfix"></div>
+                                        </p>
+
+
+                                        <p>Location: <strong>{{ product.shop.city.name }}
+                                                /{{ product.shop.town.name }}</strong></p>
+
+                                        <p> Web: <strong>www.demoweb.com</strong></p>
+                                    </div>
+                                    <div class="user-ads-action">
+
+                                        <a href="#" data-toggle="modal" class="btn   btn-danger btn-block"><i
+                                                    class=" icon-link"></i> View Details </a>
+                                        <a href="#contactAdvertiser" data-toggle="modal"
+                                           class="btn   btn-info btn-block"><i class=" icon-mail-2"></i> Send Enquiry
+                                        </a></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="card sidebar-card">
+                            <div class="card-header">Safety Tips for Buyers</div>
+                            <div class="card-content">
+                                <div class="card-body text-left">
+                                    <ul class="list-check">
+                                        <li> Meet seller at a public place</li>
+                                        <li> Check the item before you buy</li>
+                                        <li> Pay only after collecting the item</li>
+                                    </ul>
+                                    <p><a class="pull-right" href="#"> Know more <i
+                                                    class="fa fa-angle-double-right"></i> </a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.categories-list-->
+                    </aside>
                 </div>
-                <!--/.categories-list-->
-            </aside>
+                <!--/.page-side-bar-->
+            </div>
         </div>
-        <!--/.page-side-bar-->
     </div>
-</div>
-</div>
 {% endblock %}
 
 {% block javascript_inline %}
@@ -307,7 +394,7 @@
 
     <script>
         $(document).ready(function () {
-            $(document).on("submit","form[name='comment']",function (e) {
+            $(document).on("submit", "form[name='comment']", function (e) {
                 e.preventDefault();
 
                 var serializeData = $("form[name='comment']").serialize();
@@ -329,7 +416,7 @@
                     url: Routing.generate("product_comment_insert") + "?" + serializeData,
                     type: 'GET',
                     dataType: 'json',
-                    success: function(data) {
+                    success: function (data) {
                         console.log(data);
                     }
                 });
@@ -345,7 +432,7 @@
 
             // Slider
             var $mainImgSlider = $('.bxslider').bxSlider({
-                speed:1000,
+                speed: 1000,
                 pagerCustom: '#bx-pager',
                 controls: false,
                 adaptiveHeight: true
