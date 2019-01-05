@@ -141,8 +141,12 @@
 
                                 <div class="media">
                                     <div class="media-body">
-                                        <span class="media-heading">Mağaza Puanı</span>
-                                        <span class="data-type"><img src="https://www.ultimus.com/hs-fs/hub/54405/file-15253807-png/images/fivestar.png" width="80"></span>
+                                        <span class="media-heading">Ürün Puanı</span>
+                                        <span class="data-type">
+                                            <span class="product-rating">
+                                                {{ product.comments |getRating(1) |raw }}
+                                            </span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>

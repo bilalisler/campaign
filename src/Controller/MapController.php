@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Library\Map\YandexMap;
+use App\Library\YandexMap;
 use App\Service\JSMin;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

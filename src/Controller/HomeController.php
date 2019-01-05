@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use App\Library\Map\YandexMap;
+use App\Library\YandexGeocoding;
+use App\Library\YandexMap;
 use App\Service\JSMin;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -25,9 +26,14 @@ class HomeController extends AbstractController
     /**
      * @Route("/search", name="searchingPage")
      */
-    public function search(YandexMap $yandexMap)
+    public function search(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $products = $em->getRepository("App:Products")->fetchProducts($request);
+
         return $this->render('home/search_new.html.twig', [
+            'products' => $products
         ]);
     }
 

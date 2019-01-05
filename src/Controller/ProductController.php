@@ -45,7 +45,7 @@ class ProductController extends AbstractController
         $comments = $em->getRepository("App:ProductComments")->findByProduct($product);
 
         $comment = new ProductComments();
-        $comment->setProduct($product->getId());
+        $comment->setProduct($product);
 
         $commentForm = $this->createForm(CommentType::class,$comment,[]);
         $commentForm->handleRequest($request);

@@ -10,6 +10,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class ProductComments
 {
+    public const MAX_RATING = 5.0;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -18,30 +20,45 @@ class ProductComments
     private $id;
 
     /**
-     * @var integer|null
+     * @var Products|null
      *
-     * @ORM\Column(name="product", type="integer",nullable=true, options={"default"="NULL"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Products",inversedBy="comments")
      */
     private $product;
 
     /**
+     * description: this field is used to evaluate the product that like by humans
+     * @var $rating integer
+     *
+     * @ORM\Column(name="rating", type="integer", nullable=false, options={"default"="0"})
+     */
+    private $rating = 0;
+
+    /**
      * @var string|null
      *
-     * @ORM\Column(name="email", type="string", length=100, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="email", type="string", length=100, nullable=true)
      */
     private $email = null;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="comment", type="text", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="title", type="string", nullable=false)
+     */
+    private $title = null;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="comment", type="text", nullable=false)
      */
     private $comment = null;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="ip_address", type="string", length=50, nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="ip_address", type="string", length=50, nullable=true)
      */
     private $ipAddress = null;
 
@@ -173,24 +190,51 @@ class ProductComments
     }
 
     /**
-     * @return int|null
+     * @return Products|null
      */
-    public function getProduct(): ?int
+    public function getProduct(): ?Products
     {
         return $this->product;
     }
 
     /**
-     * @param int|null $product
+     * @param Products|null $product
      */
-    public function setProduct(?int $product): void
+    public function setProduct(?Products $product): void
     {
         $this->product = $product;
     }
 
+    /**
+     * @return int
+     */
+    public function getRating(): int
+    {
+        return (int)$this->rating;
+    }
 
+    /**
+     * @param int $rating
+     */
+    public function setRating(int $rating): void
+    {
+        $this->rating = $rating;
+    }
 
+    /**
+     * @return null|string
+     */
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
 
-
+    /**
+     * @param null|string $title
+     */
+    public function setTitle(?string $title): void
+    {
+        $this->title = $title;
+    }
 
 }

@@ -135,7 +135,8 @@
     <!--OWL Carousel slider-->
     <link rel="stylesheet" href="{{ asset('assets/css/search/owl.carousel.css') }}" type="text/css">
     <!--FontAwesome Font Style -->
-    <link href="{{ asset('assets/css/search/font-awesome.min.css') }}" rel="stylesheet">
+    {#<link href="{{ asset('assets/css/search/font-awesome.min.css') }}" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">#}
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- SWITCHER -->
 
     <link rel="alternate stylesheet" type="text/css" href="{{ asset('assets/css/search/blue.css') }}" title="blue" media="all" data-default-color="true" disabled="">
@@ -458,162 +459,49 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 grid_col show_listing">
-                <div class="items-list listing_wrap" data-post-id="1">
-                    <div class="listing_img">
-                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
-                        <div class="listing_cate">
-                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon5.png') }}" alt="icon-img"></a></span>
-                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
-                        </div>
-                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
-                    </div>
-                    <div class="listing_info">
-                        <div class="post_category">
-                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Hotels &amp; Travel</a>
-                        </div>
-                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">The Morning Hotel</a></h4>
-                        <p>5-star hotel with restaurant, Deluxe Rooms.</p>
+            {% for product in products %}
 
-                        <div class="listing_review_info">
-                            <p><span class="review_score">4.0/5</span>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
-                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
+                <div class="col-md-6 grid_col show_listing">
+                    <div class="items-list listing_wrap" data-post-id="1">
+                        <div class="listing_img">
+                            <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
+                            <div class="listing_cate">
+                                <span class="cate_icon"><a href="{{ path("product_detail",{'categorySlug':product.category.categorySlug,'slug':product.slug}) }}"><img src="{{ asset('assets/icon/category-icon5.png') }}" alt="icon-img"></a></span>
+                                <span class="listing_like"><a href="{{ path("product_detail",{'categorySlug':product.category.categorySlug,'slug':product.slug}) }}"><i class="fa fa-heart-o"></i></a></span>
+                            </div>
+                            <a href="{{ path("product_detail",{'categorySlug':product.category.categorySlug,'slug':product.slug}) }}">
+                                {% if (product.productImages |fetchAvatarImage) == null %}
+                                    {% set productImage = 'assets/images/search/listing_img2.jpg' %}
+                                {% else %}
+                                    {% set productImage = product_image_path ~ '/' ~ (product.productImages |fetchAvatarImage) %}
+                                {% endif %}
+
+                                <img src="{{ asset(productImage) }}" width="483" height="286" alt="image">
+                            </a>
+                        </div>
+                        <div class="listing_info">
+                            <div class="post_category">
+                                <a href="{{ path("product_detail",{'categorySlug':product.category.categorySlug,'slug':product.slug}) }}">Hotels &amp; Travel</a>
+                            </div>
+                            <h4><a href="{{ path("product_detail",{'categorySlug':product.category.categorySlug,'slug':product.slug}) }}">The Morning Hotel</a></h4>
+                            <p>5-star hotel with restaurant, Deluxe Rooms.</p>
+
+
+                            <div class="listing_review_info">
+                                <p>
+                                    <span class="review_score"> {{ (product.comments |getRating |number_format(1)) ~ '/' ~ constant('App\\Entity\\ProductComments::MAX_RATING')|number_format(1) }} </span>
+                                    <span class="product-rating">
+                                        {{ product.comments |getRating(1) |raw }}
+                                    </span>
+                                    ({{ product.comments |length }} Yorum)
+                                </p>
+                                <p class="listing_map_m"><i class="fa fa-map-marker"></i> {{ product.shop.city.name |capitalize ~'/'~ product.shop.town.name |capitalize }}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 grid_col show_listing">
-                <div class="items-list listing_wrap" data-post-id="2">
-                    <div class="listing_img">
-                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
-                        <div class="listing_cate">
-                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon4.png') }}" alt="icon-img"></a></span>
-                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
-                        </div>
-                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
-                    </div>
-                    <div class="listing_info">
-                        <div class="post_category">
-                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Beauty &amp; Spas</a>
-                        </div>
-                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Laisa Spa Center</a></h4>
-                        <p>Best Pool &amp; Spa Professionals in Laisa</p>
-
-                        <div class="listing_review_info">
-                            <p><span class="review_score">4.0/5</span>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
-                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 grid_col show_listing">
-                <div class="items-list listing_wrap" data-post-id="3">
-                    <div class="listing_img">
-                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
-                        <div class="listing_cate">
-                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon4.png') }}" alt="icon-img"></a></span>
-                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
-                        </div>
-                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
-                    </div>
-                    <div class="listing_info">
-                        <div class="post_category">
-                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Beauty &amp; Spas</a>
-                        </div>
-                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Blue Women's Parlour</a></h4>
-                        <p>5-star Womens Beauty Parlour Services.</p>
-
-                        <div class="listing_review_info">
-                            <p><span class="review_score">4.0/5</span>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
-                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 grid_col show_listing">
-                <div class="items-list listing_wrap" data-post-id="4">
-                    <div class="listing_img">
-                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
-                        <div class="listing_cate">
-                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon6.png') }}" alt="icon-img"></a></span>
-                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
-                        </div>
-                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
-                    </div>
-                    <div class="listing_info">
-                        <div class="post_category">
-                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Automotive</a>
-                        </div>
-                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Auto Repair Shop</a></h4>
-                        <p>Texaco Auto Servicing &amp; Repair shop</p>
-
-                        <div class="listing_review_info">
-                            <p><span class="review_score">4.0/5</span>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
-                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 grid_col show_listing">
-                <div class="items-list listing_wrap" data-post-id="5">
-                    <div class="listing_img">
-                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
-                        <div class="listing_cate">
-                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon2.png') }}" alt="icon-img"></a></span>
-                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
-                        </div>
-                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
-                    </div>
-                    <div class="listing_info">
-                        <div class="post_category">
-                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Restaurant</a>
-                        </div>
-                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Eating Restaurant</a></h4>
-                        <p>5-star hotel with restaurant, Deluxe Rooms.</p>
-
-                        <div class="listing_review_info">
-                            <p><span class="review_score">4.0/5</span>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
-                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 grid_col show_listing">
-                <div class="items-list listing_wrap" data-post-id="6">
-                    <div class="listing_img">
-                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
-                        <div class="listing_cate">
-                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon1.png') }}" alt="icon-img"></a></span>
-                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
-                        </div>
-                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
-                    </div>
-                    <div class="listing_info">
-                        <div class="post_category">
-                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Real Estate</a>
-                        </div>
-                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">The Shelby Apartment</a></h4>
-                        <p>Deluxe Rooms with AC</p>
-
-                        <div class="listing_review_info">
-                            <p><span class="review_score">4.0/5</span>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
-                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
-                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <nav class="pagination_nav">
             <ul class="pagination">

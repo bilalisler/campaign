@@ -8,8 +8,10 @@
         "cocur/slugify": "^3.1",
         "easycorp/easyadmin-bundle": "^1.17",
         "friendsofsymfony/ckeditor-bundle": "^2.0",
+        "friendsofsymfony/elastica-bundle": "^5.0",
         "friendsofsymfony/jsrouting-bundle": "^2.2",
         "gedmo/doctrine-extensions": "^2.4",
+        "guzzlehttp/guzzle": "^6.3",
         "knplabs/knp-paginator-bundle": "^2.8",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "*",
@@ -28,8 +30,7 @@
         "symfony/validator": "*",
         "symfony/web-link": "*",
         "symfony/yaml": "*",
-        "vich/uploader-bundle": "^1.8",
-        "friendsofsymfony/elastica-bundle": "^5.0"
+        "vich/uploader-bundle": "^1.8"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.0",

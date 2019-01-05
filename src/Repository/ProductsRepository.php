@@ -6,6 +6,7 @@ namespace App\Repository;
 use App\Entity\Products;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @method Products|null find($id, $lockMode = null, $lockVersion = null)
@@ -20,10 +21,53 @@ class ProductsRepository extends ServiceEntityRepository
         parent::__construct($registry, Products::class);
     }
 
+    public function fetchProducts(Request $request){
+        $qb = $this->createQueryBuilder("p");
+
+        $cityId = $request->query->get("c",null);
+        $townId = $request->query->get("t",null);
+        $productString = $request->query->get("p",null);
+
+
+        if($cityId || $townId){
+            $qb->innerJoin("p.shop","s","WITH","s.id = p.shop");
+        }
+
+        if($cityId !== null){
+            $qb->andWhere(
+                $qb->expr()->eq("s.city",":city")
+            )
+            ->setParameter("city",$cityId)
+            ;
+        }
+
+        if($townId !== null){
+            $qb->andWhere(
+                $qb->expr()->eq("s.town",":town")
+            )
+                ->setParameter("town",$townId)
+            ;
+        }
+
+        if($productString !== null){
+            $qb->andWhere(
+                $qb->expr()->like("p.name",":productString")
+            )
+                ->setParameter("productString",sprintf("%%%s%%",$productString))
+            ;
+        }
+
+        $qb
+            ->andWhere($qb->expr()->eq('p.isSponsored',":isSponsored"))
+            ->setParameter("isSponsored",0)
+            ->orderBy("p.createdAt","DESC")
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 
     public function listAll($limit = -1,$returnJson = false){
-        $em = $this->getEntityManager();
-        $qb = $em->getRepository("App:Products")->createQueryBuilder("p");
+        $qb = $this->createQueryBuilder("p");
 
         $qb
             ->where($qb->expr()->eq('p.isActive',":isActive"))

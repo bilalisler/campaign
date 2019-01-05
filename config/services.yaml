@@ -32,9 +32,12 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    App\Library\Map\YandexMap:
+    App\Library\YandexMap:
         arguments:
             $twigEngine: '@twig'
+        public: true
+
+    App\Library\YandexGeocoding:
         public: true
 
     easyadmin.configuration.menu_config_pass:

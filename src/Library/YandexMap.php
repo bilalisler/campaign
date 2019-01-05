@@ -6,11 +6,11 @@
  * Time: 11:33 PM
  */
 
-namespace App\Library\Map;
+namespace App\Library;
 
 use Twig\Environment;
 
-class YandexMap extends AbstractMap
+class YandexMap extends AbstractYandexAPI
 {
     protected $baseUrl = 'https://api-maps.yandex.com/2.1/';
 

@@ -210,10 +210,17 @@ class Products
      */
     private $comments;
 
+    public function __construct()
+    {
+        $this->productImages = new ArrayCollection();
+        $this->comments = new ArrayCollection();
+    }
+
+
     /**
      * @return ProductComments|null
      */
-    public function getComments(): ?ProductComments
+    public function getComments()
     {
         return $this->comments;
     }
@@ -257,10 +264,6 @@ class Products
         $this->productImages->removeElement($image);
     }
 
-    public function __construct()
-    {
-        $this->productImages = new ArrayCollection();
-    }
 
     /**
      * @return int|null
