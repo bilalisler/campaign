@@ -1,17 +1,26 @@
 {% extends 'base/base.html.twig' %}
 
- {% block javascripts %}
+{#{% block javascripts %}#}
+    {#{{ encore_entry_script_tags('app') }}#}
 
- {% endblock %}
+    {#<!-- Renders app.js & a webpack runtime.js file#}
+        {#<script src="/build/runtime.js"></script>#}
+        {#<script src="/build/app.js"></script> -->#}
+{#{% endblock %}#}
 
 {% block styles %}
-
     <!-- styles needed for carousel slider -->
     <link href="{{ asset('assets/plugins/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/owl-carousel/owl.theme.css') }}" rel="stylesheet">
 
     <!-- bxSlider CSS file -->
     <link href="{{ asset('assets/plugins/bxslider/jquery.bxslider.css') }}" rel="stylesheet"/>
+
+    {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+    {{ encore_entry_link_tags('app') }}
+
+    <!-- Renders a link tag (if your module requires any CSS)
+         <link rel="stylesheet" href="/build/app.css"> -->
 {% endblock %}
 
 
@@ -203,6 +212,9 @@
 
                         <hr>
 
+                        root:
+                        (<div id="root"></div>)
+
                         <div class="container-fluid">
                             <h2>Yorumlar</h2>
                             {% for comment in comments %}
@@ -291,6 +303,8 @@
 {% endblock %}
 
 {% block javascript_inline %}
+    {{ encore_entry_script_tags('app') }}
+
     <script>
         $(document).ready(function () {
             $(document).on("submit","form[name='comment']",function (e) {
