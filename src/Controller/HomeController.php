@@ -27,7 +27,7 @@ class HomeController extends AbstractController
      */
     public function search(YandexMap $yandexMap)
     {
-        return $this->render('home/search.html.twig', [
+        return $this->render('home/search_new.html.twig', [
         ]);
     }
 

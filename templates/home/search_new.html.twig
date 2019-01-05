@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html -->
+<html lang="en" class="gr__themes_webmasterdriver_net">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        .gm-control-active>img {
+            box-sizing: content-box;
+            display: none;
+            left: 50%;
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        .gm-control-active>img:nth-child(1) {
+            display: block
+        }
+
+        .gm-control-active:hover>img:nth-child(1),
+        .gm-control-active:active>img:nth-child(1) {
+            display: none
+        }
+
+        .gm-control-active:hover>img:nth-child(2),
+        .gm-control-active:active>img:nth-child(3) {
+            display: block
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/search/style1.css') }}">
+    <style type="text/css">
+        .gm-ui-hover-effect {
+            opacity: .6
+        }
+
+        .gm-ui-hover-effect:hover {
+            opacity: 1
+        }
+    </style>
+    <style type="text/css">
+        .gm-style .gm-style-cc span,
+        .gm-style .gm-style-cc a,
+        .gm-style .gm-style-mtc div {
+            font-size: 10px;
+            box-sizing: border-box
+        }
+    </style>
+    <style type="text/css">
+        @media print {
+            .gm-style .gmnoprint,
+            .gmnoprint {
+                display: none
+            }
+        }
+
+        @media screen {
+            .gm-style .gmnoscreen,
+            .gmnoscreen {
+                display: none
+            }
+        }
+    </style>
+    <style type="text/css">
+        .dismissButton {
+            background-color: #fff;
+            border: 1px solid #dadce0;
+            color: #1a73e8;
+            border-radius: 4px;
+            font-family: Roboto, sans-serif;
+            font-size: 14px;
+            height: 36px;
+            cursor: pointer;
+            padding: 0 24px
+        }
+
+        .dismissButton:hover {
+            background-color: rgba(66, 133, 244, 0.04);
+            border: 1px solid #d2e3fc
+        }
+
+        .dismissButton:focus {
+            background-color: rgba(66, 133, 244, 0.12);
+            border: 1px solid #d2e3fc;
+            outline: 0
+        }
+
+        .dismissButton:hover:focus {
+            background-color: rgba(66, 133, 244, 0.16);
+            border: 1px solid #d2e2fd
+        }
+
+        .dismissButton:active {
+            background-color: rgba(66, 133, 244, 0.16);
+            border: 1px solid #d2e2fd;
+            box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15)
+        }
+
+        .dismissButton:disabled {
+            background-color: #fff;
+            border: 1px solid #f1f3f4;
+            color: #3c4043
+        }
+    </style>
+    <style type="text/css">
+        .gm-style-pbc {
+            transition: opacity ease-in-out;
+            background-color: rgba(0, 0, 0, 0.45);
+            text-align: center
+        }
+
+        .gm-style-pbt {
+            font-size: 22px;
+            color: white;
+            font-family: Roboto, Arial, sans-serif;
+            position: relative;
+            margin: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%)
+        }
+    </style>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>ElemoListing</title>
+    <!--Bootstrap -->
+    <link rel="stylesheet" href="{{ asset('assets/css/search/bootstrap.min.css') }}" type="text/css">
+    <!--Custome Style -->
+    <link rel="stylesheet" href="{{ asset('assets/css/search/style.css') }}" type="text/css">
+    <!--OWL Carousel slider-->
+    <link rel="stylesheet" href="{{ asset('assets/css/search/owl.carousel.css') }}" type="text/css">
+    <!--FontAwesome Font Style -->
+    <link href="{{ asset('assets/css/search/font-awesome.min.css') }}" rel="stylesheet">
+    <!-- SWITCHER -->
+
+    <link rel="alternate stylesheet" type="text/css" href="{{ asset('assets/css/search/blue.css') }}" title="blue" media="all" data-default-color="true" disabled="">
+
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://themes.webmasterdriver.net/ElemoListing/assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://themes.webmasterdriver.net/ElemoListing/assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://themes.webmasterdriver.net/ElemoListing/assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://themes.webmasterdriver.net/ElemoListing/assets/images/favicon-icon/favicon.png">
+    <!-- Google-Font-->
+    <link href="{{ asset('assets/css/search/style2.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/search/style3.css') }}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        @keyframes fadeInOpacity {
+            0% {
+                opacity: 0
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        :hover>*>.fbvd--wrapper {
+            animation-name: fadeInOpacity;
+            animation-duration: .3s;
+            opacity: 1
+        }
+
+        .fbvd--wrapper {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            opacity: 0;
+            text-align: center;
+            margin: 0;
+            z-index: 5
+        }
+
+        .fbvd--wrapper a {
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iIzRiNGY1NiIgZD0iTTggMTUuNWw3LjUtNy41aC00LjV2LThoLTZ2OGgtNC41eiI+PC9wYXRoPjwvc3ZnPg==) no-repeat 3px 4.55px;
+            background-color: #fff;
+            display: inline-block;
+            font: 700 14px Helvetica, Arial, sans-serif;
+            color: #4b4f56;
+            text-decoration: none;
+            vertical-align: middle;
+            padding: 0px 8px 0px;
+            margin-right: 8px;
+            border-radius: 2px;
+            line-height: 22px;
+            padding-left: 19px;
+            border: 1px solid #e7e7e7;
+            background-size: 13px
+        }
+
+        .fbvd--wrapper a:last-child {
+            margin-right: 0
+        }
+
+        .fbvd--wrapper a:hover {
+            text-decoration: none
+        }
+
+        .fbvd--wrapper a:focus {
+            box-shadow: 0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15);
+            outline: none
+        }
+
+        .fbvd--wrapper b {
+            font-size: 13px;
+            position: relative;
+            top: 1px;
+            color: #3b5998;
+            font-weight: 400
+        }
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="{{ asset('assets/js/search/common.js') }}"></script>
+    <script type="text/javascript" charset="UTF-8" src="{{ asset('assets/js/search/util.js') }}"></script>
+    <script type="text/javascript" charset="UTF-8" src="{{ asset('assets/js/search/map.js') }}"></script>
+    <script type="text/javascript" charset="UTF-8" src="{{ asset('assets/js/search/overlay.js') }}"></script>
+    <style type="text/css">
+        /*
+ * contextMenu.js v 1.4.0
+ * Author: Sudhanshu Yadav
+ * s-yadav.github.com
+ * Copyright (c) 2013 Sudhanshu Yadav.
+ * Dual licensed under the MIT and GPL licenses
+**/
+
+        .iw-contextMenu {
+            box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.10);
+            border: 1px solid #c8c7cc;
+            border-radius: 11px;
+            display: none;
+            z-index: 1000000132;
+            max-width: 300px;
+        }
+
+        .iw-cm-menu {
+            background: #fff;
+            color: #000;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .iw-curMenu {}
+
+        .iw-cm-menu li {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Ubuntu, sans-serif;
+            list-style: none;
+            padding: 10px;
+            padding-right: 20px;
+            border-bottom: 1px solid #c8c7cc;
+            cursor: pointer;
+            position: relative;
+            font-size: 14px;
+            margin: 0;
+            line-height: inherit;
+        }
+
+        .iw-cm-menu li:first-child {
+            border-top-left-radius: 11px;
+            border-top-right-radius: 11px;
+        }
+
+        .iw-cm-menu li:last-child {
+            border-bottom-left-radius: 11px;
+            border-bottom-right-radius: 11px;
+            border-bottom: none;
+        }
+
+        .iw-mOverlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            background: #FFF;
+            opacity: .5;
+        }
+
+        .iw-contextMenu li.iw-mDisable {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        .iw-mSelected {
+            background-color: #F6F6F6;
+        }
+
+        .iw-cm-arrow-right {
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid #000;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            margin-top: -5px;
+        }
+
+        .iw-mSelected > .iw-cm-arrow-right {}
+        /*context menu css end */
+    </style>
+    <style type="text/css">
+        .gm-style {
+            font: 400 11px Roboto, Arial, sans-serif;
+            text-decoration: none;
+        }
+
+        .gm-style img {
+            max-width: none;
+        }
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="{{ asset('assets/js/search/onion.js') }}"></script>
+    <script type="text/javascript" charset="UTF-8" src="{{ asset('assets/js/search/controls.js') }}"></script>
+    <style type="text/css">
+        @-webkit-keyframes load4 {
+            0%,
+            100% {
+                box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+            }
+            12.5% {
+                box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            }
+            25% {
+                box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            }
+            37.5% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            }
+            50% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            }
+            62.5% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+            }
+            75% {
+                box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+            }
+            87.5% {
+                box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+            }
+        }
+
+        @keyframes load4 {
+            0%,
+            100% {
+                box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+            }
+            12.5% {
+                box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            }
+            25% {
+                box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+            }
+            37.5% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            }
+            50% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+            }
+            62.5% {
+                box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+            }
+            75% {
+                box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+            }
+            87.5% {
+                box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+            }
+        }
+    </style>
+    <style type="text/css">
+        /* This is not a zero-length file! */
+    </style>
+</head>
+
+<body class="listing-with-map-page" data-gr-c-s-loaded="true">
+<!-- Header -->
+<header id="header">
+    <nav class="navbar navbar-default navbar-fixed-top affix-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="logo">
+                    <a href="http://themes.webmasterdriver.net/ElemoListing/index.html"><img src="{{ asset('assets/icon/logo.png') }}" alt="image"></a>
+                </div>
+                <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navigation">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://themes.webmasterdriver.net/ElemoListing/signin.html">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- /Header -->
+
+<!-- Listings -->
+<section id="ElemoListing_with_map">
+    <div class="ElemoListing_map">
+        <div id="map-container">
+            <div id="map" style="position: relative; overflow: hidden;">
+                <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+                    <div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;">
+
+                        <link rel="stylesheet" href="{{ asset('assets/css/map_item.css') }}">
+
+                        <div id="map"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="search_wrap">
+        <div class="search_form">
+            <form action="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html" method="get">
+                <div class="form-group">
+                    <div class="select">
+                        <select class="form-control">
+                            <option>What are you looking for?</option>
+                            <option>Real Estate</option>
+                            <option>Restaurant</option>
+                            <option>Real Estate</option>
+                            <option>Health &amp; Fitness</option>
+                            <option>Beauty &amp; Spas</option>
+                            <option>Hotels &amp; Travel</option>
+                            <option>Automotive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Locaton">
+                </div>
+                <div class="btn_group">
+                    <input type="submit" value="Search" class="btn btn-block">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="listing_header">
+            <h5>Listings Grid Layout</h5>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 grid_col show_listing">
+                <div class="items-list listing_wrap" data-post-id="1">
+                    <div class="listing_img">
+                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
+                        <div class="listing_cate">
+                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon5.png') }}" alt="icon-img"></a></span>
+                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
+                        </div>
+                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
+                    </div>
+                    <div class="listing_info">
+                        <div class="post_category">
+                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Hotels &amp; Travel</a>
+                        </div>
+                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">The Morning Hotel</a></h4>
+                        <p>5-star hotel with restaurant, Deluxe Rooms.</p>
+
+                        <div class="listing_review_info">
+                            <p><span class="review_score">4.0/5</span>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
+                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 grid_col show_listing">
+                <div class="items-list listing_wrap" data-post-id="2">
+                    <div class="listing_img">
+                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
+                        <div class="listing_cate">
+                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon4.png') }}" alt="icon-img"></a></span>
+                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
+                        </div>
+                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
+                    </div>
+                    <div class="listing_info">
+                        <div class="post_category">
+                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Beauty &amp; Spas</a>
+                        </div>
+                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Laisa Spa Center</a></h4>
+                        <p>Best Pool &amp; Spa Professionals in Laisa</p>
+
+                        <div class="listing_review_info">
+                            <p><span class="review_score">4.0/5</span>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
+                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 grid_col show_listing">
+                <div class="items-list listing_wrap" data-post-id="3">
+                    <div class="listing_img">
+                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
+                        <div class="listing_cate">
+                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon4.png') }}" alt="icon-img"></a></span>
+                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
+                        </div>
+                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
+                    </div>
+                    <div class="listing_info">
+                        <div class="post_category">
+                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Beauty &amp; Spas</a>
+                        </div>
+                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Blue Women's Parlour</a></h4>
+                        <p>5-star Womens Beauty Parlour Services.</p>
+
+                        <div class="listing_review_info">
+                            <p><span class="review_score">4.0/5</span>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
+                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 grid_col show_listing">
+                <div class="items-list listing_wrap" data-post-id="4">
+                    <div class="listing_img">
+                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
+                        <div class="listing_cate">
+                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon6.png') }}" alt="icon-img"></a></span>
+                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
+                        </div>
+                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
+                    </div>
+                    <div class="listing_info">
+                        <div class="post_category">
+                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Automotive</a>
+                        </div>
+                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Auto Repair Shop</a></h4>
+                        <p>Texaco Auto Servicing &amp; Repair shop</p>
+
+                        <div class="listing_review_info">
+                            <p><span class="review_score">4.0/5</span>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
+                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 grid_col show_listing">
+                <div class="items-list listing_wrap" data-post-id="5">
+                    <div class="listing_img">
+                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
+                        <div class="listing_cate">
+                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon2.png') }}" alt="icon-img"></a></span>
+                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
+                        </div>
+                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
+                    </div>
+                    <div class="listing_info">
+                        <div class="post_category">
+                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Restaurant</a>
+                        </div>
+                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Eating Restaurant</a></h4>
+                        <p>5-star hotel with restaurant, Deluxe Rooms.</p>
+
+                        <div class="listing_review_info">
+                            <p><span class="review_score">4.0/5</span>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
+                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 grid_col show_listing">
+                <div class="items-list listing_wrap" data-post-id="6">
+                    <div class="listing_img">
+                        <span class="like_post"><i class="fa fa-bookmark-o"></i></span>
+                        <div class="listing_cate">
+                            <span class="cate_icon"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/icon/category-icon1.png') }}" alt="icon-img"></a></span>
+                            <span class="listing_like"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><i class="fa fa-heart-o"></i></a></span>
+                        </div>
+                        <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#"><img src="{{ asset('assets/images/search/listing_img2.jpg') }}" alt="image"></a>
+                    </div>
+                    <div class="listing_info">
+                        <div class="post_category">
+                            <a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">Real Estate</a>
+                        </div>
+                        <h4><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">The Shelby Apartment</a></h4>
+                        <p>Deluxe Rooms with AC</p>
+
+                        <div class="listing_review_info">
+                            <p><span class="review_score">4.0/5</span>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i> <i class="fa fa-star"></i> (5 Reviews) </p>
+                            <p class="listing_map_m"><i class="fa fa-map-marker"></i> Los Angeles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="pagination_nav">
+            <ul class="pagination">
+                <li class="disabled"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                <li class="active"><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">1</a></li>
+                <li><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">2 </a></li>
+                <li><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">3 </a></li>
+                <li><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">4 </a></li>
+                <li><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#">5 </a></li>
+                <li><a href="http://themes.webmasterdriver.net/ElemoListing/listing-grid-map.html#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<!-- /Listings -->
+
+<!-- Footer -->
+<footer id="footer" class="secondary-bg">
+    <div class="footer_bottom">
+        <div class="container">
+            <p>...</p>
+        </div>
+    </div>
+</footer>
+<!-- /Footer -->
+
+<!-- Scripts -->
+<script src="{{ asset('assets/icon/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/icon/bootstrap.min.js') }}"></script>
+<!--Carousel-JS-->
+<script src="{{ asset('assets/icon/owl.carousel.min.js') }}"></script>
+<!--Map-JS-->
+<script type="text/javascript" src="{{ asset('assets/icon/js') }}"></script>
+<script src="{{ asset('assets/js/search/infobox.js') }}"></script>
+<script src="{{ asset('assets/js/search/maps.js') }}"></script>
+<script src="{{ asset('assets/js/search/interface.js') }}"></script>
+<!--Switcher-->
+<script src="{{ asset('assets/js/search/switcher.js') }}"></script>
+
+<script>
+    'undefined' === typeof _trfq || (window._trfq = []);
+    'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({
+        'tccl.baseHost': 'secureserver.net'
+    }), _trfd.push({
+        'ap': 'cpsh'
+    }, {
+        'server': 'p3plcpnl033'
+    }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.
+</script>
+
+<script src="https://api-maps.yandex.com/2.1/?lang=tr_TR&apikey=ee3fc44c-36e2-4b75-846b-383b64801751&mode=debug"
+        type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    ymaps.ready(init);
+
+    function init() {
+        var myMap = new ymaps.Map("map", {
+            center: [40.870778, 29.258543],
+            zoom: 14,
+            controls: []
+        });
+
+        myMap.geoObjects.add(
+            new ymaps.Placemark(
+                [55.751574, 37.573856],
+                {
+                    iconContent: 'title',
+                    hintContent: 'title',
+                    balloonContent: 'content'
+                },
+                {
+                    openEmptyBalloon: true,
+                    iconLayout: 'default#image',
+                    iconImageHref: "{{ asset('assets/images/shop.png') }}",
+                    iconImageSize: [40, 40],
+                    iconImageOffset: [-5, -38]
+                }
+            )
+        );
+
+        var mapBounds = {
+            top: {
+                lat: 0,
+                lon: 0
+            },
+            bottom: {
+                lat: 0,
+                lon: 0
+            }
+        };
+
+        myMap.events.add('actionend', function (e) {
+//bu method ile birlikte kullanıcının cursor ile haritada yaptığı hareketleri kordinat olarak alabiliyoruz.
+// fakat sadece cursorun konumuna göre yani tek emlem ve boylam
+
+            var map_center_cursot = e.originalEvent.map.getCenter(); // cursor'un işaret ettiği yerin kordinatları
+
+            console.log(this.mapBounds);
+        });
+
+
+        myMap.events.add('actiontickcomplete', function (e) {
+// bu method ise enlem ve boylamın alt ve üst sınırlarını da alır.
+//bu method ile birlikte kullanıcının cursor ile haritada yaptığı hareketleri kordinat olarak alabiliyoruz.
+            var map_bounds = e.originalEvent.map.getBounds();
+
+            this.mapBounds = {
+                top: {
+                    lat: map_bounds[0][0],
+                    lon: map_bounds[0][1]
+                },
+                bottom: {
+                    lat: map_bounds[1][0],
+                    lon: map_bounds[1][1]
+                }
+            };
+        });
+    }
+</script>
+
+
+
+</body>
+
+</html>
