@@ -16,6 +16,8 @@
     <!-- bxSlider CSS file -->
     <link href="{{ asset('assets/plugins/bxslider/jquery.bxslider.css') }}" rel="stylesheet"/>
 
+    <link href="{{ asset('assets/css/product_detail.css') }}" rel="stylesheet"/>
+
     {# 'app' must match the first argument to addEntry() in webpack.config.js #}
     {{ encore_entry_link_tags('app') }}
 
@@ -27,7 +29,7 @@
 {% block body %}
     <div class="main-container">
         {#BreadCrumb#}
-        <div class="container">
+        <div class="container" style="max-width: 1400px">
             <div class="row">
                 <div class="col-md-12">
 
@@ -54,7 +56,7 @@
                 <div class="col-md-9 page-content col-thin-right">
                     <div class="inner inner-box ads-details-wrapper">
                         <h1 class="auto-heading">
-                            <span class="auto-title left">{{ product.name }}</span>
+                            <span class="auto-title left" style="font-size: 25px;">{{ product.name }}</span>
                             <span class="auto-price pull-right"> {{ product.sellPrice }} TL</span>
                         </h1>
 
@@ -75,7 +77,7 @@
 
 
                         <div class="row ">
-                            <div class="col-sm-9 automobile-left-col">
+                            <div class="col-sm-10 automobile-left-col">
 
                                 <div class="ads-image">
                                     <div class="bx-wrapper" style="max-width: 100%;">
@@ -131,7 +133,7 @@
                             </div>
                             <!-- /.automobile-left-col-->
 
-                            <div class="col-sm-3 automobile-right-col">
+                            <div class="col-sm-2 automobile-right-col">
                                 <div class="inner">
 
                                     <div class="key-features">
@@ -174,45 +176,26 @@
                         </div>
                         <!--/.row-->
 
+                        <div id="selectRating">
+
+                        </div>
+
+                        <div id="root" style="margin: 5px">
+
+                        </div>
 
                         <div class="Ads-Details">
-                            <h5 class="list-title"><strong>Ürün Detayları</strong></h5>
+                            <div class="product-detail-content">
+                                <h5 class="list-title"><strong>Ürün Detayları</strong></h5>
 
-                            <div class="row">
-                                <div class="ads-details-info col-md-12">
-                                    {{ product.description |raw }}
+                                <div class="row">
+                                    <div class="ads-details-info col-md-12">
+                                        {{ product.description |raw }}
+                                    </div>
                                 </div>
-                                {#<div class="col-md-4">#}
-                                {#<aside class="panel panel-body panel-details">#}
-                                {#<ul>#}
-                                {#<li>#}
-                                {#<p class=" no-margin "><strong>Prices:</strong> from € 775,000 </p>#}
-                                {#</li>#}
-                                {#<li>#}
-                                {#<p class="no-margin"><strong>Building Type:</strong> Appertment</p>#}
-                                {#</li>#}
-                                {#<li>#}
-                                {#<p class="no-margin"><strong>Size:</strong> ca. 120 m²</p>#}
-                                {#</li>#}
-                                {#<li>#}
-                                {#<p class="no-margin"><strong>Location:</strong> New York </p>#}
-                                {#</li>#}
-                                {#<li>#}
-                                {#<p class=" no-margin "><strong>Condition:</strong> New</p>#}
-                                {#</li>#}
-                                {#<li>#}
-                                {#<p class="no-margin"><strong>Room:</strong> 4-5 </p>#}
-                                {#</li>#}
-                                {#<li>#}
-                                {#<p class="no-margin"><strong>Ready for occupancy:</strong> 15.09.2016#}
-                                {#</p>#}
-                                {#</li>#}
-                                {#</ul>#}
-                                {#</aside>#}
-                                {#</div>#}
                             </div>
 
-                            <div class="content-footer">
+                            <div class="content-comments">
                                 <div class="container-fluid">
                                     {{ form_start(commentForm) }}
                                     {{ form_widget(commentForm) }}
@@ -239,7 +222,7 @@
                                                         <div class="td star">{{ rateNumber }} yıldız</div>
                                                         <div class="td">
                                                             <div class="pointBar">
-                                                                {% set percent = totalRateThisRate*100/commentRateDetails.totalComment %}
+                                                                {% set percent = totalRateThisRate*100/(commentRateDetails.totalComment == 0 ? 1 : commentRateDetails.totalComment) %}
                                                                 <span style="width:{{ percent }}%"></span>
                                                             </div>
                                                             <span class="commentNum">({{ totalRateThisRate }})</span>
@@ -253,55 +236,57 @@
                                             <legend>En Yeni Yorum</legend>
 
                                             <p class="expd">
-                                                {{ (comments |last).comment }}
+                                                {{ (comments |last) != null ? (comments |last).comment : null }}
                                             </p>
 
                                             <span>kampanyam.net üyesi</span>
                                         </div>
                                     </div>
-                                    {% for comment in comments %}
-                                        <ul>
-                                            <li class="comment" data-reviewid="5069647565"
-                                                style="padding: 15px 0;border-top: 1px solid #ebebeb;width: 100%;float: none;">
-                                                <div class="commentTop">
+                                    <div class="comments-block">
+                                        {% for comment in comments %}
+                                            <ul>
+                                                <li class="comment" data-reviewid="5069647565"
+                                                    style="padding: 15px 0;border-top: 1px solid #ebebeb;width: 100%;float: none;">
+                                                    <div class="commentTop">
                                                     <span class="ratingCont">
                                                         {{ comment |getCommentRating(1) |raw }}
                                                     </span>
-                                                    <span class="userName" style="font-weight: 700;margin-left: 10px;">
+                                                        <span class="userName" style="font-weight: 700;margin-left: 10px;">
                                                         {{ comment.email is null ? 'kampanyam.net üyesi':comment.email }}
                                                     </span>
-                                                    <span class="seperator" style="margin: 0 5px;"> - </span>
-                                                    <span class="commentDate"
-                                                          style="color: gray;display: inline-block;">
+                                                        <span class="seperator" style="margin: 0 5px;"> - </span>
+                                                        <span class="commentDate"
+                                                              style="color: gray;display: inline-block;">
                                                         {{ comment.createdAt |date("d.m.Y") }}
                                                     </span>
-                                                </div>
-                                                <h5 class="commentTitle"
-                                                    style="font-size: 14px; margin-bottom: 5px;padding: 0 !important;font-weight: bold;">
-                                                    {{ comment.title }}
-                                                </h5>
-                                                <p style="padding: 0; margin: 0;">
-                                                    {{ comment.comment }}
-                                                </p>
-                                                {#<div class="subComment">#}
+                                                    </div>
+                                                    <h5 class="commentTitle"
+                                                        style="font-size: 14px; margin-bottom: 5px;padding: 0 !important;font-weight: bold;">
+                                                        {{ comment.title }}
+                                                    </h5>
+                                                    <p style="padding: 0; margin: 0;">
+                                                        {{ comment.comment }}
+                                                    </p>
+                                                    {#<div class="subComment">#}
                                                     {#{% if comment.children |length > 0 %}#}
-                                                        {#<ul>#}
-                                                            {#{% for childrenComment in comment.children %}#}
-                                                                {#<li style="padding: 10px">#}
-                                                                    {#> {{ childrenComment.comment }}#}
-                                                                {#</li>#}
-                                                            {#{% endfor %}#}
-                                                        {#</ul>#}
+                                                    {#<ul>#}
+                                                    {#{% for childrenComment in comment.children %}#}
+                                                    {#<li style="padding: 10px">#}
+                                                    {#> {{ childrenComment.comment }}#}
+                                                    {#</li>#}
+                                                    {#{% endfor %}#}
+                                                    {#</ul>#}
                                                     {#{% endif %}#}
-                                                {#</div>#}
-                                            </li>
+                                                    {#</div>#}
+                                                </li>
 
-                                        </ul>
-                                    {% endfor %}
+                                            </ul>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="content-footer text-left">
+                            <div class="content-footer footer-map text-left">
                                 <div class="w100 map" id="prop-map">
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387145.86637487786!2d-74.25819556904787!3d40.70531103651696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY!5e0!3m2!1sen!2sus!4v1473181424956"
                                             height="350" style="border:0;   width:100%"></iframe>
@@ -367,11 +352,15 @@
                             </div>
                         </div>
                         <div class="card sidebar-card">
-                            <div class="card-header">Safety Tips for Buyers</div>
+                            <div class="card-header">İade / Değişim Bilgileri</div>
+
                             <div class="card-content">
                                 <div class="card-body text-left">
                                     <ul class="list-check">
-                                        <li> Meet seller at a public place</li>
+                                        <li> kampanyam.net’ten satın aldığınız ürünler için cayma hakkınızı kullanabilirsiniz.</li>
+                                        <li> İade Sürecini GörFarklı bir model, beden veya renkle Ürün Değişimi yapabilirsiniz</li>
+                                        <li> Ürünü mağazaya ücretsiz göndermek için mağazanın anlaşmalı kargo firmasını tercih edin.Ürünle ilgili bilgi almak için Mağazaya Soru Sor alanından mağazayla iletişime geçebilirsiniz</li>
+                                        <li> Cayma Hakkı Kullanımı ve İade Şartları, 6502 Sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği hükümlerine tabidir.</li>
                                         <li> Check the item before you buy</li>
                                         <li> Pay only after collecting the item</li>
                                     </ul>
@@ -399,22 +388,10 @@
 
                 var serializeData = $("form[name='comment']").serialize();
 
-                console.log(serializeData);
-
-                // $.mockjax({
-                //    url: Routing.generate("product_comment_insert"),
-                //    type: 'POST',
-                //     dataType: "json",
-                //    data: {'comment[comment]':'asdas'},
-                //     responseText: { bar: "hello world" },
-                //     response: function (resp) {
-                //         console.log(resp);
-                //     }
-                // });
-
                 $.ajax({
-                    url: Routing.generate("product_comment_insert") + "?" + serializeData,
+                    url: Routing.generate("product_comment_insert"),
                     type: 'GET',
+                    data: serializeData,
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);

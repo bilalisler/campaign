@@ -88,14 +88,14 @@ class ProductController extends AbstractController
      */
     public function productCommentInsert(Request $request)
     {
-        if(!$request->isXmlHttpRequest() || $request->getMethod() !== 'GET'){
-            return new JsonResponse(
-                array(
-                    "status" => "error",
-                    "message" => "Başarısız İşlem"
-                )
-            );
-        }
+//        if(!$request->isXmlHttpRequest() || $request->getMethod() !== 'GET'){
+//            return new JsonResponse(
+//                array(
+//                    "status" => "error",
+//                    "message" => "Başarısız İşlem"
+//                )
+//            );
+//        }
 
         $em = $this->getDoctrine()->getManager();
 
@@ -103,14 +103,17 @@ class ProductController extends AbstractController
         $comment->setIpAddress($_SERVER["REMOTE_ADDR"]);
 
         if($this->getUser()){
-            $comment->setUser($this->getUser()->getEmail());
+            $comment->setEmail($this->getUser()->getEmail());
         }
-
 
         $commentForm = $this->createForm(CommentType::class,$comment,array("action" => $this->generateUrl("product_comment_insert")));
         $commentForm->handleRequest($request);
 
         if($commentForm->isSubmitted() && $commentForm->isValid()){
+
+            var_dump($commentForm->getData());
+            die;
+
             $em->persist($comment);
             $em->flush();
         }

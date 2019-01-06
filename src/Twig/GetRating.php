@@ -89,7 +89,7 @@ class GetRating extends AbstractExtension
             $shopRating += $productRating;
         }
 
-        $shopRating = $shopRating / $totalComment;
+        $shopRating = $shopRating / ($totalComment === 0 ? 1 : $totalComment);
 
         if($percent){
             return $shopRating*100/ProductComments::MAX_RATING;

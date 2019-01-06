@@ -206,7 +206,7 @@ class Products
     /**
      * @var ProductComments|null
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\ProductComments",mappedBy="product")
+     * @ORM\OneToMany(targetEntity="App\Entity\ProductComments",mappedBy="product", cascade={"persist", "remove"})
      */
     private $comments;
 

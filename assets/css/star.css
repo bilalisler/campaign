@@ -1,0 +1,14 @@
+
+
+.star-rating:hover{
+    cursor: pointer;
+}
+
+.star-rating .is-selected {
+    color: #FFD700;
+}
+
+.star-rating .is-disabled:hover {
+    cursor: default;
+}
+

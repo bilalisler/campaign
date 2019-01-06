@@ -1,4 +1,5 @@
-# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/Resources/doc/setup.md
+# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/doc/setup.md
+# it is writing in this article elasticsearch that how can run: https://www.elastic.co/downloads/elasticsearch
 fos_elastica:
     clients:
         default: { host: localhost, port: 9200 }

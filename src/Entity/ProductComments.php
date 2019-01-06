@@ -23,6 +23,7 @@ class ProductComments
      * @var Products|null
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Products",inversedBy="comments")
+     * @ORM\JoinColumn(name="product_id",referencedColumnName="id",onDelete="cascade")
      */
     private $product;
 

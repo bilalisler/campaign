@@ -6,12 +6,10 @@ import ReactDOM from 'react-dom'
 
 // Custom Components
 import App from './components/App'
-
-// Styling
-import '../css/app.css'
-
+import Rating from './components/Rating'
 
 // <Router>
 // <App />
 // </Router>
 ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<Rating rating={2}/>, document.getElementById('selectRating'));

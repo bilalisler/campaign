@@ -1,0 +1,21 @@
+.tab-list {
+    width: 100%;
+}
+
+.tab-list .tab a {
+    display: block;
+    color: #212529;
+    width: 100%;
+    text-align: center;
+}
+.activeTab {
+    background-color: #ddd;
+}
+
+.tab-list{
+    border: 1px solid #ddd;
+}
+.tab-contents .tabContent{
+    margin: 0 !important;
+    padding: 0 !important;
+}

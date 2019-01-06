@@ -50,7 +50,7 @@
     color: gray
 }
 
- .pointBar {
+.pointBar {
     background: rgba(222, 222, 222, .5);
     float: left;
     margin: 6px 10px;
@@ -1419,7 +1419,7 @@
     width: 14px;
     height: 9px;
     display: inline-block;
-    
+
     background-size: cover;
     position: absolute;
     right: 17px;
@@ -1428,7 +1428,7 @@
 }
 
 .productHistories .accordion-arrow.active {
-    }
+}
 
 .productHistories .histories-container {
     text-align: center;
@@ -3435,7 +3435,7 @@
 .wrapper.market .carouselTriple .column .oldPrice {
     top: 38px
 }
- 
+
 
 .wrapper.market .catalogView .ratingCont {
     margin-bottom: 0 !important;

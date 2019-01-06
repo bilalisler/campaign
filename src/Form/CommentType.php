@@ -30,6 +30,11 @@ class CommentType extends AbstractType
                     "class" => "form-control"
                 )
             ])
+            ->add('title',TextType::class,[
+                "attr" => array(
+                    "class" => "form-control"
+                )
+            ])
             ->add('product', HiddenType::class, [])
 //            ->add('ipAddress', HiddenType::class, [])
             ->add('comment', TextareaType::class, [
@@ -53,5 +58,10 @@ class CommentType extends AbstractType
         $resolver->setDefaults([
             'data_class' => ProductComments::class
         ]);
+    }
+
+    public function getBlockPrefix()
+    {
+        return 'comment';
     }
 }

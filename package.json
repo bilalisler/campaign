@@ -74,6 +74,7 @@
     "owl.carousel2.thumbs": "^0.1.8",
     "prop-types": "^15.6.1",
     "react": "^16.6.3",
+    "react-bootstrap": "^0.32.4",
     "react-custom-scrollbars": "^4.2.1",
     "react-dates": "^16.6.1",
     "react-device-detect": "^1.5.8",
