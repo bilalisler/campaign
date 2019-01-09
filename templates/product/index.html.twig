@@ -301,7 +301,7 @@
                         </div>
                     </div>
                     <!--/.ads-details-wrapper-->
-                    {{ render(controller('App\\Controller\\HomeController::renderProductList')) }}
+                    {{ render(controller('App\\Controller\\HomeController::renderProductList',{'extractProductId': product.id})) }}
                 </div>
                 <!--/.page-content-->
 

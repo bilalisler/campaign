@@ -58,7 +58,7 @@ class Products
      *
      * @ORM\Column(name="stock", type="smallint", nullable=true)
      */
-    private $stock = 0;
+    private $stock = 10;
 
     /**
      * @var string|null
@@ -99,9 +99,9 @@ class Products
     /**
      * @var int|null
      *
-     * @ORM\Column(name="status", type="smallint", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(name="status", type="smallint", nullable=true, options={"default"="1"})
      */
-    private $status = null;
+    private $status = 1;
 
     /**
      * @var bool
@@ -599,8 +599,6 @@ class Products
      */
     public function getSellPrice(): ?float
     {
-        $this->calculateTotalPrice();
-
         return $this->sellPrice;
     }
 
