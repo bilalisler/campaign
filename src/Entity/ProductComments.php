@@ -29,9 +29,9 @@ class ProductComments
 
     /**
      * description: this field is used to evaluate the product that like by humans
-     * @var $rating integer
+     * @var $rating float
      *
-     * @ORM\Column(name="rating", type="integer", nullable=false, options={"default"="0"})
+     * @ORM\Column(name="rating", type="float", nullable=false, options={"default"="0"})
      */
     private $rating = 0;
 
@@ -207,17 +207,17 @@ class ProductComments
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getRating(): int
+    public function getRating(): float
     {
-        return (int)$this->rating;
+        return (float)$this->rating;
     }
 
     /**
-     * @param int $rating
+     * @param float $rating
      */
-    public function setRating(int $rating): void
+    public function setRating(float $rating): void
     {
         $this->rating = $rating;
     }

@@ -220,7 +220,7 @@
 .map-item__type{
     vertical-align:middle;
     display:inline-block;
-    width:110px;
+    width:100%;
     font-size:12px;
     line-height:1
 }
@@ -414,7 +414,7 @@
 }
 .rating-box{
     border-radius: 2px;
-    width: 24px;
+    width: 34px;
     height: 24px;
     background-color: #71a340
 }

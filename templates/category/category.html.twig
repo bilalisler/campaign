@@ -152,7 +152,7 @@
                                                     <i class="fa fa-camera"></i>
                                                     {{ product.productImages | length }}
                                                 </span>
-                                                    <a href="{{ path('product_detail',{'slug':product.slug}) }}">
+                                                    <a href="{{ path('product_detail',{'slug':product.slug,'categorySlug':product.category.categorySlug}) }}">
                                                         <img class="thumbnail no-margin" src="{{ asset(product_image_path ~ '/' ~ product.productImages | fetchAvatarImage) }}" alt="img">
                                                     </a>
                                                 </div>
@@ -161,7 +161,7 @@
                                             <div class="col-md-7 add-desc-box">
                                                 <div class="ads-details">
                                                     <h5 class="add-title">
-                                                        <a href="{{ path('product_detail',{'slug':product.slug}) }}">
+                                                        <a href="{{ path('product_detail',{'slug':product.slug,'categorySlug':product.category.categorySlug}) }}">
                                                             {{ product.name }}
                                                         </a>
                                                     </h5>

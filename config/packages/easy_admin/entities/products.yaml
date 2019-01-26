@@ -53,10 +53,7 @@ easy_admin:
         - category
         - shop
         - isSponsored
-        - { property: buyPrice, type: 'money', type_options: { currency: 'TRY' }}
-        - { property: taxPrice, type: 'money', type_options: { currency: 'TRY' }}
-        - { property: otherPrice, type: 'money', type_options: { currency: 'TRY' }}
-#        - { property: sellPrice, type: 'money', type_options: { currency: 'TRY' }}
+        - { property: sellPrice, type: 'money', type_options: { currency: 'TRY' }}
 #        - { property: 'createdAt', type: 'datetime', type_options: { widget: 'single_text' }  }
 #        - { property: 'updatedAt', type: 'datetime', type_options: { widget: 'single_text' }  }
         - property: 'productImages'

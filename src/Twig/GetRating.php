@@ -81,9 +81,12 @@ class GetRating extends AbstractExtension
 
             $productRating = 0;
 
+            /**
+             * @var $comment ProductComments
+             */
             foreach ($product->getComments() as $comment){
                 $productRating += $comment->getRating();
-                $totalComment +=1;
+                $totalComment += 1;
             }
 
             $shopRating += $productRating;
@@ -91,11 +94,29 @@ class GetRating extends AbstractExtension
 
         $shopRating = $shopRating / ($totalComment === 0 ? 1 : $totalComment);
 
-        if($percent){
-            return $shopRating*100/ProductComments::MAX_RATING;
-        }
+        $response = [
+            'percent' => $shopRating*100/ProductComments::MAX_RATING,
+            'view' => $this->viewStarts($shopRating),
+            'rating' => sprintf("%s/%s",round($shopRating,1),round(ProductComments::MAX_RATING,1)),
+            'grade' => $this->specifyGrade($shopRating),
+            'ratingCount' => $totalComment
+        ];
 
-        return $view ? $this->viewStarts($shopRating) : $shopRating;
+       return $response;
+    }
+
+    private function specifyGrade($rating){
+        $rating = intval($rating);
+
+        $grades = [
+            1 => 'Berbar',
+            2 => 'Kötü',
+            3 => 'Orta',
+            4 => 'İyi',
+            5 => 'Çok iyi',
+        ];
+
+        return isset($grades[$rating]) ? $grades[$rating] : '';
     }
 
     private function viewStarts(float $rating){

@@ -117,28 +117,6 @@ class Products
      */
     private $isDelete = 0;
 
-
-    /**
-     * @var float|null
-     *
-     * @ORM\Column(name="buy_price", type="float", nullable=true)
-     */
-    private $buyPrice = 0.0;
-
-    /**
-     * @var float|null
-     *
-     * @ORM\Column(name="tax_price", type="float", nullable=true)
-     */
-    private $taxPrice = 0.0;
-
-    /**
-     * @var float|null
-     *
-     * @ORM\Column(name="other_price", type="float", nullable=true)
-     */
-    private $otherPrice = 0.0;
-
     /**
      * @var float|null
      *
@@ -530,68 +508,6 @@ class Products
     public function setUpdatedAt(?\DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getBuyPrice(): ?float
-    {
-        return $this->buyPrice;
-    }
-
-    /**
-     * @param float|null $buyPrice
-     */
-    public function setBuyPrice(?float $buyPrice): void
-    {
-        $this->buyPrice = $buyPrice;
-
-        $this->calculateTotalPrice();
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getTaxPrice(): ?float
-    {
-        return $this->taxPrice;
-    }
-
-    /**
-     * @param float|null $taxPrice
-     */
-    public function setTaxPrice(?float $taxPrice): void
-    {
-        $this->taxPrice = $taxPrice;
-
-        $this->calculateTotalPrice();
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getOtherPrice(): ?float
-    {
-        return $this->otherPrice;
-    }
-
-    /**
-     * @param float|null $otherPrice
-     */
-    public function setOtherPrice(?float $otherPrice): void
-    {
-        $this->otherPrice = $otherPrice;
-
-        $this->calculateTotalPrice();
-    }
-
-    public function calculateTotalPrice(){
-        $buyPrice = $this->getOtherPrice();
-        $taxPrice = $this->getOtherPrice();
-        $otherPrice = $this->getOtherPrice();
-
-        $this->setSellPrice($buyPrice + $taxPrice + $otherPrice);
     }
 
     /**
